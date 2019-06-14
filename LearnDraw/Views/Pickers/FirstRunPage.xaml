@@ -1,0 +1,23 @@
+﻿<Page
+    x:Class="LearnDraw.Views.Pickers.FirstRunPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LearnDraw.Views.Pickers"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:LearnDraw.Controls"
+    mc:Ignorable="d">
+
+    <Grid>
+        <controls:Shadow
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Elevation="8" />
+        <Grid Background="White" CornerRadius="4">
+            <StackPanel Padding="50,40" Spacing="20">
+                <TextBlock Foreground="#474261" FontSize="20" Text="首次加载，请等待解压缩资源..."/>
+                <ProgressBar IsIndeterminate="True"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>

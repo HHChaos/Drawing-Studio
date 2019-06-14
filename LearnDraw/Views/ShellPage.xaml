@@ -1,0 +1,50 @@
+﻿<Page
+    x:Class="LearnDraw.Views.ShellPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource SystemControlAcrylicWindowBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Frame x:Name="shellFrame" Grid.Row="1" />
+        <Button
+            Grid.Row="1"
+            Margin="40,20"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Style="{StaticResource Style-Button-Icon-Circle}">
+            <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE10C;" />
+            <Button.Flyout>
+                <MenuFlyout>
+                    <MenuFlyoutItem Text="Setting" Command="{Binding OpenSettingsPageCommand}">
+                        <MenuFlyoutItem.Icon>
+                            <SymbolIcon Symbol="Setting" />
+                        </MenuFlyoutItem.Icon>
+                    </MenuFlyoutItem>
+                    <MenuFlyoutItem Text="Library">
+                        <MenuFlyoutItem.Icon>
+                            <SymbolIcon Symbol='Library' />
+                        </MenuFlyoutItem.Icon>
+                    </MenuFlyoutItem>
+                    <MenuFlyoutSeparator/>
+                    <MenuFlyoutItem Text="Rate App">
+                        <MenuFlyoutItem.Icon>
+                            <SymbolIcon Symbol='Like' />
+                        </MenuFlyoutItem.Icon>
+                    </MenuFlyoutItem>
+                    <MenuFlyoutItem Text="About">
+                        <MenuFlyoutItem.Icon>
+                            <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE946;" />
+                        </MenuFlyoutItem.Icon>
+                    </MenuFlyoutItem>
+                </MenuFlyout>
+            </Button.Flyout>
+        </Button>
+    </Grid>
+</Page>
