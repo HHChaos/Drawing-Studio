@@ -149,7 +149,7 @@
                             <TextBlock
                                 Margin="{StaticResource XSmallTopMargin}"
                                 Style="{ThemeResource BodyTextBlockStyle}"
-                                Text="Google Creative Lab : The software uses the Quick, Draw! Dataset(Creative Commons Attribution 4.0 International License) to train neural networks to recognize your doodling，and use the drawings from AutoDraw(Creative Commons Attribution 4.0 nternational License)." />
+                                Text="Google Creative Lab : The software uses the Quick, Draw! Dataset(Creative Commons Attribution 4.0 International License) to train neural networks to recognize your doodling，and uses the drawings from AutoDraw(Creative Commons Attribution 4.0 nternational License)." />
                             <HyperlinkButton
                                 Margin="{StaticResource XSmallTopMargin}"
                                 Content="The Quick, Draw! Dataset"

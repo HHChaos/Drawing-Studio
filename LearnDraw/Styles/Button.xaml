@@ -85,7 +85,10 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <Style x:Key="CapsuleButtonStyle" TargetType="Button"  BasedOn="{StaticResource CircleButtonStyle}">
+    <Style
+        x:Key="CapsuleButtonStyle"
+        BasedOn="{StaticResource CircleButtonStyle}"
+        TargetType="Button">
         <Setter Property="Width" Value="76" />
         <Setter Property="Height" Value="52" />
     </Style>
