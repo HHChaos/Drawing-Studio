@@ -1,5 +1,6 @@
 ﻿using HHChaosToolkit.UWP.Mvvm;
 using LearnDraw.Services;
+using System;
 using System.Windows.Input;
 using Windows.UI.Xaml;
 
@@ -7,6 +8,8 @@ namespace LearnDraw.ViewModels.PickerViewModels
 {
     public class SettingsViewModel : ObjectPickerBase<bool>
     {
+        public Action ThemeChanged { get; set; }
+
         private ElementTheme _elementTheme = ThemeSelectorService.Theme;
 
         public ElementTheme ElementTheme
@@ -30,6 +33,7 @@ namespace LearnDraw.ViewModels.PickerViewModels
                         {
                             ElementTheme = param;
                             await ThemeSelectorService.SetThemeAsync(param);
+                            ThemeChanged?.Invoke();
                         });
                 }
 

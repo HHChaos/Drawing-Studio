@@ -21,6 +21,7 @@ namespace LearnDraw.Views.Pickers
             RequestedTheme = (Window.Current.Content as FrameworkElement).RequestedTheme;
             InitializeComponent();
             DataContext = ViewModel;
+            ViewModel.ThemeChanged = () => { RequestedTheme = (Window.Current.Content as FrameworkElement).RequestedTheme; };
         }
     }
 }

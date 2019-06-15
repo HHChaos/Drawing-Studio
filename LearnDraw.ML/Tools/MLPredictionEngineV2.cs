@@ -19,11 +19,6 @@ namespace LearnDraw.ML.Tools
             return true;
         }
 
-        public void BuildPredictionEngine(object p)
-        {
-            throw new NotImplementedException();
-        }
-
         public ModelOutputV2 Predict(ModelInputV2 data)
         {
             if (predEngine != null)
