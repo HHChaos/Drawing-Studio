@@ -11,7 +11,7 @@ namespace LearnDraw.ViewModels
     public class MainViewModel : ViewModelBase
     {
         public MainViewModel()
-        {}
+        { }
 
         private string _prediction;
         private string[] _candidateLabels;
@@ -37,12 +37,15 @@ namespace LearnDraw.ViewModels
         public void UpdataPrediction(IEnumerable<InkStroke> strokes)
         {
             var predictionResult = MLHelper.Instance.Predict(strokes);
-            Prediction = predictionResult.Prediction;
-            _candidateLabels = predictionResult.GetCandidateLabels(4);
-            RaisePropertyChanged(() => CandidateLabel1);
-            RaisePropertyChanged(() => CandidateLabel2);
-            RaisePropertyChanged(() => CandidateLabel3);
-            RecommendedAssets = AnimAssetsHelper.Instance.GetRecommendedAssets(_candidateLabels);
+            if (predictionResult != null)
+            {
+                Prediction = predictionResult.Prediction;
+                _candidateLabels = predictionResult.GetCandidateLabels(4);
+                RaisePropertyChanged(() => CandidateLabel1);
+                RaisePropertyChanged(() => CandidateLabel2);
+                RaisePropertyChanged(() => CandidateLabel3);
+                RecommendedAssets = AnimAssetsHelper.Instance.GetRecommendedAssets(_candidateLabels);
+            }
         }
 
     }

@@ -12,7 +12,7 @@
         <controls:Shadow
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Stretch"
-                        Elevation="8" />
+                        Elevation="16" />
         <Grid Background="{ThemeResource SystemControlAcrylicElementBrush}" CornerRadius="4">
             <StackPanel Padding="50,40" Spacing="20">
                 <TextBlock Style="{ThemeResource SubtitleTextBlockStyle}" Text="Please wait to unzip the resource..."/>

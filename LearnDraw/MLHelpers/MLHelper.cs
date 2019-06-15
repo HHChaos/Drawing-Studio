@@ -24,7 +24,10 @@ namespace LearnDraw.MLHelpers
             var inited = false;
             using (var fileStream = await mlModel.OpenAsync(FileAccessMode.Read))
             {
-                inited = mLPredictionEngineV2.BuildPredictionEngine(fileStream.AsStream());
+                await Task.Run(() =>
+                {
+                    inited = mLPredictionEngineV2.BuildPredictionEngine(fileStream.AsStream());
+                });
             }
             return inited;
         }
