@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using HHChaosToolkit.UWP.Mvvm;
-using LearnDraw.MLHelpers;
-using LearnDraw.ML.Tools;
-using Windows.UI.Input.Inking;
+﻿using HHChaosToolkit.UWP.Mvvm;
 using LearnDraw.Helpers;
+using LearnDraw.ML.Tools;
+using LearnDraw.MLHelpers;
+using System.Collections.Generic;
+using Windows.UI.Input.Inking;
 
 namespace LearnDraw.ViewModels
 {

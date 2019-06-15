@@ -1,8 +1,6 @@
 ﻿using LearnDraw.ML.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace LearnDraw.ML.Tools
 {
@@ -43,7 +41,7 @@ namespace LearnDraw.ML.Tools
             return null;
         }
 
-        public static string[] GetCandidateLabels(this ModelOutputV2 output,int count)
+        public static string[] GetCandidateLabels(this ModelOutputV2 output, int count)
         {
             var labels = new string[count];
             var scores = output.Score.ToList();

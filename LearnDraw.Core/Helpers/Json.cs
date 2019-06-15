@@ -1,7 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
 using System.Threading.Tasks;
-
-using Newtonsoft.Json;
 
 namespace LearnDraw.Core.Helpers
 {

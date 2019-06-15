@@ -1,10 +1,5 @@
 ﻿using HHChaosToolkit.UWP.Mvvm;
 using LearnDraw.Helpers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.UI.Xaml.Navigation;
 

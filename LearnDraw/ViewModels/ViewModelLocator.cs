@@ -1,15 +1,13 @@
-﻿using System;
-using CommonServiceLocator;
-using LearnDraw.Services;
-using LearnDraw.Views;
-using Unity.ServiceLocation;
-using Unity;
-using Unity.Lifetime;
-using HHChaosToolkit.UWP.Services;
+﻿using CommonServiceLocator;
 using HHChaosToolkit.UWP.Mvvm;
+using HHChaosToolkit.UWP.Services;
 using HHChaosToolkit.UWP.Services.Navigation;
 using LearnDraw.ViewModels.PickerViewModels;
+using LearnDraw.Views;
 using LearnDraw.Views.Pickers;
+using Unity;
+using Unity.Lifetime;
+using Unity.ServiceLocation;
 
 namespace LearnDraw.ViewModels
 {

@@ -3,8 +3,6 @@ using LearnDraw.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Windows.Storage;
 
@@ -35,7 +33,7 @@ namespace LearnDraw.Helpers
             var list = new List<string>();
             foreach (var label in candidateLabels)
             {
-                if (assets?.Data?.ContainsKey(label)==true)
+                if (assets?.Data?.ContainsKey(label) == true)
                 {
                     list.AddRange(assets.Data[label]);
                 }

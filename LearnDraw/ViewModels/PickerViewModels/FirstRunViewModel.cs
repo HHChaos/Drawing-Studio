@@ -1,16 +1,9 @@
 ﻿using HHChaosToolkit.UWP.Mvvm;
-using LearnDraw.Core.Helpers;
-using LearnDraw.Core.Models;
 using LearnDraw.Helpers;
 using System;
-using System.Collections.Generic;
 using System.IO.Compression;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Windows.Storage;
-using Windows.Storage.Compression;
-using Windows.Storage.Streams;
 using Windows.UI.Xaml.Navigation;
 
 namespace LearnDraw.ViewModels.PickerViewModels

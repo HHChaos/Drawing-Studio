@@ -1,23 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Input;
-
-using HHChaosToolkit.UWP.Mvvm;
-using LearnDraw.Helpers;
-using LearnDraw.Services;
+﻿using HHChaosToolkit.UWP.Mvvm;
 using LearnDraw.ViewModels.PickerViewModels;
-using LearnDraw.Views;
-
-using Windows.System;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Navigation;
-
-using WinUI = Microsoft.UI.Xaml.Controls;
+using System.Windows.Input;
 
 namespace LearnDraw.ViewModels
 {

@@ -1,8 +1,6 @@
-﻿using System;
+﻿using LearnDraw.Helpers;
+using System;
 using System.Threading.Tasks;
-
-using LearnDraw.Helpers;
-
 using Windows.ApplicationModel.Core;
 using Windows.Storage;
 using Windows.UI.Core;

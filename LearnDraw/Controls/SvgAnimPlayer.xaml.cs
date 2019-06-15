@@ -1,28 +1,17 @@
 ﻿using Microsoft.Graphics.Canvas;
 using Microsoft.Graphics.Canvas.UI;
 using Microsoft.Graphics.Canvas.UI.Xaml;
-using SvgConverter;
 using SvgConverter.SvgParse;
 using SvgConverter.SvgParseForWin2D;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Numerics;
-using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading;
 using Windows.ApplicationModel;
 using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.Storage;
 using Windows.Storage.Streams;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 //https://go.microsoft.com/fwlink/?LinkId=234236 上介绍了“用户控件”项模板
 
@@ -150,7 +139,7 @@ namespace LearnDraw.Controls
 
         private async void OnSvgChanged(SvgElement svg)
         {
-            var win2DSvg=await Win2DSvgElement.Parse(ResourceCreator, svg);
+            var win2DSvg = await Win2DSvgElement.Parse(ResourceCreator, svg);
             _loading = true;
             _paused = true;
             lock (_lockobj)

@@ -1,9 +1,6 @@
 ﻿using LearnDraw.ML.Models;
 using Microsoft.ML;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
 
 namespace LearnDraw.ML.Tools
 {

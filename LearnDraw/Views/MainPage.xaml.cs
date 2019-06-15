@@ -1,25 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
-using HHChaosToolkit.UWP.Services.Navigation;
+﻿using HHChaosToolkit.UWP.Services.Navigation;
 using LearnDraw.Controls;
-using LearnDraw.Core.Helpers;
-using LearnDraw.MLHelpers;
 using LearnDraw.ViewModels;
-using Microsoft.Graphics.Canvas;
-using Microsoft.Graphics.Canvas.UI.Xaml;
-using Microsoft.ML;
-using Microsoft.ML.Data;
-using Windows.Storage;
-using Windows.Storage.Pickers;
-using Windows.UI;
+using System;
+using System.Numerics;
+using System.Threading.Tasks;
 using Windows.UI.Composition;
 using Windows.UI.Core;
-using Windows.UI.Input.Inking;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
@@ -88,7 +74,7 @@ namespace LearnDraw.Views
             var radioBtn = sender as RadioButton;
             ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("ForwardAnimPanelConnectedAnimation", radioBtn);
             ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("ForwardInkPanelConnectedAnimation", InkPanel);
-            NavigationServiceList.Instance[ShellViewModel.ContentNavigationServiceKey].Navigate(typeof(AnimDrawingViewModel).FullName,(radioBtn.Content as SvgPreview)?.Svg);
+            NavigationServiceList.Instance[ShellViewModel.ContentNavigationServiceKey].Navigate(typeof(AnimDrawingViewModel).FullName, (radioBtn.Content as SvgPreview)?.Svg);
         }
         private void HidePredictionUIElement()
         {

@@ -1,10 +1,7 @@
-﻿using System;
-using System.Threading.Tasks;
-using LearnDraw.ViewModels;
+﻿using LearnDraw.ViewModels;
 using LearnDraw.ViewModels.PickerViewModels;
-using LearnDraw.Views;
-
 using Microsoft.Toolkit.Uwp.Helpers;
+using System.Threading.Tasks;
 
 namespace LearnDraw.Services
 {

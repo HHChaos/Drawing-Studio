@@ -1,8 +1,8 @@
-﻿using System;
-using HHChaosToolkit.UWP.Services.Navigation;
+﻿using HHChaosToolkit.UWP.Services.Navigation;
 using LearnDraw.Helpers;
 using LearnDraw.MLHelpers;
 using LearnDraw.ViewModels;
+using System;
 using Windows.Storage;
 using Windows.UI.Xaml.Controls;
 

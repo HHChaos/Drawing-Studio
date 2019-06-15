@@ -1,6 +1,4 @@
-﻿using System;
-using System.Runtime.InteropServices;
-
+﻿
 using Windows.ApplicationModel.Resources;
 
 namespace LearnDraw.Helpers

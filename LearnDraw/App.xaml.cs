@@ -1,13 +1,10 @@
 ﻿using LearnDraw.Services;
-using LearnDraw.Views;
 using System;
-using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.ApplicationModel.Core;
 using Windows.UI;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
 
 namespace LearnDraw
 {
@@ -22,7 +19,7 @@ namespace LearnDraw
         public App()
         {
             InitializeComponent();
-            _activationService = new Lazy<ActivationService>(()=>new ActivationService(this));
+            _activationService = new Lazy<ActivationService>(() => new ActivationService(this));
         }
 
         protected async override void OnLaunched(LaunchActivatedEventArgs args)
