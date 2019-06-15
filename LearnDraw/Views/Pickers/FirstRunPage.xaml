@@ -13,9 +13,9 @@
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Stretch"
                         Elevation="8" />
-        <Grid Background="White" CornerRadius="4">
+        <Grid Background="{ThemeResource SystemControlAcrylicElementBrush}" CornerRadius="4">
             <StackPanel Padding="50,40" Spacing="20">
-                <TextBlock Foreground="#474261" FontSize="20" Text="首次加载，请等待解压缩资源..."/>
+                <TextBlock Style="{ThemeResource SubtitleTextBlockStyle}" Text="Please wait to unzip the resource..."/>
                 <ProgressBar IsIndeterminate="True"/>
             </StackPanel>
         </Grid>

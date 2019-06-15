@@ -17,7 +17,7 @@
             HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch"
             Elevation="8" />
-        <Grid Background="White" CornerRadius="4">
+        <Grid Background="{ThemeResource SystemControlAcrylicElementBrush}" CornerRadius="4">
             <StackPanel x:Name="ContentArea" Padding="40,20">
                 <TextBlock x:Uid="Settings_Personalization" Style="{ThemeResource SubtitleTextBlockStyle}" />
                 <StackPanel Margin="{StaticResource SmallTopBottomMargin}">
@@ -55,18 +55,6 @@
                             </RadioButton.CommandParameter>
                         </RadioButton>
                     </StackPanel>
-                </StackPanel>
-
-                <TextBlock x:Uid="Settings_About" Style="{ThemeResource SubtitleTextBlockStyle}" />
-
-                <StackPanel Margin="{StaticResource XSmallTopMargin}">
-                    <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Text="{x:Bind ViewModel.VersionDescription, Mode=OneWay}" />
-                    <TextBlock
-                        x:Uid="Settings_AboutDescription"
-                        Margin="{StaticResource XSmallTopMargin}"
-                        Style="{ThemeResource BodyTextBlockStyle}" />
-
-                    <HyperlinkButton x:Uid="Settings_PrivacyTermsLink" Margin="{StaticResource XSmallTopMargin}" />
                 </StackPanel>
             </StackPanel>
             <Button

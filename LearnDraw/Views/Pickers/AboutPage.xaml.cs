@@ -22,13 +22,13 @@ namespace LearnDraw.Views.Pickers
     /// <summary>
     /// 可用于自身或导航至 Frame 内部的空白页。
     /// </summary>
-    public sealed partial class FirstRunPage : Page
+    public sealed partial class AboutPage : Page
     {
-        private FirstRunViewModel ViewModel
+        private AboutViewModel ViewModel
         {
-            get { return ViewModelLocator.Current.FirstRunViewModel; }
+            get { return ViewModelLocator.Current.AboutViewModel; }
         }
-        public FirstRunPage()
+        public AboutPage()
         {
             RequestedTheme = (Window.Current.Content as FrameworkElement).RequestedTheme;
             this.InitializeComponent();

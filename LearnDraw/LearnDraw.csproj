@@ -141,6 +141,7 @@
     <Compile Include="Services\WhatsNewDisplayService.cs" />
     <Compile Include="ViewModels\AnimDrawingViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\PickerViewModels\AboutViewModel.cs" />
     <Compile Include="ViewModels\PickerViewModels\FirstRunViewModel.cs" />
     <Compile Include="ViewModels\PickerViewModels\SettingsViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
@@ -150,6 +151,9 @@
     </Compile>
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pickers\AboutPage.xaml.cs">
+      <DependentUpon>AboutPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Pickers\FirstRunPage.xaml.cs">
       <DependentUpon>FirstRunPage.xaml</DependentUpon>
@@ -207,6 +211,10 @@
     <Page Include="Views\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Pickers\AboutPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Pickers\FirstRunPage.xaml">
       <SubType>Designer</SubType>

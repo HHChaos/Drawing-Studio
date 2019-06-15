@@ -43,6 +43,7 @@ namespace LearnDraw.ViewModels
 
             RegisterObjectPicker<bool, FirstRunViewModel, FirstRunPage>();
             RegisterObjectPicker<bool, SettingsViewModel, SettingsPage>();
+            RegisterObjectPicker<bool, AboutViewModel, AboutPage>();
         }
 
         public ObjectPickerService ObjectPickerService => ServiceLocator.Current.GetInstance<ObjectPickerService>();
@@ -51,6 +52,7 @@ namespace LearnDraw.ViewModels
         public ShellViewModel ShellViewModel => ServiceLocator.Current.GetInstance<ShellViewModel>();
         public MainViewModel MainViewModel => ServiceLocator.Current.GetInstance<MainViewModel>();
         public SettingsViewModel SettingsViewModel => ServiceLocator.Current.GetInstance<SettingsViewModel>();
+        public AboutViewModel AboutViewModel => ServiceLocator.Current.GetInstance<AboutViewModel>();
 
         public FirstRunViewModel FirstRunViewModel => ServiceLocator.Current.GetInstance<FirstRunViewModel>();
 

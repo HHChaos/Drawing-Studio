@@ -2,6 +2,7 @@
 
 using LearnDraw.ViewModels;
 using LearnDraw.ViewModels.PickerViewModels;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
@@ -17,13 +18,9 @@ namespace LearnDraw.Views.Pickers
 
         public SettingsPage()
         {
+            RequestedTheme = (Window.Current.Content as FrameworkElement).RequestedTheme;
             InitializeComponent();
             DataContext = ViewModel;
-        }
-
-        protected override async void OnNavigatedTo(NavigationEventArgs e)
-        {
-            await ViewModel.InitializeAsync();
         }
     }
 }

@@ -39,5 +39,16 @@ namespace LearnDraw.ViewModels
                 });
             }
         }
+
+        public ICommand OpenAboutPageCommand
+        {
+            get
+            {
+                return new RelayCommand(async () =>
+                {
+                    await ViewModelLocator.Current.ObjectPickerService.PickSingleObjectAsync<bool>(typeof(AboutViewModel).FullName);
+                });
+            }
+        }
     }
 }

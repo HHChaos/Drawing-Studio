@@ -38,7 +38,7 @@
                             <SymbolIcon Symbol='Like' />
                         </MenuFlyoutItem.Icon>
                     </MenuFlyoutItem>
-                    <MenuFlyoutItem Text="About">
+                    <MenuFlyoutItem Text="About" Command="{Binding OpenAboutPageCommand}">
                         <MenuFlyoutItem.Icon>
                             <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE946;" />
                         </MenuFlyoutItem.Icon>

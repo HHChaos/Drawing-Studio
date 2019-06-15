@@ -1,16 +1,10 @@
-﻿using System;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using HHChaosToolkit.UWP.Mvvm;
-using LearnDraw.Helpers;
+﻿using HHChaosToolkit.UWP.Mvvm;
 using LearnDraw.Services;
-
-using Windows.ApplicationModel;
+using System.Windows.Input;
 using Windows.UI.Xaml;
 
 namespace LearnDraw.ViewModels.PickerViewModels
 {
-    // TODO WTS: Add other settings as necessary. For help see https://github.com/Microsoft/WindowsTemplateStudio/blob/master/docs/pages/settings.md
     public class SettingsViewModel : ObjectPickerBase<bool>
     {
         private ElementTheme _elementTheme = ThemeSelectorService.Theme;
@@ -22,14 +16,6 @@ namespace LearnDraw.ViewModels.PickerViewModels
             set { Set(ref _elementTheme, value); }
         }
 
-        private string _versionDescription;
-
-        public string VersionDescription
-        {
-            get { return _versionDescription; }
-
-            set { Set(ref _versionDescription, value); }
-        }
 
         private ICommand _switchThemeCommand;
 
@@ -51,24 +37,5 @@ namespace LearnDraw.ViewModels.PickerViewModels
             }
         }
 
-        public SettingsViewModel()
-        {
-        }
-
-        public async Task InitializeAsync()
-        {
-            VersionDescription = GetVersionDescription();
-            await Task.CompletedTask;
-        }
-
-        private string GetVersionDescription()
-        {
-            var appName = "AppDisplayName".GetLocalized();
-            var package = Package.Current;
-            var packageId = package.Id;
-            var version = packageId.Version;
-
-            return $"{appName} - {version.Major}.{version.Minor}.{version.Build}.{version.Revision}";
-        }
     }
 }
