@@ -13,23 +13,191 @@
             HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch"
             Elevation="16" />
-        <Grid Background="{ThemeResource SystemControlAcrylicElementBrush}" CornerRadius="4">
-            <StackPanel
-                x:Name="ContentArea"
-                MinWidth="300"
-                Padding="40,20">
-                <TextBlock x:Uid="Settings_About" Style="{ThemeResource SubtitleTextBlockStyle}" />
-
-                <StackPanel Margin="{StaticResource XSmallTopMargin}">
-                    <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Text="{x:Bind ViewModel.VersionDescription, Mode=OneWay}" />
-                    <TextBlock
-                        x:Uid="Settings_AboutDescription"
-                        Margin="{StaticResource XSmallTopMargin}"
-                        Style="{ThemeResource BodyTextBlockStyle}" />
-
-                    <HyperlinkButton x:Uid="Settings_PrivacyTermsLink" Margin="{StaticResource XSmallTopMargin}" />
+        <Grid
+            MaxWidth="600"
+            Margin="0,60"
+            Background="{ThemeResource SystemControlAcrylicElementBrush}"
+            CornerRadius="4">
+            <Grid x:Name="ContentArea" Padding="40,20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <StackPanel Margin="0,10">
+                    <TextBlock x:Uid="Settings_About" Style="{ThemeResource SubtitleTextBlockStyle}" />
+                    <StackPanel Margin="{StaticResource XSmallTopMargin}" HorizontalAlignment="Center">
+                        <Image
+                            Width="60"
+                            Height="60"
+                            Margin="0,20"
+                            HorizontalAlignment="Center"
+                            Source="ms-appx:///Assets/StoreLogo.png" />
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            Style="{ThemeResource BodyTextBlockStyle}"
+                            Text="{x:Bind ViewModel.VersionDescription, Mode=OneWay}" />
+                        <TextBlock
+                            x:Uid="Settings_AboutDescription"
+                            Margin="{StaticResource XSmallTopMargin}"
+                            HorizontalAlignment="Center"
+                            Style="{ThemeResource BodyTextBlockStyle}" />
+                        <TextBlock
+                            Margin="{StaticResource XSmallTopMargin}"
+                            HorizontalAlignment="Center"
+                            Style="{ThemeResource BodyTextBlockStyle}"
+                            Text="Developed By : HHChaos" />
+                        <StackPanel
+                            Margin="0,8"
+                            HorizontalAlignment="Center"
+                            Orientation="Horizontal"
+                            Spacing="14">
+                            <HyperlinkButton VerticalAlignment="Center" NavigateUri="https://twitter.com/h2chaos">
+                                <Viewbox Height="20">
+                                    <Path
+                                        x:Name="twitter"
+                                        Data="M962.285714 662.857143q-38.285714-56-92.571428-95.428572 0.571429-8 0.571428-24 0-74.285714-21.714285-148.285714T782.571429 253.142857 677.142857 132.857143t-147.428571-83.428572-184.571429-31.142857q-154.857143 0-283.428571 82.857143 20-2.285714 44.571428-2.285714 128.571429 0 229.142857 78.857143-60 1.142857-107.428571 36.857143T162.857143 305.714286q18.857143-2.857143 34.857143-2.857143 24.571429 0 48.571428 6.285714-64 13.142857-106 63.714286T98.285714 490.285714v2.285715q38.857143-21.714286 83.428572-23.428572-37.714286 25.142857-60 65.714286t-22.285715 88q0 50.285714 25.142858 93.142857 69.142857-85.142857 168.285714-136.285714T505.142857 522.857143q-4.571429 21.714286-4.571428 42.285714 0 76.571429 54 130.571429T685.142857 749.714286q80 0 134.857143-58.285715 62.285714 12 117.142857 44.571429-21.142857-65.714286-81.142857-101.714286 53.142857 5.714286 106.285714 28.571429z"
+                                        Fill="{StaticResource ThemeControlForegroundBaseHighBrush}"
+                                        RenderTransformOrigin="0.5,0.5">
+                                        <Path.RenderTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform ScaleY="-1" />
+                                            </TransformGroup>
+                                        </Path.RenderTransform>
+                                    </Path>
+                                </Viewbox>
+                            </HyperlinkButton>
+                            <HyperlinkButton VerticalAlignment="Center" NavigateUri="https://github.com/HHChaos">
+                                <Viewbox Height="20">
+                                    <Path
+                                        x:Name="github"
+                                        Data="M512 883.36c-282.752 0-512-229.216-512-512 0-226.208 146.72-418.144 350.144-485.824 25.6-4.736 35.008 11.104 35.008 24.64 0 12.192-0.48 52.544-0.704 95.328-142.464-30.976-172.512 60.416-172.512 60.416-23.296 59.168-56.832 74.912-56.832 74.912-46.464 31.776 3.52 31.136 3.52 31.136 51.392-3.616 78.464-52.768 78.464-52.768 45.664-78.272 119.776-55.648 148.992-42.56 4.576 33.088 17.856 55.68 32.512 68.48-113.728 12.928-233.28 56.864-233.28 253.024 0 55.904 20 101.568 52.768 137.44-5.312 12.896-22.848 64.96 4.96 135.488 0 0 43.008 13.76 140.832-52.48 40.832 11.36 84.64 17.024 128.16 17.248 43.488-0.192 87.328-5.888 128.256-17.248 97.728 66.24 140.64 52.48 140.64 52.48 27.872-70.528 10.336-122.592 5.024-135.488 32.832-35.84 52.704-81.536 52.704-137.44 0-196.64-119.776-239.936-233.792-252.64 18.368-15.904 34.72-47.04 34.72-94.816 0-68.512-0.608-123.648-0.608-140.512 0-13.632 9.216-29.6 35.168-24.576 203.328 67.776 349.856 259.616 349.856 485.76 0 282.784-229.248 512-512 512z"
+                                        Fill="{StaticResource ThemeControlForegroundBaseHighBrush}"
+                                        RenderTransformOrigin="0.5,0.5">
+                                        <Path.RenderTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform ScaleY="-1" />
+                                            </TransformGroup>
+                                        </Path.RenderTransform>
+                                    </Path>
+                                </Viewbox>
+                            </HyperlinkButton>
+                            <HyperlinkButton VerticalAlignment="Center" NavigateUri="https://weibo.com/dgworld">
+                                <Viewbox Height="20">
+                                    <Path
+                                        x:Name="weibo"
+                                        Data="M726.974 393.461c-34.789 6.761-17.886 25.465-17.886 25.465s34.027 56.002-6.707 96.79c-50.495 50.44-173.186-6.435-173.186-6.435-46.828-14.56-34.409 6.598-27.81 42.697 0 42.424-14.519 114.294-139.31 71.816-124.709-42.642-231.751-192.217-231.751-192.217-74.487-99.299-64.591-176.076-64.591-176.076 18.568-169.478 198.679-216.047 338.766-227.061 147.381-11.616 346.304 50.821 406.615 178.912 60.311 128.363-49.294 179.129-84.138 186.109v0zM415.431 76.263c-146.275-6.816-264.55 66.526-264.55 164.188 0 97.717 118.275 176.13 264.55 182.838 146.426 6.761 264.92-53.603 264.92-151.101 0-97.663-118.547-189.273-264.92-195.925v0zM386.285 358.944c-147.203-17.231-130.163-155.082-130.163-155.082s-1.527-43.679 39.453-65.872c86.102-46.623 174.741-18.377 219.55 39.479 44.824 57.801 18.486 198.542-128.84 181.475v0zM349.151 165.473c-27.483-3.272-49.622 12.597-49.622 35.553 0 22.903 19.658 46.895 47.141 49.786 31.573 2.944 52.104-15.269 52.104-38.226-0-22.847-22.303-44.005-49.622-47.113v0zM435.853 239.307c-9.297-6.926-20.775-5.944-25.656 2.4-5.153 8.124-3.217 21.158 6.217 27.974 10.906 8.124 22.221 5.78 27.156-2.345 4.933-8.289 1.39-20.83-7.717-28.028v0zM798.626 453.117c11.832 0 21.921 8.724 23.611 20.231 0.218 0.818 0.327 1.581 0.327 2.562 17.995 161.572-132.398 133.761-132.398 133.761-13.36 0-24.048-10.797-24.048-24.266 0-13.25 10.687-24.048 24.048-24.048 108.023 23.83 84.194-84.193 84.194-84.193 0.001-13.361 10.852-24.049 24.267-24.049v0zM781.067 735.144c-51.967 12.215-105.406 1.745-120.401-1.145-1.199-0.108-2.29-1.199-3.326-1.417-0.49-0.109-0.873-0.655-0.873-0.655-14.723-4.2-25.52-17.831-25.52-34.027 0-19.249 15.595-35.063 35.064-35.063 0 0 18.921 2.508 31.737 7.58 12.76 5.126 120.401 3.816 173.896-86.048 29.228-65.546 12.868-109.387 10.797-116.476 0 0-6.926-17.013-6.926-33.808 0-19.358 15.595-31.519 34.953-31.519 16.141 0 29.719 2.182 33.7 29.556h0.218c57.419 191.345-70.235 281.319-163.318 303.021v0zM781.067 735.144z"
+                                        Fill="{StaticResource ThemeControlForegroundBaseHighBrush}"
+                                        RenderTransformOrigin="0.5,0.5">
+                                        <Path.RenderTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform ScaleY="-1" />
+                                            </TransformGroup>
+                                        </Path.RenderTransform>
+                                    </Path>
+                                </Viewbox>
+                            </HyperlinkButton>
+                            <HyperlinkButton VerticalAlignment="Center" NavigateUri="https://www.cnblogs.com/hhchaos">
+                                <Viewbox Height="20">
+                                    <Path
+                                        x:Name="cnblogs"
+                                        Data="M512 896C229.234472 896 0 666.773854 0 384 0 101.234472 229.234472-128 512-128S1024 101.234472 1024 384C1024 666.773854 794.765528 896 512 896zM228.776585 59.933138c-63.163317 0-114.371642 51.208325-114.371642 114.371642S165.613268 288.676423 228.776585 288.676423s114.371642-51.208325 114.371643-114.371643c0-63.171642-51.208325-114.371642-114.371643-114.371642z m420.555968 89.612488a391.867317 391.867317 0 0 0-1.989724-16.975089c-7.259577-30.203837-33.950179-52.898341-66.376845-52.898342-38.104455 0-68.990959 34.158309-68.99096 72.204488 0 5.877593 0.81587 11.463805 2.206179 16.775284-1.756618 131.096976-103.981789 237.867707-233.205593 246.883903l-6.343805 0.740943-1.015675 0.041626c-5.453008 0.216455-10.930992 0.732618-16.142569 2.331057a67.958634 67.958634 0 0 0-47.91987 65.078114c0 37.604943 30.245463 68.091837 67.550699 68.091837 0.299707 0 0.591089-0.041626 0.890797-0.049951l0.124878 0.049951c205.707447-2.139577 371.836878-169.484488 371.836878-375.699772 0-7.717463-0.341333-15.34335-0.824195-22.94426 0.066602-1.207154 0.19148-2.397659 0.199805-3.629789z m254.085203 63.329821c-10.856065-45.172553-25.80813-104.114992-74.310764-104.114992-56.994341 0-48.236228 66.085463-48.236228 122.996553 0 8.791415 1.223805 17.149919 3.296781 25.100488-2.639089 196.108488-169.834146 387.812943-363.137041 401.291447l-35.806699 5.827642c-42.117203 7.492683-111.715902 3.255154-111.715903 49.193626 0 56.253398 50.234276 81.861724 106.038114 81.861724 0.449561 0 0.882472-0.058276 1.332033-0.066602l0.183154 0.066602c307.724488-3.180228 526.252748-208.546341 526.252748-517.028423a538.474146 538.474146 0 0 0-1.23213-34.316488c0.108228-1.806569 0.291382-3.596488 0.308033-5.428032a542.72 542.72 0 0 0-2.972098-25.383545z"
+                                        Fill="{StaticResource ThemeControlForegroundBaseHighBrush}"
+                                        RenderTransformOrigin="0.5,0.5">
+                                        <Path.RenderTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform ScaleY="-1" />
+                                            </TransformGroup>
+                                        </Path.RenderTransform>
+                                    </Path>
+                                </Viewbox>
+                            </HyperlinkButton>
+                        </StackPanel>
+                        <HyperlinkButton
+                            x:Uid="Settings_PrivacyTermsLink"
+                            Margin="{StaticResource XSmallTopMargin}"
+                            HorizontalAlignment="Center" />
+                    </StackPanel>
                 </StackPanel>
-            </StackPanel>
+                <ScrollViewer
+                    Grid.Row="1"
+                    HorizontalScrollBarVisibility="Disabled"
+                    VerticalScrollBarVisibility="Auto">
+                    <StackPanel>
+
+                        <TextBlock
+                            Margin="{StaticResource XSmallTopMargin}"
+                            Style="{ThemeResource SubtitleTextBlockStyle}"
+                            Text="Special thanks" />
+
+                        <StackPanel Margin="{StaticResource XSmallTopMargin}">
+                            <TextBlock
+                                Margin="{StaticResource XSmallTopMargin}"
+                                Style="{ThemeResource BodyTextBlockStyle}"
+                                Text="The software uses machine learning algorithms to recognize your doodling and to provide you with some drawings to learn." />
+                            <TextBlock
+                                Margin="{StaticResource XSmallTopMargin}"
+                                Style="{ThemeResource BodyTextBlockStyle}"
+                                Text="Thanks here :" />
+                            <TextBlock
+                                Margin="{StaticResource XSmallTopMargin}"
+                                Style="{ThemeResource BodyTextBlockStyle}"
+                                Text="Microsoft ML.NET : ML.NET is an open source and cross-platform machine learning framework for .NET. " />
+                            <HyperlinkButton
+                                Margin="{StaticResource XSmallTopMargin}"
+                                Content="ML.NET"
+                                NavigateUri="https://github.com/dotnet/machinelearning" />
+                            <TextBlock
+                                Margin="{StaticResource XSmallTopMargin}"
+                                Style="{ThemeResource BodyTextBlockStyle}"
+                                Text="Google Creative Lab : The software uses the Quick, Draw! Dataset(Creative Commons Attribution 4.0 International License) to train neural networks to recognize your doodling，and use the drawings from AutoDraw(Creative Commons Attribution 4.0 nternational License)." />
+                            <HyperlinkButton
+                                Margin="{StaticResource XSmallTopMargin}"
+                                Content="The Quick, Draw! Dataset"
+                                NavigateUri="https://github.com/googlecreativelab/quickdraw-dataset" />
+                            <HyperlinkButton
+                                Margin="{StaticResource XSmallTopMargin}"
+                                Content="AutoDraw"
+                                NavigateUri="https://www.autodraw.com/" />
+                            <TextBlock
+                                Margin="{StaticResource XSmallTopMargin}"
+                                Style="{ThemeResource BodyTextBlockStyle}"
+                                Text="Justin Liu : Justin is a great uwp developer and designer. His demo application has given me a lot of help with its great UI design and smooth animations!" />
+
+                        </StackPanel>
+                        <TextBlock
+                            Margin="{StaticResource XSmallTopMargin}"
+                            Style="{ThemeResource SubtitleTextBlockStyle}"
+                            Text="Libraries" />
+
+                        <StackPanel Margin="{StaticResource XSmallTopMargin}">
+                            <HyperlinkButton
+                                Margin="{StaticResource XSmallTopMargin}"
+                                Content="HHChaosToolkit"
+                                NavigateUri="https://github.com/HHChaos/HHChaosToolkit" />
+                            <HyperlinkButton
+                                Margin="{StaticResource XSmallTopMargin}"
+                                Content="Windows Community Toolkit"
+                                NavigateUri="https://github.com/windows-toolkit/WindowsCommunityToolkit" />
+                            <HyperlinkButton
+                                Margin="{StaticResource XSmallTopMargin}"
+                                Content="Windows UI Library"
+                                NavigateUri="https://github.com/microsoft/microsoft-ui-xaml" />
+                            <HyperlinkButton
+                                Margin="{StaticResource XSmallTopMargin}"
+                                Content="SvgConverter"
+                                NavigateUri="https://github.com/HHChaos/SvgConverter" />
+                            <HyperlinkButton
+                                Margin="{StaticResource XSmallTopMargin}"
+                                Content="Unity"
+                                NavigateUri="https://github.com/unitycontainer/unity" />
+                            <HyperlinkButton
+                                Margin="{StaticResource XSmallTopMargin}"
+                                Content="Win2D"
+                                NavigateUri="https://github.com/microsoft/Win2D" />
+                        </StackPanel>
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
             <Button
                 Margin="10"
                 HorizontalAlignment="Right"
