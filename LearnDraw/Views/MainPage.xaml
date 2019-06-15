@@ -71,7 +71,15 @@
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <Grid Padding="20">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid
+                x:Name="PredictionGrid"
+                Grid.Row="0"
+                Grid.ColumnSpan="2"
+                Padding="20">
                 <Viewbox Stretch="Uniform">
                     <Grid
                         Width="600"
@@ -192,7 +200,11 @@
                 </Viewbox>
 
             </Grid>
-            <Grid Grid.Column="1" Padding="20">
+            <Grid
+                x:Name="DrawGrid"
+                Grid.Row="1"
+                Grid.ColumnSpan="2"
+                Padding="20">
                 <Grid
                     x:Name="InkPanel"
                     HorizontalAlignment="Center"
@@ -212,5 +224,24 @@
                 </Grid>
             </Grid>
         </Grid>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="MediumSize">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="700" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="PredictionGrid.(Grid.Row)" Value="0" />
+                        <Setter Target="PredictionGrid.(Grid.RowSpan)" Value="2" />
+                        <Setter Target="PredictionGrid.(Grid.Column)" Value="0" />
+                        <Setter Target="PredictionGrid.(Grid.ColumnSpan)" Value="1" />
+                        <Setter Target="DrawGrid.(Grid.Row)" Value="0" />
+                        <Setter Target="DrawGrid.(Grid.RowSpan)" Value="2" />
+                        <Setter Target="DrawGrid.(Grid.Column)" Value="1" />
+                        <Setter Target="DrawGrid.(Grid.ColumnSpan)" Value="2" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
     </Grid>
 </Page>
