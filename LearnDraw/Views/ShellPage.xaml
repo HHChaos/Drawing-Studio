@@ -18,7 +18,7 @@
             Margin="40,20"
             HorizontalAlignment="Left"
             VerticalAlignment="Bottom"
-            Style="{StaticResource Style-Button-Icon-Circle}">
+            Style="{StaticResource CircleButtonStyle}">
             <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE10C;" />
             <Button.Flyout>
                 <MenuFlyout>

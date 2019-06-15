@@ -42,7 +42,7 @@
                                     Height="100"
                                     Click="RadioButton_Click"
                                     GroupName="Thumbnail"
-                                    Style="{StaticResource Style-RadioButton-Thumbnail}">
+                                    Style="{StaticResource ThumbnailRadioButtonStyle}">
                                     <controls:SvgPreview FilePath="{Binding}" />
                                 </RadioButton>
                             </Grid>

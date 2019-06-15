@@ -25,7 +25,7 @@
                 x:Name="BtnBack"
                 HorizontalAlignment="Left"
                 Click="BtnBack_Click"
-                Style="{StaticResource Style-Button-Icon-Circle}">
+                Style="{StaticResource CircleButtonStyle}">
                 <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE00E;" />
             </Button>
             <Grid Grid.Column="1">
@@ -33,14 +33,14 @@
                     Width="76"
                     HorizontalAlignment="Center"
                     Click="{x:Bind SvgPlayer.Play}"
-                    Style="{StaticResource Style-Button-Icon-Circle}">
+                    Style="{StaticResource CapsuleButtonStyle}">
                     <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE102;" />
                 </Button>
             </Grid>
             <Button
                 Grid.Column="2"
                 HorizontalAlignment="Right"
-                Style="{StaticResource Style-Button-Icon-Circle}">
+                Style="{StaticResource CircleButtonStyle}">
                 <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE115;" />
             </Button>
         </Grid>

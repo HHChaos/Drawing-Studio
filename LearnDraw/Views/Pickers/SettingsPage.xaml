@@ -18,7 +18,10 @@
             VerticalAlignment="Stretch"
             Elevation="8" />
         <Grid Background="{ThemeResource SystemControlAcrylicElementBrush}" CornerRadius="4">
-            <StackPanel x:Name="ContentArea" Padding="40,20">
+            <StackPanel
+                x:Name="ContentArea"
+                MinWidth="300"
+                Padding="40,20">
                 <TextBlock x:Uid="Settings_Personalization" Style="{ThemeResource SubtitleTextBlockStyle}" />
                 <StackPanel Margin="{StaticResource SmallTopBottomMargin}">
                     <TextBlock x:Uid="Settings_Theme" />
