@@ -27,8 +27,8 @@
                     <TextBlock x:Uid="Settings_About" Style="{ThemeResource SubtitleTextBlockStyle}" />
                     <StackPanel Margin="{StaticResource XSmallTopMargin}" HorizontalAlignment="Center">
                         <Image
-                            Width="60"
-                            Height="60"
+                            Width="50"
+                            Height="50"
                             Margin="0,20"
                             HorizontalAlignment="Center"
                             Source="ms-appx:///Assets/StoreLogo.png" />
