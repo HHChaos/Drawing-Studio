@@ -21,6 +21,7 @@
             <StackPanel
                 x:Name="ContentArea"
                 MinWidth="300"
+                MaxWidth="600"
                 Padding="{StaticResource PickerPageMargin}">
                 <TextBlock x:Uid="Settings_Personalization" Style="{ThemeResource SubtitleTextBlockStyle}" />
                 <StackPanel Margin="{StaticResource SmallTopBottomMargin}">
@@ -58,6 +59,27 @@
                             </RadioButton.CommandParameter>
                         </RadioButton>
                     </StackPanel>
+
+                    <TextBlock
+                        Margin="{StaticResource MediumTopMargin}"
+                        Style="{ThemeResource SubtitleTextBlockStyle}"
+                        Text="Other" />
+                    <Grid Margin="{StaticResource XSmallTopMargin}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                            Margin="{StaticResource XSmallTopMargin}"
+                            Style="{ThemeResource BodyTextBlockStyle}"
+                            Text="If the app doesn't work, click here!" />
+                        <Button
+                            Grid.Column="1"
+                            Margin="10,0"
+                            Command="{x:Bind ViewModel.ResetCommand}"
+                            Content="RESET"
+                            Style="{StaticResource CapsuleButtonStyle}" />
+                    </Grid>
                 </StackPanel>
             </StackPanel>
             <Button Command="{x:Bind ViewModel.ExitCommand}" Style="{ThemeResource CloseButtonStyle}" />

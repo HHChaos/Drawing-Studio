@@ -19,6 +19,15 @@ namespace LearnDraw.ViewModels.PickerViewModels
 
         private async Task DecompressionAssets()
         {
+            try
+            {
+                var assetsFoloder = await ApplicationData.Current.LocalFolder.GetFolderAsync("AnimAssets");
+                if (assetsFoloder != null)
+                    await assetsFoloder.DeleteAsync();
+            }
+            catch (Exception)
+            {
+            }
             var assets = await StorageFile.GetFileFromApplicationUriAsync(new Uri($"ms-appx:///Assets/Zip/AnimAssets.zip"));
             await Task.Run(() =>
             {
