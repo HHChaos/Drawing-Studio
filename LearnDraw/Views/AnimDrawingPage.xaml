@@ -5,10 +5,14 @@
     xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:controls="using:LearnDraw.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:helpers="using:LearnDraw.Helpers"
     xmlns:local="using:LearnDraw.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
+    <Page.Resources>
+        <helpers:BooleanToVisibilityConverter x:Key="InversedBooleanToVisibilityConverter" IsInversed="True" />
+    </Page.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -30,12 +34,76 @@
             </Button>
             <Grid Grid.Column="1">
                 <Button
-                    Width="76"
                     HorizontalAlignment="Center"
                     Click="{x:Bind SvgPlayer.Play}"
-                    Style="{StaticResource CapsuleButtonStyle}">
+                    Style="{StaticResource CapsuleButtonStyle}"
+                    Visibility="{x:Bind SvgPlayer.IsPlayingState, Mode=OneWay, Converter={StaticResource InversedBooleanToVisibilityConverter}}">
+                    <animations:Implicit.ShowAnimations>
+                        <animations:TranslationAnimation
+                            Delay="0:0:0.3"
+                            SetInitialValueBeforeDelay="True"
+                            From="0,-20,0"
+                            To="0,0,0"
+                            Duration="0:0:0.6" />
+                        <animations:OpacityAnimation
+                            Delay="0:0:0.3"
+                            SetInitialValueBeforeDelay="True"
+                            From="0"
+                            To="1"
+                            Duration="0:0:0.6" />
+                    </animations:Implicit.ShowAnimations>
+                    <animations:Implicit.HideAnimations>
+                        <animations:TranslationAnimation
+                            From="0,0,0"
+                            To="0,20,0"
+                            Duration="0:0:0.3" />
+                        <animations:OpacityAnimation
+                            From="1"
+                            To="0"
+                            Duration="0:0:0.3" />
+                    </animations:Implicit.HideAnimations>
                     <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE102;" />
                 </Button>
+                <StackPanel
+                    HorizontalAlignment="Center"
+                    Orientation="Horizontal"
+                    Spacing="20"
+                    Visibility="{x:Bind SvgPlayer.IsPlayingState, Mode=OneWay}">
+                    <animations:Implicit.ShowAnimations>
+                        <animations:TranslationAnimation
+                            Delay="0:0:0.3"
+                            SetInitialValueBeforeDelay="True"
+                            From="0,-20,0"
+                            To="0,0,0"
+                            Duration="0:0:0.6" />
+                        <animations:OpacityAnimation
+                            Delay="0:0:0.3"
+                            SetInitialValueBeforeDelay="True"
+                            From="0"
+                            To="1"
+                            Duration="0:0:0.6" />
+                    </animations:Implicit.ShowAnimations>
+                    <animations:Implicit.HideAnimations>
+                        <animations:TranslationAnimation
+                            From="0,0,0"
+                            To="0,20,0"
+                            Duration="0:0:0.3" />
+                        <animations:OpacityAnimation
+                            From="1"
+                            To="0"
+                            Duration="0:0:0.3" />
+                    </animations:Implicit.HideAnimations>
+                    <Button Click="{x:Bind SvgPlayer.Stop}" Style="{StaticResource CircleButtonStyle}">
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE15B;" />
+                    </Button>
+                    <Button Click="{x:Bind SvgPlayer.RePlayCurrentPath}" Style="{StaticResource CircleButtonStyle}">
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE777;" />
+                    </Button>
+                    <Button Click="{x:Bind SvgPlayer.PlayNextPath}" Style="{StaticResource CircleButtonStyle}">
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE101;" />
+                    </Button>
+                </StackPanel>
+
             </Grid>
             <Button
                 Grid.Column="2"
@@ -48,16 +116,46 @@
             Grid.Row="2"
             MinHeight="40"
             Margin="60,0">
-            <InkToolbar
-                HorizontalAlignment="Right"
-                VerticalAlignment="Bottom"
-                InitialControls="None"
-                TargetInkCanvas="{x:Bind InkCanvas}">
-                <InkToolbar.Children>
-                    <InkToolbarBallpointPenButton />
-                    <InkToolbarEraserButton />
-                </InkToolbar.Children>
-            </InkToolbar>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <StackPanel
+                    Margin="0,0,0,20"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"
+                    Orientation="Horizontal"
+                    Spacing="20">
+                    <Button Command="{x:Bind InkCanvas.UndoCommand}" Style="{StaticResource CircleButtonStyle}">
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE10E;" />
+                    </Button>
+                    <Button Command="{x:Bind InkCanvas.RedoCommand}" Style="{StaticResource CircleButtonStyle}">
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE10D;" />
+                    </Button>
+                    <Button
+                        Margin="10,0,40,0"
+                        Command="{x:Bind InkCanvas.SaveCommand}"
+                        Style="{StaticResource CircleButtonStyle}">
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE105;" />
+                    </Button>
+                </StackPanel>
+                <InkToolbar
+                    Grid.Column="1"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    InitialControls="None"
+                    TargetInkCanvas="{x:Bind InkCanvas}">
+                    <InkToolbar.Children>
+                        <InkToolbarBallpointPenButton />
+                        <InkToolbarEraserButton />
+                    </InkToolbar.Children>
+                </InkToolbar>
+            </Grid>
         </Grid>
         <Grid Grid.Row="1" Padding="50,20">
             <Grid.ColumnDefinitions>
@@ -112,10 +210,10 @@
                         Elevation="8" />
                     <Border Background="White" CornerRadius="4">
                         <Viewbox Stretch="Uniform">
-                            <InkCanvas
-                                x:Name="InkCanvas"
-                                Width="600"
-                                Height="600" />
+                            <Grid Width="600" Height="600">
+                                <Image Opacity="0.1" Source="{x:Bind SvgPlayer.RefImage, Mode=TwoWay}" />
+                                <controls:InkCanvasEx x:Name="InkCanvas" />
+                            </Grid>
                         </Viewbox>
                     </Border>
                 </Grid>

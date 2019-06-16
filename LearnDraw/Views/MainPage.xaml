@@ -55,16 +55,46 @@
             Grid.Row="2"
             MinHeight="40"
             Margin="60,0">
-            <InkToolbar
-                HorizontalAlignment="Right"
-                VerticalAlignment="Bottom"
-                InitialControls="None"
-                TargetInkCanvas="{x:Bind InkCanvas}">
-                <InkToolbar.Children>
-                    <InkToolbarBallpointPenButton />
-                    <InkToolbarEraserButton />
-                </InkToolbar.Children>
-            </InkToolbar>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <StackPanel
+                    Margin="0,0,0,20"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"
+                    Orientation="Horizontal"
+                    Spacing="20">
+                    <Button Command="{x:Bind InkCanvas.UndoCommand}" Style="{StaticResource CircleButtonStyle}">
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE10E;" />
+                    </Button>
+                    <Button Command="{x:Bind InkCanvas.RedoCommand}" Style="{StaticResource CircleButtonStyle}">
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE10D;" />
+                    </Button>
+                    <Button
+                        Margin="10,0,40,0"
+                        Command="{x:Bind InkCanvas.SaveCommand}"
+                        Style="{StaticResource CircleButtonStyle}">
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE105;" />
+                    </Button>
+                </StackPanel>
+                <InkToolbar
+                    Grid.Column="1"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    InitialControls="None"
+                    TargetInkCanvas="{x:Bind InkCanvas}">
+                    <InkToolbar.Children>
+                        <InkToolbarBallpointPenButton />
+                        <InkToolbarEraserButton />
+                    </InkToolbar.Children>
+                </InkToolbar>
+            </Grid>
         </Grid>
         <Grid Grid.Row="1" Padding="50,20">
             <Grid.ColumnDefinitions>
@@ -171,11 +201,11 @@
                                     <animations:TranslationAnimation
                                         From="0,40,0"
                                         To="0,0,0"
-                                        Duration="0:0:0.3" />
+                                        Duration="0:0:0.6" />
                                     <animations:OpacityAnimation
                                         From="0.4"
                                         To="1"
-                                        Duration="0:0:1.2" />
+                                        Duration="0:0:0.6" />
                                 </animations:Implicit.ShowAnimations>
                                 <animations:Implicit.HideAnimations>
                                     <animations:TranslationAnimation
@@ -215,7 +245,7 @@
                         Elevation="8" />
                     <Border Background="White" CornerRadius="4">
                         <Viewbox Stretch="Uniform">
-                            <InkCanvas
+                            <controls:InkCanvasEx
                                 x:Name="InkCanvas"
                                 Width="600"
                                 Height="600" />

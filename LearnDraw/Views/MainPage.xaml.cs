@@ -47,9 +47,21 @@ namespace LearnDraw.Views
 
             Rectangle2.StartAnimation(rotationAnimation);
 
-            InkCanvas.InkPresenter.InputDeviceTypes = CoreInputDeviceTypes.Pen | CoreInputDeviceTypes.Touch | CoreInputDeviceTypes.Mouse;
-            InkCanvas.InkPresenter.StrokesCollected += InkPresenter_StrokesCollected;
+            InkCanvas.StrokesChanged += InkCanvas_StrokesChanged;
         }
+
+        private async void InkCanvas_StrokesChanged(Windows.UI.Input.Inking.InkPresenter sender, EventArgs args)
+        {
+            var strokes = sender.StrokeContainer.GetStrokes();
+            if (strokes?.Count > 0)
+            {
+                HidePredictionUIElement();
+                ViewModel.UpdataPrediction(strokes);
+                await Task.Delay(300);
+                ShowPredictionUIElement();
+            }
+        }
+
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
@@ -59,14 +71,6 @@ namespace LearnDraw.Views
                 inkPanelAnim.TryStart(InkPanel);
             }
 
-        }
-        private async void InkPresenter_StrokesCollected(Windows.UI.Input.Inking.InkPresenter sender, Windows.UI.Input.Inking.InkStrokesCollectedEventArgs args)
-        {
-            var strokes = sender.StrokeContainer.GetStrokes();
-            HidePredictionUIElement();
-            ViewModel.UpdataPrediction(strokes);
-            await Task.Delay(300);
-            ShowPredictionUIElement();
         }
 
         private void RadioButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)

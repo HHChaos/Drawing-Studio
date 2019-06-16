@@ -4,12 +4,15 @@ using Microsoft.Graphics.Canvas.UI.Xaml;
 using SvgConverter.SvgParse;
 using SvgConverter.SvgParseForWin2D;
 using System;
+using System.ComponentModel;
+using System.Linq;
 using System.Numerics;
 using System.Threading;
 using Windows.ApplicationModel;
 using Windows.Foundation;
 using Windows.Storage;
 using Windows.Storage.Streams;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -17,7 +20,7 @@ using Windows.UI.Xaml.Controls;
 
 namespace LearnDraw.Controls
 {
-    public sealed partial class SvgAnimPlayer : UserControl
+    public sealed partial class SvgAnimPlayer : UserControl, INotifyPropertyChanged
     {
         private class HandInfo
         {
@@ -29,6 +32,9 @@ namespace LearnDraw.Controls
         private readonly object _lockobj = new object();
         private Win2DSvgElement _win2DSvg;
         private float _drawGap;
+        private double[] _drawSegs;
+        private double _playTargetProgress = 0;
+        private int _drawIndex;
         private CanvasBitmap _handBitmap;
         private bool _paused = false;
         private bool _loading = false;
@@ -45,6 +51,29 @@ namespace LearnDraw.Controls
             }
         }
 
+        public float Progress => _win2DSvg?.Progress ?? 0;
+
+        private CanvasImageSource _refImage;
+        public CanvasImageSource RefImage
+        {
+            get => _refImage;
+            set
+            {
+                _refImage = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("RefImage"));
+            }
+        }
+
+        private bool _isPlayingState = false;
+        public bool IsPlayingState
+        {
+            get => _isPlayingState;
+            set
+            {
+                _isPlayingState = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("IsPlayingState"));
+            }
+        }
         public void Play()
         {
             if (_loading || _win2DSvg == null)
@@ -52,14 +81,57 @@ namespace LearnDraw.Controls
             lock (_lockobj)
             {
                 _win2DSvg.Progress = 0;
+                _drawIndex = 0;
+                _playTargetProgress = _drawSegs[_drawIndex];
+                _paused = false;
+                IsPlayingState = true;
             }
-            _paused = false;
         }
-        public void Pause()
+        public void Stop()
         {
             if (_loading || _win2DSvg == null)
                 return;
-            _paused = true;
+            lock (_lockobj)
+            {
+                _win2DSvg.Progress = 1;
+                _drawIndex = 0;
+                _playTargetProgress = 0;
+                RefImage = null;
+                _paused = true;
+                IsPlayingState = false;
+            }
+        }
+        public void PlayNextPath()
+        {
+            if (_loading || _win2DSvg == null)
+                return;
+            lock (_lockobj)
+            {
+                _drawIndex++;
+                if (_drawIndex >= _drawSegs.Length)
+                {
+                    _win2DSvg.Progress = 0;
+                    _drawIndex = 0;
+                    _playTargetProgress = _drawSegs[_drawIndex];
+                }
+                else
+                {
+                    _win2DSvg.Progress = (float)_playTargetProgress;
+                    _playTargetProgress += _drawSegs[_drawIndex];
+                }
+                _paused = false;
+            }
+
+        }
+        public void RePlayCurrentPath()
+        {
+            if (_loading || _win2DSvg == null)
+                return;
+            lock (_lockobj)
+            {
+                _win2DSvg.Progress = (float)(_playTargetProgress - _drawSegs[_drawIndex]);
+                _paused = false;
+            }
         }
 
         private void SvgAnimPlayer_Unloaded(object sender, RoutedEventArgs e)
@@ -105,8 +177,18 @@ namespace LearnDraw.Controls
             var needDrawLenght = _paused ? 0 : _drawGap;
             lock (_lockobj)
             {
+                if (!_paused && (needDrawLenght + _win2DSvg.Progress) > _playTargetProgress)
+                {
+                    needDrawLenght = (float)_playTargetProgress - _win2DSvg.Progress;
+                    needDrawLenght -= 0.0001f;
+                    _paused = true;
+                    _context.Post(_ =>
+                    {
+                        UpdateRefImage();
+                    }, null);
+                }
                 var handPosition = _win2DSvg?.Draw(args.DrawingSession, needDrawLenght);
-                if (Hand != null && handPosition != null && _handBitmap != null)
+                if (!_paused && Hand != null && handPosition != null && _handBitmap != null)
                 {
                     var position = handPosition.Value - Hand.PenOffect.ToVector2();
                     args.DrawingSession.Transform = Matrix3x2.Identity;
@@ -116,7 +198,7 @@ namespace LearnDraw.Controls
 
             _context.Post(_ =>
             {
-
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Progress"));
             }, null);
         }
 
@@ -129,6 +211,8 @@ namespace LearnDraw.Controls
         public static readonly DependencyProperty SvgProperty =
             DependencyProperty.Register("Svg", typeof(SvgElement), typeof(SvgAnimPlayer), new PropertyMetadata(null, new PropertyChangedCallback(OnSvgPropertyChanged)));
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
         private static void OnSvgPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             if (d is SvgAnimPlayer target)
@@ -136,18 +220,25 @@ namespace LearnDraw.Controls
                 target.OnSvgChanged((SvgElement)e.NewValue);
             }
         }
-
         private async void OnSvgChanged(SvgElement svg)
         {
             var win2DSvg = await Win2DSvgElement.Parse(ResourceCreator, svg);
             _loading = true;
-            _paused = true;
             lock (_lockobj)
             {
+                _paused = true;
                 _win2DSvg?.Dispose();
                 _win2DSvg = win2DSvg;
-                UpdateSvgLayout();
                 _win2DSvg.Progress = 1;
+                _drawIndex = 0;
+                _playTargetProgress = 0;
+                RefImage = null;
+                _paused = true;
+                IsPlayingState = false;
+                UpdateSvgLayout();
+                _drawSegs = _win2DSvg.SvgNodeList.Where(
+                    item => item.RenderMethod.Equals(RenderMethod.Draw) || item.RenderMethod.Equals(RenderMethod.Mark) || item.RenderMethod.Equals(RenderMethod.MarkAndFill))
+                .Cast<Win2DSvgGeometry>().Select(item => item.PathLength / _win2DSvg.TotalLength).ToArray();
             }
             _loading = false;
         }
@@ -165,6 +256,16 @@ namespace LearnDraw.Controls
                     (panelWidth - _win2DSvg.ViewBox.Width * _scale) / 2 - _win2DSvg.ViewBox.X * _scale + 60,
                     (panelHeight - _win2DSvg.ViewBox.Height * _scale) / 2 - _win2DSvg.ViewBox.Y * _scale + 60)
                 .ToVector2();
+        }
+        private void UpdateRefImage()
+        {
+            var offScreen = new CanvasImageSource(ResourceCreator, (float)Canvas.ActualWidth, (float)Canvas.ActualWidth, 96);
+            using (var drawingSession = offScreen.CreateDrawingSession(Colors.Transparent))
+            {
+                drawingSession.Transform = _scaleMatrix;
+                _win2DSvg.Draw(drawingSession, 0);
+            }
+            RefImage = offScreen;
         }
     }
 }

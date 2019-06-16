@@ -19,6 +19,15 @@ namespace LearnDraw.Controls
         public SvgPreview()
         {
             this.InitializeComponent();
+            this.Loaded += SvgPreview_Loaded;
+        }
+
+        private async void SvgPreview_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (SvgImage.Source == null && Svg != null)
+            {
+                SvgImage.Source = await SvgToImageSource(Svg);
+            }
         }
 
         public SvgElement Svg { get; private set; }

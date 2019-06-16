@@ -176,14 +176,6 @@
                                 NavigateUri="https://github.com/HHChaos/HHChaosToolkit" />
                             <HyperlinkButton
                                 Margin="{StaticResource XSmallTopMargin}"
-                                Content="Windows Community Toolkit"
-                                NavigateUri="https://github.com/windows-toolkit/WindowsCommunityToolkit" />
-                            <HyperlinkButton
-                                Margin="{StaticResource XSmallTopMargin}"
-                                Content="Windows UI Library"
-                                NavigateUri="https://github.com/microsoft/microsoft-ui-xaml" />
-                            <HyperlinkButton
-                                Margin="{StaticResource XSmallTopMargin}"
                                 Content="SvgConverter"
                                 NavigateUri="https://github.com/HHChaos/SvgConverter" />
                             <HyperlinkButton
@@ -194,6 +186,18 @@
                                 Margin="{StaticResource XSmallTopMargin}"
                                 Content="Win2D"
                                 NavigateUri="https://github.com/microsoft/Win2D" />
+                            <HyperlinkButton
+                                Margin="{StaticResource XSmallTopMargin}"
+                                Content="Windows Community Toolkit"
+                                NavigateUri="https://github.com/windows-toolkit/WindowsCommunityToolkit" />
+                            <HyperlinkButton
+                                Margin="{StaticResource XSmallTopMargin}"
+                                Content="Windows Template Studio"
+                                NavigateUri="https://github.com/microsoft/WindowsTemplateStudio" />
+                            <HyperlinkButton
+                                Margin="{StaticResource XSmallTopMargin}"
+                                Content="Windows UI Library"
+                                NavigateUri="https://github.com/microsoft/microsoft-ui-xaml" />
                         </StackPanel>
                     </StackPanel>
                 </ScrollViewer>

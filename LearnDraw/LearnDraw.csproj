@@ -119,6 +119,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activation\ActivationHandler.cs" />
+    <Compile Include="Controls\InkCanvasEx.cs" />
     <Compile Include="Controls\Shadow.xaml.cs">
       <DependentUpon>Shadow.xaml</DependentUpon>
     </Compile>
@@ -129,6 +130,7 @@
       <DependentUpon>SvgPreview.xaml</DependentUpon>
     </Compile>
     <Compile Include="Helpers\AnimAssetsHelper.cs" />
+    <Compile Include="Helpers\BooleanToVisibilityConverter.cs" />
     <Compile Include="Helpers\EnumToBooleanConverter.cs" />
     <Compile Include="MLHelpers\DataV1ConvertHelper.cs" />
     <Compile Include="MLHelpers\DataV2ConvertHelper.cs" />
