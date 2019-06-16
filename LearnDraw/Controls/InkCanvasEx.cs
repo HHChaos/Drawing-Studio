@@ -1,8 +1,13 @@
 ﻿using HHChaosToolkit.UWP.Mvvm;
+using LearnDraw.Helpers;
+using Microsoft.Graphics.Canvas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using Windows.Foundation;
+using Windows.Storage;
+using Windows.Storage.Pickers;
+using Windows.UI;
 using Windows.UI.Core;
 using Windows.UI.Input.Inking;
 using Windows.UI.Xaml.Controls;
@@ -73,8 +78,43 @@ namespace LearnDraw.Controls
         {
             get
             {
-                return _saveCommand ?? (_saveCommand = new RelayCommand(() =>
+                return _saveCommand ?? (_saveCommand = new RelayCommand(async () =>
                 {
+                    var strokes = InkPresenter.StrokeContainer.GetStrokes();
+                    if (strokes?.Count > 0)
+                    {
+                        var picker = new FileSavePicker
+                        {
+                            SuggestedStartLocation = PickerLocationId.PicturesLibrary,
+                            SuggestedFileName = $"My_Drawing"
+                        };
+                        picker.FileTypeChoices.Add("PNG Picture", new List<string> { ".png" });
+                        var file = await picker.PickSaveFileAsync();
+                        if (file != null)
+                        {
+                            var device = CanvasDevice.GetSharedDevice();
+
+                            using (var renderTarget = new CanvasRenderTarget(device, (float)ActualWidth, (float)ActualHeight, 96f))
+                            {
+
+                                using (var drawingSession = renderTarget.CreateDrawingSession())
+                                {
+                                    drawingSession.Clear(Colors.White);
+                                    drawingSession.DrawInk(strokes);
+                                }
+
+                                using (var stream = await file.OpenAsync(FileAccessMode.ReadWrite))
+                                {
+                                    await renderTarget.SaveAsync(stream, CanvasBitmapFileFormat.Png);
+                                }
+
+                            }
+                        }
+                    }
+                    else
+                    {
+                        ToastHelper.SendToast("You didn't draw anything!");
+                    }
 
                 }));
             }
