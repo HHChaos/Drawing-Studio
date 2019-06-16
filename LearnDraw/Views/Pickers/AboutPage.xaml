@@ -18,7 +18,7 @@
             Margin="0,60"
             Background="{ThemeResource SystemControlAcrylicElementBrush}"
             CornerRadius="4">
-            <Grid x:Name="ContentArea" Padding="40,20">
+            <Grid x:Name="ContentArea" Padding="{StaticResource PickerPageMargin}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition />
@@ -125,7 +125,7 @@
                     <StackPanel>
 
                         <TextBlock
-                            Margin="{StaticResource XSmallTopMargin}"
+                            Margin="{StaticResource MediumTopMargin}"
                             Style="{ThemeResource SubtitleTextBlockStyle}"
                             Text="Special thanks" />
 
@@ -165,7 +165,7 @@
 
                         </StackPanel>
                         <TextBlock
-                            Margin="{StaticResource XSmallTopMargin}"
+                            Margin="{StaticResource MediumTopMargin}"
                             Style="{ThemeResource SubtitleTextBlockStyle}"
                             Text="Libraries" />
 
@@ -198,14 +198,8 @@
                     </StackPanel>
                 </ScrollViewer>
             </Grid>
-            <Button
-                Margin="10"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Top"
-                Command="{x:Bind ViewModel.ExitCommand}"
-                Style="{ThemeResource TextBlockButtonStyle}">
-                <SymbolIcon Symbol="Cancel" />
-            </Button>
+            <Button Command="{x:Bind ViewModel.ExitCommand}" Style="{ThemeResource CloseButtonStyle}" />
+
         </Grid>
     </Grid>
 </Page>

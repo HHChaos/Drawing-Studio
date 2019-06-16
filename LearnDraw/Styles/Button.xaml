@@ -92,6 +92,18 @@
         <Setter Property="Width" Value="76" />
         <Setter Property="Height" Value="52" />
     </Style>
+    <Style
+        x:Key="CloseButtonStyle"
+        BasedOn="{StaticResource TextBlockButtonStyle}"
+        TargetType="Button">
+        <Setter Property="Foreground" Value="{StaticResource ThemeControlForegroundBaseHighBrush}" />
+        <Setter Property="Margin" Value="20" />
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="FontFamily" Value="Segoe MDL2 Assets" />
+        <Setter Property="HorizontalAlignment" Value="Right" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="Content" Value="&#xE10A;" />
+    </Style>
     <Style x:Key="ThumbnailRadioButtonStyle" TargetType="RadioButton">
         <Setter Property="Background" Value="White" />
         <Setter Property="Foreground" Value="Transparent" />

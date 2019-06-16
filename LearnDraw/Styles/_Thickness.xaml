@@ -25,4 +25,6 @@
 
     <!--Extra Extra Small size margins-->
     <Thickness x:Key="XXSmallTopMargin">0, 4, 0, 0</Thickness>
+
+    <Thickness x:Key="PickerPageMargin">40,20</Thickness>
 </ResourceDictionary>

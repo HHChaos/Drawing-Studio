@@ -21,7 +21,7 @@
             <StackPanel
                 x:Name="ContentArea"
                 MinWidth="300"
-                Padding="40,20">
+                Padding="{StaticResource PickerPageMargin}">
                 <TextBlock x:Uid="Settings_Personalization" Style="{ThemeResource SubtitleTextBlockStyle}" />
                 <StackPanel Margin="{StaticResource SmallTopBottomMargin}">
                     <TextBlock x:Uid="Settings_Theme" />
@@ -60,14 +60,7 @@
                     </StackPanel>
                 </StackPanel>
             </StackPanel>
-            <Button
-                Margin="10"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Top"
-                Command="{x:Bind ViewModel.ExitCommand}"
-                Style="{ThemeResource TextBlockButtonStyle}">
-                <SymbolIcon Symbol="Cancel" />
-            </Button>
+            <Button Command="{x:Bind ViewModel.ExitCommand}" Style="{ThemeResource CloseButtonStyle}" />
         </Grid>
     </Grid>
 </Page>
