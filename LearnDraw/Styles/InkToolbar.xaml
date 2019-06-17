@@ -1,0 +1,402 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style BasedOn="{StaticResource CustomInkToolbarStyle}" TargetType="InkToolbar" />
+    <Style BasedOn="{StaticResource CustomInkToolbarBallpointPenButtonStyle}" TargetType="InkToolbarBallpointPenButton" />
+    <Style BasedOn="{StaticResource CustomInkToolbarEraserButtonStyle}" TargetType="InkToolbarEraserButton" />
+    <Style x:Key="CustomInkToolbarStyle" TargetType="InkToolbar">
+        <Setter Property="HorizontalAlignment" Value="Right" />
+        <Setter Property="VerticalAlignment" Value="Bottom" />
+        <Setter Property="InitialControls" Value="None" />
+        <Setter Property="ButtonFlyoutPlacement" Value="Top" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="InkToolbar">
+                    <StackPanel
+                        x:Name="Panel"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        Orientation="Horizontal"
+                        Spacing="20" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style
+        x:Key="CustomInkToolbarBallpointPenButtonStyle"
+        BasedOn="{StaticResource InkToolbarCommonButtonStyle}"
+        TargetType="InkToolbarBallpointPenButton">
+        <Setter Property="AutomationProperties.AutomationId" Value="InkToolbarBallpointPenButton" />
+        <Setter Property="MinStrokeWidth" Value="8" />
+        <Setter Property="MaxStrokeWidth" Value="24" />
+        <Setter Property="MinWidth" Value="0" />
+        <Setter Property="MinHeight" Value="0" />
+        <Setter Property="MaxWidth" Value="100" />
+        <Setter Property="MaxHeight" Value="100" />
+        <Setter Property="SelectedStrokeWidth" Value="10" />
+        <Setter Property="UseSystemFocusVisuals" Value="{StaticResource UseSystemFocusVisuals}" />
+        <Setter Property="SelectedBrushIndex" Value="0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="InkToolbarBallpointPenButton">
+                    <Grid x:Name="RootElement" Background="{TemplateBinding Background}">
+                        <TextBlock
+                            x:Name="ExtensionGlyph"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            AutomationProperties.AccessibilityView="Raw"
+                            Style="{StaticResource InkToolbarExtensionGlyphStyle}"
+                            Text="&#xE96D;" />
+                        <Grid RenderTransformOrigin="0.5, 0.5">
+                            <Grid.RenderTransform>
+                                <ScaleTransform x:Name="ContentTransform" />
+                            </Grid.RenderTransform>
+                            <Viewbox
+                                VerticalAlignment="Bottom"
+                                RenderTransformOrigin="0.5,0.5"
+                                Stretch="Uniform">
+                                <Viewbox.RenderTransform>
+                                    <CompositeTransform x:Name="IconTransform" />
+                                </Viewbox.RenderTransform>
+                                <Grid RenderTransformOrigin="0.5,0.5">
+                                    <Grid.RenderTransform>
+                                        <CompositeTransform ScaleX="0.7" />
+                                    </Grid.RenderTransform>
+                                    <Path
+                                        x:Name="Content"
+                                        AutomationProperties.AccessibilityView="Raw"
+                                        Canvas.ZIndex="1"
+                                        Data="M 896 256 L 866 256 L 836 256 L 723.75 480 L 611.5 704 L 593.5 704 L 575.5 704 C 575.334 708.667 575.104 713.937 574.813 719.812 C 574.521 725.687 574.167 732.166 573.75 739.25 C 573.334 746.334 572.792 753.75 572.125 761.5 C 571.458 769.25 570.667 777.334 569.75 785.75 C 568.834 794.167 567.75 802.75 566.5 811.5 C 565.25 820.25 563.834 829.166 562.25 838.25 C 560.667 847.334 558.917 856.354 557 865.313 C 555.083 874.271 553 883.167 550.75 892 C 548.5 900.834 546.021 909.459 543.312 917.875 C 540.604 926.292 537.667 934.5 534.5 942.5 C 531.334 950.5 527.917 958 524.25 965 C 520.583 972 516.667 978.5 512.5 984.5 C 508.334 990.5 503.875 995.895 499.125 1000.686 C 494.375 1005.478 489.334 1009.665 484 1013.25 C 478.667 1016.835 473 1019.523 467 1021.314 C 461 1023.105 454.667 1024 448 1024 C 439.167 1024 430.917 1022.458 423.25 1019.374 C 415.583 1016.29 408.5 1011.665 402 1005.5 C 395.5 999.334 389.458 992.271 383.875 984.313 C 378.292 976.354 373.167 967.5 368.5 957.75 C 363.834 948 359.563 937.667 355.688 926.75 C 351.813 915.834 348.334 904.334 345.25 892.25 C 342.167 880.167 339.417 868.125 337 856.125 C 334.583 844.125 332.5 832.166 330.75 820.25 C 329 808.334 327.5 796.834 326.25 785.75 C 325 774.667 324 764 323.25 753.75 C 322.5 743.5 321.896 734.229 321.437 725.938 C 320.979 717.646 320.667 710.334 320.5 704 L 302.5 704 L 284.5 704 L 172.25 480 L 60 256 L 30 256 L 0 256 L 0 128 L 0 -499.679 L 32 -499.679 L 62.6 -499.679 L 64 96 L 64 192 L 448 192 L 832 192 L 832 96 L 830.601 -498.279 L 864.602 -498.697 L 897.666 -498.609 L 896 128 L 896 256 Z M 448 960 C 451.834 958 455.459 955.021 458.875 951.062 C 462.292 947.104 465.5 942.167 468.5 936.25 C 471.5 930.334 474.333 923.854 477 916.813 C 479.667 909.771 482.167 902.167 484.5 894 C 486.834 885.834 488.979 877.375 490.938 868.625 C 492.896 859.875 494.667 850.834 496.25 841.5 C 497.834 832.167 499.292 822.958 500.625 813.875 C 501.958 804.792 503.167 795.834 504.25 787 C 505.334 778.167 506.292 769.708 507.125 761.625 C 507.958 753.542 508.667 745.834 509.25 738.5 C 509.834 731.167 510.313 724.625 510.688 718.875 C 511.063 713.125 511.334 708.166 511.5 704 L 448 704 L 384.5 704 C 384.667 708.167 384.937 713.125 385.312 718.875 C 385.687 724.625 386.167 731.166 386.75 738.5 C 387.334 745.834 388.042 753.542 388.875 761.625 C 389.708 769.708 390.667 778.167 391.75 787 C 392.834 795.834 394.042 804.792 395.375 813.875 C 396.708 822.958 398.167 832.167 399.75 841.5 C 401.334 850.834 403.104 859.875 405.063 868.625 C 407.021 877.375 409.167 885.834 411.5 894 C 413.834 902.167 416.334 909.771 419 916.813 C 421.667 923.854 424.5 930.334 427.5 936.25 C 430.5 942.167 433.708 947.104 437.125 951.062 C 440.542 955.021 444.167 958 448 960 Z M 764 256 L 448 256 L 132 256 L 228 448 L 324 640 L 448 640 L 572 640 L 668 448 L 764 256 Z"
+                                        Fill="{ThemeResource InkToolbarButtonForegroundThemeBrush}">
+                                        <Path.RenderTransform>
+                                            <MatrixTransform Matrix="-1, 0, 0, -1, 896, 1024" />
+                                        </Path.RenderTransform>
+                                    </Path>
+                                    <Path
+                                        x:Name="CheckedContent"
+                                        AutomationProperties.AccessibilityView="Raw"
+                                        Canvas.ZIndex="1"
+                                        Data="M 896 256 L 866 256 L 836 256 L 723.75 480 L 611.5 704 L 593.5 704 L 575.5 704 C 575.334 708.667 575.104 713.937 574.813 719.812 C 574.521 725.687 574.167 732.166 573.75 739.25 C 573.334 746.334 572.792 753.75 572.125 761.5 C 571.458 769.25 570.667 777.334 569.75 785.75 C 568.834 794.167 567.75 802.75 566.5 811.5 C 565.25 820.25 563.834 829.166 562.25 838.25 C 560.667 847.334 558.917 856.354 557 865.313 C 555.083 874.271 553 883.167 550.75 892 C 548.5 900.834 546.021 909.459 543.312 917.875 C 540.604 926.292 537.667 934.5 534.5 942.5 C 531.334 950.5 527.917 958 524.25 965 C 520.583 972 516.667 978.5 512.5 984.5 C 508.334 990.5 503.875 995.895 499.125 1000.686 C 494.375 1005.478 489.334 1009.665 484 1013.25 C 478.667 1016.835 473 1019.523 467 1021.314 C 461 1023.105 454.667 1024 448 1024 C 439.167 1024 430.917 1022.458 423.25 1019.374 C 415.583 1016.29 408.5 1011.665 402 1005.5 C 395.5 999.334 389.458 992.271 383.875 984.313 C 378.292 976.354 373.167 967.5 368.5 957.75 C 363.834 948 359.563 937.667 355.688 926.75 C 351.813 915.834 348.334 904.334 345.25 892.25 C 342.167 880.167 339.417 868.125 337 856.125 C 334.583 844.125 332.5 832.166 330.75 820.25 C 329 808.334 327.5 796.834 326.25 785.75 C 325 774.667 324 764 323.25 753.75 C 322.5 743.5 321.896 734.229 321.437 725.938 C 320.979 717.646 320.667 710.334 320.5 704 L 302.5 704 L 284.5 704 L 172.25 480 L 60 256 L 30 256 L 0 256 L 0 128 L 0 -499.679 L 32 -499.679 L 62.6 -499.679 L 64 96 L 64 192 L 448 192 L 832 192 L 832 96 L 830.601 -498.279 L 864.602 -498.697 L 897.666 -498.609 L 896 128 L 896 256 Z M 448 960 C 451.834 958 455.459 955.021 458.875 951.062 C 462.292 947.104 465.5 942.167 468.5 936.25 C 471.5 930.334 474.333 923.854 477 916.813 C 479.667 909.771 482.167 902.167 484.5 894 C 486.834 885.834 488.979 877.375 490.938 868.625 C 492.896 859.875 494.667 850.834 496.25 841.5 C 497.834 832.167 499.292 822.958 500.625 813.875 C 501.958 804.792 503.167 795.834 504.25 787 C 505.334 778.167 506.292 769.708 507.125 761.625 C 507.958 753.542 508.667 745.834 509.25 738.5 C 509.834 731.167 510.313 724.625 510.688 718.875 C 511.063 713.125 511.334 708.166 511.5 704 L 448 704 L 384.5 704 C 384.667 708.167 384.937 713.125 385.312 718.875 C 385.687 724.625 386.167 731.166 386.75 738.5 C 387.334 745.834 388.042 753.542 388.875 761.625 C 389.708 769.708 390.667 778.167 391.75 787 C 392.834 795.834 394.042 804.792 395.375 813.875 C 396.708 822.958 398.167 832.167 399.75 841.5 C 401.334 850.834 403.104 859.875 405.063 868.625 C 407.021 877.375 409.167 885.834 411.5 894 C 413.834 902.167 416.334 909.771 419 916.813 C 421.667 923.854 424.5 930.334 427.5 936.25 C 430.5 942.167 433.708 947.104 437.125 951.062 C 440.542 955.021 444.167 958 448 960 Z M 764 256 L 448 256 L 132 256 L 228 448 L 324 640 L 448 640 L 572 640 L 668 448 L 764 256 Z"
+                                        Fill="{ThemeResource InkToolbarButtonSelectedForegroundThemeBrush}"
+                                        Opacity="0">
+                                        <Path.RenderTransform>
+                                            <MatrixTransform Matrix="-1, 0, 0, -1, 896, 1024" />
+                                        </Path.RenderTransform>
+                                    </Path>
+                                    <Path
+                                        x:Name="ContentFillGlyph"
+                                        AutomationProperties.AccessibilityView="Raw"
+                                        Canvas.ZIndex="0"
+                                        Data="M 417.661 1520.924 C 404.328 1520.924 392.661 1514.174 382.661 1500.674 C 372.661 1487.174 364.161 1469.924 357.161 1448.924 C 350.161 1427.924 344.328 1404.757 339.661 1379.424 C 334.994 1354.091 331.328 1329.591 328.661 1305.924 C 325.994 1282.257 324.078 1260.924 322.911 1241.924 C 321.744 1222.924 321.161 1209.257 321.161 1200.924 L 514.161 1200.924 C 513.828 1209.257 513.161 1222.924 512.161 1241.924 C 511.161 1260.924 509.328 1282.257 506.661 1305.924 C 503.994 1329.591 500.328 1354.091 495.661 1379.424 C 490.994 1404.757 485.161 1427.924 478.161 1448.924 C 471.161 1469.924 462.661 1487.174 452.661 1500.674 C 442.661 1514.174 430.994 1520.924 417.661 1520.924 Z M 833.661 -1 L 833.661 752.924 L 1.661 752.924 L 0 -1 L 833.661 -1 Z"
+                                        Fill="{Binding SelectedBrush, Mode=OneWay, RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                                        Opacity="1">
+                                        <Path.RenderTransform>
+                                            <MatrixTransform Matrix="-1, 0, 0, -1, 864, 1550" />
+                                        </Path.RenderTransform>
+                                    </Path>
+                                </Grid>
+                            </Viewbox>
+                        </Grid>
+                        <Rectangle x:Name="SelectionAccent" Style="{StaticResource InkToolbarSelectionAccentStyle}" />
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal">
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="IconTransform"
+                                            Storyboard.TargetProperty="ScaleX"
+                                            To="1.0"
+                                            Duration="00:00:00.3">
+                                            <DoubleAnimation.EasingFunction>
+                                                <ExponentialEase EasingMode="EaseOut" Exponent="7" />
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="IconTransform"
+                                            Storyboard.TargetProperty="ScaleY"
+                                            To="1.0"
+                                            Duration="00:00:00.3">
+                                            <DoubleAnimation.EasingFunction>
+                                                <ExponentialEase EasingMode="EaseOut" Exponent="7" />
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="PointerOver">
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="IconTransform"
+                                            Storyboard.TargetProperty="ScaleX"
+                                            To="1.2"
+                                            Duration="00:00:00.3">
+                                            <DoubleAnimation.EasingFunction>
+                                                <ExponentialEase EasingMode="EaseOut" Exponent="7" />
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="IconTransform"
+                                            Storyboard.TargetProperty="ScaleY"
+                                            To="1.2"
+                                            Duration="00:00:00.3">
+                                            <DoubleAnimation.EasingFunction>
+                                                <ExponentialEase EasingMode="EaseOut" Exponent="7" />
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                    <VisualState.Setters>
+                                        <Setter Target="Content.Fill" Value="{ThemeResource InkToolbarButtonForegroundPointerOver}" />
+                                        <Setter Target="CheckedContent.Fill" Value="{ThemeResource InkToolbarButtonHoverForegroundThemeBrush}" />
+                                        <Setter Target="ExtensionGlyph.Foreground" Value="{ThemeResource InkToolbarButtonHoverForegroundThemeBrush}" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState x:Name="Pressed">
+                                    <VisualState.Setters>
+                                        <Setter Target="Content.Fill" Value="{ThemeResource InkToolbarButtonForegroundPressed}" />
+                                        <Setter Target="CheckedContent.Fill" Value="{ThemeResource InkToolbarButtonPressedForegroundThemeBrush}" />
+                                        <Setter Target="ExtensionGlyph.Foreground" Value="{ThemeResource InkToolbarButtonPressedForegroundThemeBrush}" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState x:Name="Disabled">
+                                    <VisualState.Setters>
+                                        <Setter Target="Content.Fill" Value="{ThemeResource InkToolbarButtonForegroundDisabled}" />
+                                        <Setter Target="CheckedContent.Fill" Value="{ThemeResource InkToolbarDisabledForegroundThemeBrush}" />
+                                        <Setter Target="ExtensionGlyph.Foreground" Value="{ThemeResource InkToolbarDisabledForegroundThemeBrush}" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="CheckStates">
+                                <VisualState x:Name="Unchecked">
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="IconTransform"
+                                            Storyboard.TargetProperty="TranslateY"
+                                            To="22"
+                                            Duration="00:00:00.3">
+                                            <DoubleAnimation.EasingFunction>
+                                                <BackEase EasingMode="EaseOut" />
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Indeterminate" />
+                                <VisualState x:Name="Checked">
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="IconTransform"
+                                            Storyboard.TargetProperty="TranslateY"
+                                            To="0"
+                                            Duration="00:00:00.3">
+                                            <DoubleAnimation.EasingFunction>
+                                                <BackEase EasingMode="EaseIn" />
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                    <VisualState.Setters>
+                                        <Setter Target="Content.Opacity" Value="0" />
+                                        <Setter Target="CheckedContent.Opacity" Value="1" />
+                                        <Setter Target="SelectionAccent.Opacity" Value="1" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="FocusStates">
+                                <VisualState x:Name="Focused" />
+                                <VisualState x:Name="Unfocused" />
+                                <VisualState x:Name="PointerFocused" />
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="GlyphVisualStates">
+                                <VisualState x:Name="ShowExtensionGlyph">
+                                    <VisualState.Setters>
+                                        <Setter Target="ExtensionGlyph.Opacity" Value="1" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState x:Name="HideExtensionGlyph" />
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style
+        x:Key="CustomInkToolbarEraserButtonStyle"
+        BasedOn="{StaticResource InkToolbarCommonButtonStyle}"
+        TargetType="InkToolbarEraserButton">
+        <Setter Property="AutomationProperties.AutomationId" Value="InkToolbarEraserButton" />
+        <Setter Property="MinWidth" Value="0" />
+        <Setter Property="MinHeight" Value="0" />
+        <Setter Property="MaxWidth" Value="100" />
+        <Setter Property="MaxHeight" Value="100" />
+        <Setter Property="UseSystemFocusVisuals" Value="{StaticResource UseSystemFocusVisuals}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="InkToolbarEraserButton">
+                    <Grid x:Name="RootElement" Background="{TemplateBinding Background}">
+                        <TextBlock
+                            x:Name="ExtensionGlyph"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            AutomationProperties.AccessibilityView="Raw"
+                            Style="{StaticResource InkToolbarExtensionGlyphStyle}"
+                            Text="&#xE96D;" />
+                        <Grid RenderTransformOrigin="0.5, 0.5">
+                            <Grid.RenderTransform>
+                                <ScaleTransform x:Name="ContentTransform" />
+                            </Grid.RenderTransform>
+                            <Viewbox
+                                VerticalAlignment="Bottom"
+                                RenderTransformOrigin="0.5,0.5"
+                                Stretch="Uniform">
+                                <Viewbox.RenderTransform>
+                                    <CompositeTransform x:Name="IconTransform" />
+                                </Viewbox.RenderTransform>
+                                <Grid RenderTransformOrigin="0.5,0.5">
+                                    <Grid.RenderTransform>
+                                        <CompositeTransform ScaleX="0.7" />
+                                    </Grid.RenderTransform>
+                                    <Path
+                                        x:Name="Content"
+                                        AutomationProperties.AccessibilityView="Raw"
+                                        Canvas.ZIndex="1"
+                                        Data="M 870.4 372.122 L 870.4 102.4 C 870.4 45.875 824.525 0 768 0 L 409.6 0 C 268.186 0 153.6 114.586 153.6 256 L 153.6 372.122 C 122.982 389.837 102.4 422.912 102.4 460.8 L 103.683 1523.117 L 153.6 1523.117 L 153.6 460.8 C 153.6 432.538 176.538 409.6 204.8 409.6 L 484.352 409.6 L 312.832 624.026 C 304.026 635.085 305.766 651.162 316.826 659.968 C 327.885 668.774 343.962 667.034 352.768 655.974 L 549.888 409.6 L 637.952 409.6 L 466.432 624.026 C 457.626 635.085 459.366 651.162 470.426 659.968 C 481.485 668.774 497.562 667.034 506.368 655.974 L 703.488 409.6 L 791.552 409.6 L 620.032 624.026 C 611.226 635.085 612.966 651.162 624.026 659.968 C 635.085 668.774 651.162 667.034 659.968 655.974 L 849.306 419.328 C 862.106 428.646 870.4 443.699 870.4 460.8 L 870.4 1528.249 L 921.6 1526.966 L 921.6 460.8 C 921.6 422.912 901.018 389.837 870.4 372.122 Z M 204.8 256 C 204.8 142.848 296.448 51.2 409.6 51.2 L 768 51.2 C 796.262 51.2 819.2 74.138 819.2 102.4 L 819.2 358.4 L 204.8 358.4 L 204.8 256 Z"
+                                        Fill="{ThemeResource InkToolbarButtonForegroundThemeBrush}" />
+                                    <Path
+                                        x:Name="CheckedContent"
+                                        AutomationProperties.AccessibilityView="Raw"
+                                        Canvas.ZIndex="1"
+                                        Data="M 870.4 372.122 L 870.4 102.4 C 870.4 45.875 824.525 0 768 0 L 409.6 0 C 268.186 0 153.6 114.586 153.6 256 L 153.6 372.122 C 122.982 389.837 102.4 422.912 102.4 460.8 L 103.683 1523.117 L 153.6 1523.117 L 153.6 460.8 C 153.6 432.538 176.538 409.6 204.8 409.6 L 484.352 409.6 L 312.832 624.026 C 304.026 635.085 305.766 651.162 316.826 659.968 C 327.885 668.774 343.962 667.034 352.768 655.974 L 549.888 409.6 L 637.952 409.6 L 466.432 624.026 C 457.626 635.085 459.366 651.162 470.426 659.968 C 481.485 668.774 497.562 667.034 506.368 655.974 L 703.488 409.6 L 791.552 409.6 L 620.032 624.026 C 611.226 635.085 612.966 651.162 624.026 659.968 C 635.085 668.774 651.162 667.034 659.968 655.974 L 849.306 419.328 C 862.106 428.646 870.4 443.699 870.4 460.8 L 870.4 1528.249 L 921.6 1526.966 L 921.6 460.8 C 921.6 422.912 901.018 389.837 870.4 372.122 Z M 204.8 256 C 204.8 142.848 296.448 51.2 409.6 51.2 L 768 51.2 C 796.262 51.2 819.2 74.138 819.2 102.4 L 819.2 358.4 L 204.8 358.4 L 204.8 256 Z"
+                                        Fill="{ThemeResource InkToolbarButtonSelectedForegroundThemeBrush}"
+                                        Opacity="0" />
+                                    <Path
+                                        x:Name="ContentFillGlyph"
+                                        AutomationProperties.AccessibilityView="Raw"
+                                        Canvas.ZIndex="0"
+                                        Data="M 417.661 1520.924 C 404.328 1520.924 392.661 1514.174 382.661 1500.674 C 372.661 1487.174 364.161 1469.924 357.161 1448.924 C 350.161 1427.924 344.328 1404.757 339.661 1379.424 C 334.994 1354.091 331.328 1329.591 328.661 1305.924 C 325.994 1282.257 324.078 1260.924 322.911 1241.924 C 321.744 1222.924 321.161 1209.257 321.161 1200.924 L 514.161 1200.924 C 513.828 1209.257 513.161 1222.924 512.161 1241.924 C 511.161 1260.924 509.328 1282.257 506.661 1305.924 C 503.994 1329.591 500.328 1354.091 495.661 1379.424 C 490.994 1404.757 485.161 1427.924 478.161 1448.924 C 471.161 1469.924 462.661 1487.174 452.661 1500.674 C 442.661 1514.174 430.994 1520.924 417.661 1520.924 Z M 833.661 -1 L 833.661 752.924 L 1.661 752.924 L 0 -1 L 833.661 -1 Z"
+                                        Fill="{Binding SelectedBrush, Mode=OneWay, RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                                        Opacity="1">
+                                        <Path.RenderTransform>
+                                            <MatrixTransform Matrix="-1, 0, 0, -1, 864, 1550" />
+                                        </Path.RenderTransform>
+                                    </Path>
+                                </Grid>
+                            </Viewbox>
+                        </Grid>
+                        <Rectangle x:Name="SelectionAccent" Style="{StaticResource InkToolbarSelectionAccentStyle}" />
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal">
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="IconTransform"
+                                            Storyboard.TargetProperty="ScaleX"
+                                            To="1.0"
+                                            Duration="00:00:00.3">
+                                            <DoubleAnimation.EasingFunction>
+                                                <ExponentialEase EasingMode="EaseOut" Exponent="7" />
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="IconTransform"
+                                            Storyboard.TargetProperty="ScaleY"
+                                            To="1.0"
+                                            Duration="00:00:00.3">
+                                            <DoubleAnimation.EasingFunction>
+                                                <ExponentialEase EasingMode="EaseOut" Exponent="7" />
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="PointerOver">
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="IconTransform"
+                                            Storyboard.TargetProperty="ScaleX"
+                                            To="1.2"
+                                            Duration="00:00:00.3">
+                                            <DoubleAnimation.EasingFunction>
+                                                <ExponentialEase EasingMode="EaseOut" Exponent="7" />
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="IconTransform"
+                                            Storyboard.TargetProperty="ScaleY"
+                                            To="1.2"
+                                            Duration="00:00:00.3">
+                                            <DoubleAnimation.EasingFunction>
+                                                <ExponentialEase EasingMode="EaseOut" Exponent="7" />
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                    <VisualState.Setters>
+                                        <Setter Target="Content.Fill" Value="{ThemeResource InkToolbarButtonForegroundPointerOver}" />
+                                        <Setter Target="CheckedContent.Fill" Value="{ThemeResource InkToolbarButtonHoverForegroundThemeBrush}" />
+                                        <Setter Target="ExtensionGlyph.Foreground" Value="{ThemeResource InkToolbarButtonHoverForegroundThemeBrush}" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState x:Name="Pressed">
+                                    <VisualState.Setters>
+                                        <Setter Target="Content.Fill" Value="{ThemeResource InkToolbarButtonForegroundPressed}" />
+                                        <Setter Target="CheckedContent.Fill" Value="{ThemeResource InkToolbarButtonPressedForegroundThemeBrush}" />
+                                        <Setter Target="ExtensionGlyph.Foreground" Value="{ThemeResource InkToolbarButtonPressedForegroundThemeBrush}" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState x:Name="Disabled">
+                                    <VisualState.Setters>
+                                        <Setter Target="Content.Fill" Value="{ThemeResource InkToolbarButtonForegroundDisabled}" />
+                                        <Setter Target="CheckedContent.Fill" Value="{ThemeResource InkToolbarDisabledForegroundThemeBrush}" />
+                                        <Setter Target="ExtensionGlyph.Foreground" Value="{ThemeResource InkToolbarDisabledForegroundThemeBrush}" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="CheckStates">
+                                <VisualState x:Name="Unchecked">
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="IconTransform"
+                                            Storyboard.TargetProperty="TranslateY"
+                                            To="22"
+                                            Duration="00:00:00.3">
+                                            <DoubleAnimation.EasingFunction>
+                                                <BackEase EasingMode="EaseOut" />
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Indeterminate" />
+                                <VisualState x:Name="Checked">
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="IconTransform"
+                                            Storyboard.TargetProperty="TranslateY"
+                                            To="0"
+                                            Duration="00:00:00.3">
+                                            <DoubleAnimation.EasingFunction>
+                                                <BackEase EasingMode="EaseIn" />
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                    <VisualState.Setters>
+                                        <Setter Target="Content.Opacity" Value="0" />
+                                        <Setter Target="CheckedContent.Opacity" Value="1" />
+                                        <Setter Target="SelectionAccent.Opacity" Value="1" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="FocusStates">
+                                <VisualState x:Name="Focused" />
+                                <VisualState x:Name="Unfocused" />
+                                <VisualState x:Name="PointerFocused" />
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="GlyphVisualStates">
+                                <VisualState x:Name="ShowExtensionGlyph">
+                                    <VisualState.Setters>
+                                        <Setter Target="ExtensionGlyph.Opacity" Value="1" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState x:Name="HideExtensionGlyph" />
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

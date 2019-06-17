@@ -144,15 +144,10 @@
                         <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE105;" />
                     </Button>
                 </StackPanel>
-                <InkToolbar
-                    Grid.Column="1"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Bottom"
-                    InitialControls="None"
-                    TargetInkCanvas="{x:Bind InkCanvas}">
+                <InkToolbar Grid.Column="1" TargetInkCanvas="{x:Bind InkCanvas}">
                     <InkToolbar.Children>
-                        <InkToolbarBallpointPenButton />
-                        <InkToolbarEraserButton />
+                        <InkToolbarBallpointPenButton Width="36" />
+                        <InkToolbarEraserButton Width="36" />
                     </InkToolbar.Children>
                 </InkToolbar>
             </Grid>
