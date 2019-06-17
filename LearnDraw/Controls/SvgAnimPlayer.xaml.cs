@@ -181,7 +181,7 @@ namespace LearnDraw.Controls
                 if (!_paused && (needDrawLenght + _win2DSvg.Progress) > _playTargetProgress)
                 {
                     needDrawLenght = (float)_playTargetProgress - _win2DSvg.Progress;
-                    needDrawLenght -= 0.0001f;
+                    needDrawLenght -= 0.00001f;
                     _paused = true;
                     _context.Post(_ =>
                     {
