@@ -8,7 +8,7 @@ using Windows.UI.Xaml.Navigation;
 
 namespace LearnDraw.ViewModels.PickerViewModels
 {
-    public class FirstRunViewModel : ObjectPickerBase<bool>
+    public class UnpackResViewModel : ObjectPickerBase<bool>
     {
         public override async void OnNavigatedTo(NavigationEventArgs e)
         {

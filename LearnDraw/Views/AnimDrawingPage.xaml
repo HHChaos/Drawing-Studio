@@ -12,6 +12,7 @@
 
     <Page.Resources>
         <helpers:BooleanToVisibilityConverter x:Key="InversedBooleanToVisibilityConverter" IsInversed="True" />
+        <helpers:IndexAdd1Converter x:Key="IndexAdd1Converter" />
     </Page.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -64,6 +65,33 @@
                     </animations:Implicit.HideAnimations>
                     <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE102;" />
                 </Button>
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"
+                    Foreground="DimGray"
+                    RenderTransformOrigin="0.5,0.5"
+                    Visibility="{x:Bind SvgPlayer.IsPlayingState, Mode=OneWay}">
+                    <Run Text="{x:Bind SvgPlayer.DrawIndex, Mode=OneWay, Converter={StaticResource IndexAdd1Converter}}" />
+                    <Run Text="/" />
+                    <Run Text="{x:Bind SvgPlayer.SegsCount, Mode=OneWay}" />
+                    <TextBlock.RenderTransform>
+                        <CompositeTransform TranslateY="30" />
+                    </TextBlock.RenderTransform>
+                    <animations:Implicit.ShowAnimations>
+                        <animations:OpacityAnimation
+                            Delay="0:0:0.3"
+                            SetInitialValueBeforeDelay="True"
+                            From="0"
+                            To="1"
+                            Duration="0:0:0.6" />
+                    </animations:Implicit.ShowAnimations>
+                    <animations:Implicit.HideAnimations>
+                        <animations:OpacityAnimation
+                            From="1"
+                            To="0"
+                            Duration="0:0:0.3" />
+                    </animations:Implicit.HideAnimations>
+                </TextBlock>
                 <StackPanel
                     HorizontalAlignment="Center"
                     Orientation="Horizontal"

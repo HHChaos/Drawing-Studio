@@ -47,7 +47,7 @@ namespace LearnDraw.ViewModels.PickerViewModels
             {
                 return new RelayCommand(async () =>
                 {
-                    await ViewModelLocator.Current.ObjectPickerService.PickSingleObjectAsync<bool>(typeof(FirstRunViewModel).FullName);
+                    await ViewModelLocator.Current.ObjectPickerService.PickSingleObjectAsync<bool>(typeof(UnpackResViewModel).FullName);
                 });
             }
         }

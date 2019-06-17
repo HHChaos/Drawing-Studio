@@ -1,6 +1,8 @@
 ﻿using HHChaosToolkit.UWP.Mvvm;
 using LearnDraw.ViewModels.PickerViewModels;
+using System;
 using System.Windows.Input;
+using Windows.System;
 
 namespace LearnDraw.ViewModels
 {
@@ -30,6 +32,17 @@ namespace LearnDraw.ViewModels
                 return new RelayCommand(async () =>
                 {
                     await ViewModelLocator.Current.ObjectPickerService.PickSingleObjectAsync<bool>(typeof(AboutViewModel).FullName);
+                });
+            }
+        }
+
+        public ICommand FeedbackCommand
+        {
+            get
+            {
+                return new RelayCommand(async () =>
+                {
+                    await Launcher.LaunchUriAsync(new Uri("ms-windows-store://review/?ProductId=9PKVX26RB8F0"));
                 });
             }
         }

@@ -54,6 +54,18 @@ namespace LearnDraw.Controls
 
         public float Progress => _win2DSvg?.Progress ?? 0;
 
+        public int DrawIndex
+        {
+            get => _drawIndex;
+            set
+            {
+                _drawIndex = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(DrawIndex)));
+            }
+        }
+
+        public int SegsCount => _drawSegs?.Length ?? 0;
+
         private CanvasImageSource _refImage;
         public CanvasImageSource RefImage
         {
@@ -61,7 +73,7 @@ namespace LearnDraw.Controls
             set
             {
                 _refImage = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("RefImage"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(RefImage)));
             }
         }
 
@@ -72,7 +84,7 @@ namespace LearnDraw.Controls
             set
             {
                 _isPlayingState = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("IsPlayingState"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsPlayingState)));
             }
         }
         public void Play()
@@ -82,8 +94,8 @@ namespace LearnDraw.Controls
             lock (_lockobj)
             {
                 _win2DSvg.Progress = 0;
-                _drawIndex = 0;
-                _playTargetProgress = _drawSegs[_drawIndex];
+                DrawIndex = 0;
+                _playTargetProgress = _drawSegs[DrawIndex];
                 _paused = false;
                 IsPlayingState = true;
             }
@@ -95,7 +107,7 @@ namespace LearnDraw.Controls
             lock (_lockobj)
             {
                 _win2DSvg.Progress = 1;
-                _drawIndex = 0;
+                DrawIndex = 0;
                 _playTargetProgress = 0;
                 RefImage = null;
                 _paused = true;
@@ -108,17 +120,18 @@ namespace LearnDraw.Controls
                 return;
             lock (_lockobj)
             {
-                _drawIndex++;
-                if (_drawIndex >= _drawSegs.Length)
+
+                if (DrawIndex + 1 >= _drawSegs.Length)
                 {
                     _win2DSvg.Progress = 0;
-                    _drawIndex = 0;
-                    _playTargetProgress = _drawSegs[_drawIndex];
+                    DrawIndex = 0;
+                    _playTargetProgress = _drawSegs[DrawIndex];
                 }
                 else
                 {
+                    DrawIndex++;
                     _win2DSvg.Progress = (float)_playTargetProgress;
-                    _playTargetProgress += _drawSegs[_drawIndex];
+                    _playTargetProgress += _drawSegs[DrawIndex];
                 }
                 _paused = false;
             }
@@ -130,7 +143,7 @@ namespace LearnDraw.Controls
                 return;
             lock (_lockobj)
             {
-                _win2DSvg.Progress = (float)(_playTargetProgress - _drawSegs[_drawIndex]);
+                _win2DSvg.Progress = (float)(_playTargetProgress - _drawSegs[DrawIndex]);
                 _paused = false;
             }
         }
@@ -199,7 +212,7 @@ namespace LearnDraw.Controls
 
             _context.Post(_ =>
             {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Progress"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Progress)));
             }, null);
         }
 
@@ -231,7 +244,7 @@ namespace LearnDraw.Controls
                 _win2DSvg?.Dispose();
                 _win2DSvg = win2DSvg;
                 _win2DSvg.Progress = 1;
-                _drawIndex = 0;
+                DrawIndex = 0;
                 _playTargetProgress = 0;
                 RefImage = null;
                 _paused = true;
@@ -241,6 +254,7 @@ namespace LearnDraw.Controls
                     item => item.RenderMethod.Equals(RenderMethod.Draw) || item.RenderMethod.Equals(RenderMethod.Mark) || item.RenderMethod.Equals(RenderMethod.MarkAndFill))
                 .Cast<Win2DSvgGeometry>().Select(item => item.PathLength / _win2DSvg.TotalLength);
                 _drawSegs = OptimizeSegs(segs);
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(SegsCount)));
             }
             _loading = false;
         }

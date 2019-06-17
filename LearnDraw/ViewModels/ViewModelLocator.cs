@@ -39,7 +39,7 @@ namespace LearnDraw.ViewModels
             RegisterNavigationService<MainViewModel, MainPage>(ShellViewModel.ContentNavigationServiceKey);
             RegisterNavigationService<AnimDrawingViewModel, AnimDrawingPage>(ShellViewModel.ContentNavigationServiceKey);
 
-            RegisterObjectPicker<bool, FirstRunViewModel, FirstRunPage>();
+            RegisterObjectPicker<bool, UnpackResViewModel, UnpackResPage>();
             RegisterObjectPicker<bool, SettingsViewModel, SettingsPage>();
             RegisterObjectPicker<bool, AboutViewModel, AboutPage>();
         }
@@ -52,7 +52,7 @@ namespace LearnDraw.ViewModels
         public SettingsViewModel SettingsViewModel => ServiceLocator.Current.GetInstance<SettingsViewModel>();
         public AboutViewModel AboutViewModel => ServiceLocator.Current.GetInstance<AboutViewModel>();
 
-        public FirstRunViewModel FirstRunViewModel => ServiceLocator.Current.GetInstance<FirstRunViewModel>();
+        public UnpackResViewModel FirstRunViewModel => ServiceLocator.Current.GetInstance<UnpackResViewModel>();
 
         public void RegisterNavigationService<VM, V>(string nsKey)
             where VM : ViewModelBase

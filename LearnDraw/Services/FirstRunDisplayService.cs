@@ -14,7 +14,7 @@ namespace LearnDraw.Services
             if (SystemInformation.IsFirstRun && !shown)
             {
                 shown = true;
-                await ViewModelLocator.Current.ObjectPickerService.PickSingleObjectAsync<bool>(typeof(FirstRunViewModel).FullName);
+                await ViewModelLocator.Current.ObjectPickerService.PickSingleObjectAsync<bool>(typeof(UnpackResViewModel).FullName);
             }
         }
     }

@@ -132,6 +132,7 @@
     <Compile Include="Helpers\AnimAssetsHelper.cs" />
     <Compile Include="Helpers\BooleanToVisibilityConverter.cs" />
     <Compile Include="Helpers\EnumToBooleanConverter.cs" />
+    <Compile Include="Helpers\IndexAdd1Converter.cs" />
     <Compile Include="Helpers\ToastHelper.cs" />
     <Compile Include="MLHelpers\DataV1ConvertHelper.cs" />
     <Compile Include="MLHelpers\DataV2ConvertHelper.cs" />
@@ -144,7 +145,7 @@
     <Compile Include="ViewModels\AnimDrawingViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\PickerViewModels\AboutViewModel.cs" />
-    <Compile Include="ViewModels\PickerViewModels\FirstRunViewModel.cs" />
+    <Compile Include="ViewModels\PickerViewModels\UnpackResViewModel.cs" />
     <Compile Include="ViewModels\PickerViewModels\SettingsViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
@@ -157,8 +158,8 @@
     <Compile Include="Views\Pickers\AboutPage.xaml.cs">
       <DependentUpon>AboutPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pickers\FirstRunPage.xaml.cs">
-      <DependentUpon>FirstRunPage.xaml</DependentUpon>
+    <Compile Include="Views\Pickers\UnpackResPage.xaml.cs">
+      <DependentUpon>UnpackResPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Pickers\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
@@ -222,7 +223,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Pickers\FirstRunPage.xaml">
+    <Page Include="Views\Pickers\UnpackResPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
