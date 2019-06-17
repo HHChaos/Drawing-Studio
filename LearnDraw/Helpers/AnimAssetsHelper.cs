@@ -33,7 +33,7 @@ namespace LearnDraw.Helpers
             var list = new List<string>();
             foreach (var label in candidateLabels)
             {
-                if (assets?.Data?.ContainsKey(label) == true)
+                if (!string.IsNullOrEmpty(label) && assets?.Data?.ContainsKey(label) == true)
                 {
                     list.AddRange(assets.Data[label]);
                 }

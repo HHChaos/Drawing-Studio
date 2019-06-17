@@ -4,6 +4,7 @@ using Microsoft.Graphics.Canvas.UI.Xaml;
 using SvgConverter.SvgParse;
 using SvgConverter.SvgParseForWin2D;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Numerics;
@@ -236,11 +237,42 @@ namespace LearnDraw.Controls
                 _paused = true;
                 IsPlayingState = false;
                 UpdateSvgLayout();
-                _drawSegs = _win2DSvg.SvgNodeList.Where(
+                var segs = _win2DSvg.SvgNodeList.Where(
                     item => item.RenderMethod.Equals(RenderMethod.Draw) || item.RenderMethod.Equals(RenderMethod.Mark) || item.RenderMethod.Equals(RenderMethod.MarkAndFill))
-                .Cast<Win2DSvgGeometry>().Select(item => item.PathLength / _win2DSvg.TotalLength).ToArray();
+                .Cast<Win2DSvgGeometry>().Select(item => item.PathLength / _win2DSvg.TotalLength);
+                _drawSegs = OptimizeSegs(segs);
             }
             _loading = false;
+        }
+
+        private double[] OptimizeSegs(IEnumerable<double> segs)
+        {
+            var list = new List<double>();
+            var addMode = false;
+            foreach (var seg in segs)
+            {
+                if (addMode)
+                {
+                    if (seg < 0.03)
+                    {
+                        list[list.Count - 1] = list[list.Count - 1] + seg;
+                    }
+                    else
+                    {
+                        list.Add(seg);
+                        addMode = false;
+                    }
+                }
+                else
+                {
+                    list.Add(seg);
+                    if (seg < 0.05)
+                    {
+                        addMode = true;
+                    }
+                }
+            }
+            return list.ToArray();
         }
         private void UpdateSvgLayout()
         {
