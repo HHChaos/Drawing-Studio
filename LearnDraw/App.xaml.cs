@@ -41,7 +41,7 @@ namespace LearnDraw
             var viewTitleBar = ApplicationView.GetForCurrentView().TitleBar;
             viewTitleBar.ButtonBackgroundColor = Colors.Transparent;
             viewTitleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
-            viewTitleBar.ButtonForegroundColor = (Color)Resources["SystemBaseHighColor"];
+            //viewTitleBar.ButtonForegroundColor = (Color)Resources["SystemBaseHighColor"];
         }
     }
 }

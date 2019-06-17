@@ -3,7 +3,9 @@ using System;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
 using Windows.Storage;
+using Windows.UI;
 using Windows.UI.Core;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 
 namespace LearnDraw.Services
@@ -36,6 +38,9 @@ namespace LearnDraw.Services
                     if (Window.Current.Content is FrameworkElement frameworkElement)
                     {
                         frameworkElement.RequestedTheme = Theme;
+                        var viewTitleBar = ApplicationView.GetForCurrentView().TitleBar;
+                        viewTitleBar.ButtonForegroundColor = Theme == ElementTheme.Default ? (Color)App.Current.Resources["SystemBaseHighColor"]
+                        : (Theme == ElementTheme.Light ? Colors.Black : Colors.White);
                     }
                 });
             }
