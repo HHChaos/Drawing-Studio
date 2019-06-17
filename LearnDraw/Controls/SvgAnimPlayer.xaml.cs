@@ -248,12 +248,13 @@ namespace LearnDraw.Controls
         private double[] OptimizeSegs(IEnumerable<double> segs)
         {
             var list = new List<double>();
+            var limit = 0.03;
             var addMode = false;
             foreach (var seg in segs)
             {
                 if (addMode)
                 {
-                    if (seg < 0.03)
+                    if (seg < limit)
                     {
                         list[list.Count - 1] = list[list.Count - 1] + seg;
                     }
@@ -266,7 +267,7 @@ namespace LearnDraw.Controls
                 else
                 {
                     list.Add(seg);
-                    if (seg < 0.05)
+                    if (seg < limit)
                     {
                         addMode = true;
                     }

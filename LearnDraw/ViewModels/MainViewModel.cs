@@ -2,6 +2,7 @@
 using LearnDraw.Helpers;
 using LearnDraw.ML.Tools;
 using LearnDraw.MLHelpers;
+using System;
 using System.Collections.Generic;
 using Windows.UI.Input.Inking;
 
@@ -44,6 +45,10 @@ namespace LearnDraw.ViewModels
                 RaisePropertyChanged(() => CandidateLabel2);
                 RaisePropertyChanged(() => CandidateLabel3);
                 RecommendedAssets = AnimAssetsHelper.Instance.GetRecommendedAssets(_candidateLabels);
+            }
+            else
+            {
+                ToastHelper.SendToast("The prediction engine has not been loaded yet, please wait...", TimeSpan.FromSeconds(3));
             }
         }
 
