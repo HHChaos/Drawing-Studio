@@ -1,4 +1,5 @@
-﻿using SvgConverter.SvgParse;
+﻿using LearnDraw.ViewModels;
+using SvgConverter.SvgParse;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
@@ -13,9 +14,15 @@ namespace LearnDraw.Views
     /// </summary>
     public sealed partial class AnimDrawingPage : Page
     {
+        private AnimDrawingViewModel ViewModel
+        {
+            get { return ViewModelLocator.Current.AnimDrawingViewModel; }
+        }
+
         public AnimDrawingPage()
         {
             this.InitializeComponent();
+            DataContext = ViewModel;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)

@@ -2,6 +2,7 @@
 using HHChaosToolkit.UWP.Mvvm;
 using HHChaosToolkit.UWP.Services;
 using HHChaosToolkit.UWP.Services.Navigation;
+using LearnDraw.Core.Models;
 using LearnDraw.ViewModels.PickerViewModels;
 using LearnDraw.Views;
 using LearnDraw.Views.Pickers;
@@ -42,6 +43,8 @@ namespace LearnDraw.ViewModels
             RegisterObjectPicker<bool, UnpackResViewModel, UnpackResPage>();
             RegisterObjectPicker<bool, SettingsViewModel, SettingsPage>();
             RegisterObjectPicker<bool, AboutViewModel, AboutPage>();
+
+            RegisterObjectPicker<AnimConfig, AnimSettingsViewModel, AnimSettingsPage>();
         }
 
         public ObjectPickerService ObjectPickerService => ServiceLocator.Current.GetInstance<ObjectPickerService>();
@@ -49,9 +52,10 @@ namespace LearnDraw.ViewModels
 
         public ShellViewModel ShellViewModel => ServiceLocator.Current.GetInstance<ShellViewModel>();
         public MainViewModel MainViewModel => ServiceLocator.Current.GetInstance<MainViewModel>();
+        public AnimDrawingViewModel AnimDrawingViewModel => ServiceLocator.Current.GetInstance<AnimDrawingViewModel>();
         public SettingsViewModel SettingsViewModel => ServiceLocator.Current.GetInstance<SettingsViewModel>();
         public AboutViewModel AboutViewModel => ServiceLocator.Current.GetInstance<AboutViewModel>();
-
+        public AnimSettingsViewModel AnimSettingsViewModel => ServiceLocator.Current.GetInstance<AnimSettingsViewModel>();
         public UnpackResViewModel FirstRunViewModel => ServiceLocator.Current.GetInstance<UnpackResViewModel>();
 
         public void RegisterNavigationService<VM, V>(string nsKey)

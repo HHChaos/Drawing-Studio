@@ -136,6 +136,7 @@
             <Button
                 Grid.Column="2"
                 HorizontalAlignment="Right"
+                Command="{x:Bind ViewModel.OpenPlayerSettingsCommand}"
                 Style="{StaticResource CircleButtonStyle}">
                 <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE115;" />
             </Button>
@@ -213,7 +214,8 @@
                             <controls:SvgAnimPlayer
                                 x:Name="SvgPlayer"
                                 Width="800"
-                                Height="800" />
+                                Height="800"
+                                Speed="{x:Bind ViewModel.Speed, Mode=OneWay}" />
                         </Viewbox>
                     </Border>
                 </Grid>

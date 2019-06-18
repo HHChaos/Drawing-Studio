@@ -1,0 +1,71 @@
+﻿<Page
+    x:Class="LearnDraw.Views.Pickers.AnimSettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:LearnDraw.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:LearnDraw.Views.Pickers"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid>
+        <controls:Shadow
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            Elevation="16" />
+        <Grid Background="{ThemeResource SystemControlAcrylicElementBrush}" CornerRadius="4">
+            <StackPanel
+                x:Name="ContentArea"
+                MinWidth="400"
+                MaxWidth="600"
+                Padding="{StaticResource PickerPageMargin}">
+                <TextBlock Style="{ThemeResource SubtitleTextBlockStyle}" Text="Player Settings" />
+                <StackPanel Margin="{StaticResource MediumTopBottomMargin}">
+                    <TextBlock Text="Play Speed :" />
+                    <Grid Margin="{StaticResource XSmallTopMargin}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                            Margin="{StaticResource SmallRightMargin}"
+                            VerticalAlignment="Center"
+                            Text="Slow" />
+                        <Slider
+                            Grid.Column="1"
+                            VerticalAlignment="Center"
+                            Maximum="10"
+                            Minimum="1"
+                            StepFrequency="1"
+                            TickFrequency="1"
+                            TickPlacement="Outside"
+                            Value="{x:Bind ViewModel.Speed, Mode=TwoWay}" />
+                        <TextBlock
+                            Grid.Column="2"
+                            Margin="{StaticResource SmallLeftMargin}"
+                            VerticalAlignment="Center"
+                            Text="Fast" />
+                    </Grid>
+                </StackPanel>
+                <StackPanel
+                    HorizontalAlignment="Right"
+                    Orientation="Horizontal"
+                    Spacing="10">
+                    <Button
+                        HorizontalAlignment="Center"
+                        Command="{x:Bind ViewModel.SubmitCommand}"
+                        Style="{StaticResource CircleButtonStyle}">
+                        <SymbolIcon Symbol="Accept" />
+                    </Button>
+                    <Button
+                        HorizontalAlignment="Center"
+                        Command="{x:Bind ViewModel.ExitCommand}"
+                        Style="{StaticResource CircleButtonStyle}">
+                        <SymbolIcon Symbol="Cancel" />
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>

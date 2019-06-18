@@ -66,6 +66,17 @@ namespace LearnDraw.Controls
 
         public int SegsCount => _drawSegs?.Length ?? 0;
 
+        private int _speed = 5;
+        public int Speed
+        {
+            get => _speed;
+            set
+            {
+                _speed = value;
+                UpdateSpeed();
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Speed)));
+            }
+        }
         private CanvasImageSource _refImage;
         public CanvasImageSource RefImage
         {
@@ -181,7 +192,6 @@ namespace LearnDraw.Controls
                     randomAccessStream.Seek(0);
                     _handBitmap = await CanvasBitmap.LoadAsync(ResourceCreator, randomAccessStream);
                 }
-            _drawGap = 1 / 8f * (float)sender.TargetElapsedTime.TotalSeconds;
         }
         private void Canvas_Draw(ICanvasAnimatedControl sender, CanvasAnimatedDrawEventArgs args)
         {
@@ -250,6 +260,7 @@ namespace LearnDraw.Controls
                 _paused = true;
                 IsPlayingState = false;
                 UpdateSvgLayout();
+                UpdateSpeed();
                 var segs = _win2DSvg.SvgNodeList.Where(
                     item => item.RenderMethod.Equals(RenderMethod.Draw) || item.RenderMethod.Equals(RenderMethod.Mark) || item.RenderMethod.Equals(RenderMethod.MarkAndFill))
                 .Cast<Win2DSvgGeometry>().Select(item => item.PathLength / _win2DSvg.TotalLength);
@@ -257,6 +268,16 @@ namespace LearnDraw.Controls
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(SegsCount)));
             }
             _loading = false;
+        }
+
+        private void UpdateSpeed()
+        {
+            if (_loading || _win2DSvg == null)
+                return;
+            var totalLength = _win2DSvg.TotalLength;
+            var drawLengthPerSec = 200 + 150 * (Speed - 1);
+            var needTime = totalLength / drawLengthPerSec;
+            _drawGap = (float)(1 / needTime * Canvas.TargetElapsedTime.TotalSeconds);
         }
 
         private double[] OptimizeSegs(IEnumerable<double> segs)
