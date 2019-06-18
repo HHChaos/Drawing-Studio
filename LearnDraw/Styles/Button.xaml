@@ -133,6 +133,11 @@
                             <Grid.RenderTransform>
                                 <CompositeTransform x:Name="ContentTransform" />
                             </Grid.RenderTransform>
+                            <Border
+                                x:Name="BackgroundVisual"
+                                Background="White"
+                                CornerRadius="{TemplateBinding CornerRadius}"
+                                Opacity="0.3" />
                             <ContentPresenter
                                 x:Name="ContentPresenter"
                                 Margin="{TemplateBinding Padding}"
@@ -145,15 +150,10 @@
                                 Foreground="{TemplateBinding Foreground}"
                                 TextWrapping="Wrap" />
                             <Border
-                                x:Name="BackgroundVisual"
+                                x:Name="Overlay"
                                 Background="White"
                                 CornerRadius="{TemplateBinding CornerRadius}"
-                                Opacity="0.4">
-                                <Rectangle
-                                    x:Name="Overlay"
-                                    Fill="Black"
-                                    Opacity="0.3" />
-                            </Border>
+                                Opacity="0.2" />
                         </Grid>
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CommonStates">
@@ -205,11 +205,13 @@
                                     </Storyboard>
                                     <VisualState.Setters>
                                         <Setter Target="Overlay.(UIElement.Opacity)" Value="0" />
+                                        <Setter Target="BackgroundVisual.(UIElement.Opacity)" Value="1" />
                                     </VisualState.Setters>
                                 </VisualState>
                                 <VisualState x:Name="Pressed">
                                     <VisualState.Setters>
                                         <Setter Target="Overlay.(UIElement.Opacity)" Value="0.1" />
+                                        <Setter Target="BackgroundVisual.(UIElement.Opacity)" Value="0.5" />
                                     </VisualState.Setters>
                                 </VisualState>
                                 <VisualState x:Name="Disabled" />

@@ -65,7 +65,7 @@ namespace LearnDraw.Controls
             {
                 win2DSvg.Progress = 1;
                 var offScreen = new CanvasImageSource(device, 200, 200, 96);
-                using (var drawingSession = offScreen.CreateDrawingSession(Colors.White))
+                using (var drawingSession = offScreen.CreateDrawingSession(Colors.Transparent))
                 {
                     drawingSession.Transform = Matrix3x2.CreateTranslation(new Vector2(-(float)svg.ViewBox.X, -(float)svg.ViewBox.Y)) * Matrix3x2.CreateScale((float)(200 / Math.Max(svg.ViewBox.Width, svg.ViewBox.Height)));
                     win2DSvg.Draw(drawingSession, 0);
