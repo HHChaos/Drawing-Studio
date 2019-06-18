@@ -73,9 +73,9 @@ namespace LearnDraw.Views
 
         }
 
-        private void RadioButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private void ThumbnailButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            var radioBtn = sender as RadioButton;
+            var radioBtn = sender as ContentControl;
             ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("ForwardAnimPanelConnectedAnimation", radioBtn);
             ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("ForwardInkPanelConnectedAnimation", InkPanel);
             NavigationServiceList.Instance[ShellViewModel.ContentNavigationServiceKey].Navigate(typeof(AnimDrawingViewModel).FullName, (radioBtn.Content as SvgPreview)?.Svg);

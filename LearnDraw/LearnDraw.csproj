@@ -301,7 +301,7 @@
   <ItemGroup>
     <None Include=".editorconfig" />
     <Content Include="Assets\Zip\AnimAssets.zip" />
-    <Content Include="Assets\Zip\MLModelV2.zip" />
+    <Content Include="Assets\Zip\MLModelV2_0618.zip" />
     <None Include="LearnDraw_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>

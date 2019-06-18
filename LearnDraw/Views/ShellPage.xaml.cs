@@ -28,7 +28,7 @@ namespace LearnDraw.Views
             NavigationServiceList.Instance[ShellViewModel.ContentNavigationServiceKey].Navigate(typeof(MainViewModel).FullName);
             try
             {
-                var model = await StorageFile.GetFileFromApplicationUriAsync(new Uri($"ms-appx:///Assets/Zip/MLModelV2.zip"));
+                var model = await StorageFile.GetFileFromApplicationUriAsync(new Uri($"ms-appx:///Assets/Zip/MLModelV2_0618.zip"));
                 await MLHelper.Instance.Init(model);
                 var assetsListFile = await StorageFile.GetFileFromApplicationUriAsync(new Uri($"ms-appdata:///local/AnimAssets/assetList.json"));
                 await AnimAssetsHelper.Instance.Init(assetsListFile);

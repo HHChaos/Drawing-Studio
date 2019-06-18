@@ -28,24 +28,17 @@
                     ItemsSource="{Binding RecommendedAssets}"
                     VerticalCacheLength="0">
                     <winui:ItemsRepeater.Layout>
-                        <winui:StackLayout Orientation="Horizontal" />
+                        <winui:StackLayout Orientation="Horizontal" Spacing="16" />
                     </winui:ItemsRepeater.Layout>
                     <winui:ItemsRepeater.ItemTemplate>
                         <DataTemplate>
-                            <Grid Margin="8,0">
-                                <controls:Shadow
-                                    HorizontalAlignment="Stretch"
-                                    VerticalAlignment="Stretch"
-                                    Elevation="8" />
-                                <RadioButton
-                                    Width="100"
-                                    Height="100"
-                                    Click="RadioButton_Click"
-                                    GroupName="Thumbnail"
-                                    Style="{StaticResource ThumbnailRadioButtonStyle}">
-                                    <controls:SvgPreview FilePath="{Binding}" />
-                                </RadioButton>
-                            </Grid>
+                            <Button
+                                Width="100"
+                                Height="100"
+                                Click="ThumbnailButton_Click"
+                                Style="{StaticResource ThumbnailButtonStyle}">
+                                <controls:SvgPreview FilePath="{Binding}" />
+                            </Button>
                         </DataTemplate>
                     </winui:ItemsRepeater.ItemTemplate>
                 </winui:ItemsRepeater>
