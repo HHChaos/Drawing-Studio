@@ -309,7 +309,6 @@
   <ItemGroup>
     <None Include=".editorconfig" />
     <Content Include="Assets\Zip\AnimAssets.zip" />
-    <Content Include="Assets\Zip\MLModelV2_0618.zip" />
     <None Include="LearnDraw_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
@@ -323,12 +322,12 @@
       <Project>{8FAA4813-6F30-4208-85B4-595FF1BAC50E}</Project>
       <Name>LearnDraw.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\LearnDraw.ML\LearnDraw.ML.csproj">
-      <Project>{9BA21854-9775-49DC-90E2-BFA1DB6F4034}</Project>
-      <Name>LearnDraw.ML</Name>
-    </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <SDKReference Include="WindowsDesktop, Version=10.0.17763.0">
+      <Name>Windows Desktop Extensions for the UWP</Name>
+    </SDKReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

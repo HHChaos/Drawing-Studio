@@ -28,12 +28,9 @@ namespace LearnDraw.Views
             NavigationServiceList.Instance[ShellViewModel.ContentNavigationServiceKey].Navigate(typeof(MainViewModel).FullName);
             try
             {
-                ToastHelper.SendToast("The prediction engine is loading...", TimeSpan.FromSeconds(3));
-                var model = await StorageFile.GetFileFromApplicationUriAsync(new Uri($"ms-appx:///Assets/Zip/MLModelV2_0618.zip"));
-                await MLHelper.Instance.Init(model);
+                MLHelper.Instance.Init();
                 var assetsListFile = await StorageFile.GetFileFromApplicationUriAsync(new Uri($"ms-appdata:///local/AnimAssets/assetList.json"));
                 await AnimAssetsHelper.Instance.Init(assetsListFile);
-                ToastHelper.SendToast("The prediction engine has been loaded, Enjoy it!", TimeSpan.FromSeconds(3));
             }
             catch (Exception)
             {

@@ -9,14 +9,20 @@ namespace LearnDraw.ML.Tools
     {
         MLContext mlContext;
         PredictionEngine<ModelInputV1, ModelOutputV1> predEngine;
-        public bool BuildPredictionEngine(Stream mlModelData)
+        public bool BuildPredictionEngine(Stream mlModelStream)
         {
             mlContext = new MLContext();
-            var mlModel = mlContext.Model.Load(mlModelData, out DataViewSchema inputSchema);
+            var mlModel = mlContext.Model.Load(mlModelStream, out DataViewSchema inputSchema);
             predEngine = mlContext.Model.CreatePredictionEngine<ModelInputV1, ModelOutputV1>(mlModel);
             return true;
         }
-
+        public bool BuildPredictionEngine(string mlModelPath)
+        {
+            mlContext = new MLContext();
+            var mlModel = mlContext.Model.Load(mlModelPath, out DataViewSchema inputSchema);
+            predEngine = mlContext.Model.CreatePredictionEngine<ModelInputV1, ModelOutputV1>(mlModel);
+            return true;
+        }
         public ModelOutputV1 Predict(ModelInputV1 data)
         {
             if (predEngine != null)

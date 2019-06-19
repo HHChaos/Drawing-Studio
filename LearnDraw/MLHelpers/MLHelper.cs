@@ -1,11 +1,19 @@
-﻿using LearnDraw.ML.Models;
-using LearnDraw.ML.Tools;
+﻿using LearnDraw.Core.Models;
+using LearnDraw.Helpers;
 using System;
 using System.Collections.Generic;
-using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
-using Windows.Storage;
+using Windows.ApplicationModel;
+using Windows.ApplicationModel.AppService;
+using Windows.Foundation.Collections;
+using Windows.Foundation.Metadata;
+using Windows.UI.Core;
 using Windows.UI.Input.Inking;
+using Windows.UI.Popups;
+using Windows.UI.Xaml;
 
 namespace LearnDraw.MLHelpers
 {
@@ -14,25 +22,81 @@ namespace LearnDraw.MLHelpers
         private MLHelper() { }
         private static MLHelper _instance;
         public static MLHelper Instance => _instance ?? (_instance = new MLHelper());
-
-        private readonly MLPredictionEngineV2 mLPredictionEngineV2 = new MLPredictionEngineV2();
-        public async Task<bool> Init(StorageFile mlModel)
+        private bool _inited;
+        private readonly SynchronizationContext _context = SynchronizationContext.Current;
+        public async void Init()
         {
-            var inited = false;
-            using (var fileStream = await mlModel.OpenAsync(FileAccessMode.Read))
+            if (ApiInformation.IsApiContractPresent("Windows.ApplicationModel.FullTrustAppContract", 1, 0))
             {
-                await Task.Run(() =>
-                {
-                    inited = mLPredictionEngineV2.BuildPredictionEngine(fileStream.AsStream());
-                });
-            }
-            return inited;
-        }
-        public ModelOutputV2 Predict(IEnumerable<InkStroke> strokes)
-        {
-            var data = DataV2ConvertHelper.GetPointArray(strokes);
-            return mLPredictionEngineV2.Predict(data);
+                App.AppServiceConnected += App_AppServiceConnected;
+                App.AppServiceDisconnected += App_AppServiceDisconnected;
+                ToastHelper.SendToast("The prediction engine is loading...", TimeSpan.FromSeconds(3));
+                await FullTrustProcessLauncher.LaunchFullTrustProcessForCurrentAppAsync();
+            };
         }
 
+        private void App_AppServiceDisconnected(object sender, EventArgs e)
+        {
+            _inited = false;
+            _context?.Post(async _ =>
+            {
+                ToastHelper.SendToast("Sorry, the prediction engine is down, trying to restart it!", TimeSpan.FromSeconds(3));
+                await FullTrustProcessLauncher.LaunchFullTrustProcessForCurrentAppAsync();
+            }, null);
+        }
+
+        private void App_AppServiceConnected(object sender, AppServiceTriggerDetails e)
+        {
+            App.Connection.RequestReceived += Connection_RequestReceived;
+        }
+
+        private void Connection_RequestReceived(AppServiceConnection sender, AppServiceRequestReceivedEventArgs args)
+        {
+            if (args.Request.Message?.Count > 0)
+            {
+                foreach (var message in args.Request.Message)
+                {
+                    switch (message.Key)
+                    {
+                        case AppServiceContract.InitedMsg:
+                            _inited = true;
+                            _context?.Post(_ =>
+                            {
+                                ToastHelper.SendToast(message.Value?.ToString(), TimeSpan.FromSeconds(4));
+                            }, null);
+                            break;
+                        case AppServiceContract.Exception:
+                            _context?.Post(_ =>
+                            {
+                                ToastHelper.SendToast(message.Value?.ToString(), TimeSpan.FromSeconds(6));
+                            }, null);
+                            break;
+                    }
+                }
+            }
+        }
+
+        public async Task<string[]> Predict(IEnumerable<InkStroke> strokes)
+        {
+            if (!_inited)
+                return null;
+            var data = DataV2ConvertHelper.GetPointArray(strokes);
+            ValueSet request = new ValueSet();
+            var dataStr = data.Aggregate(new StringBuilder(), (s, o) => s.Append($",{o}")).Remove(0, 1);
+            request.Add(AppServiceContract.RequestPredict, dataStr.ToString());
+            AppServiceResponse response = await App.Connection.SendMessageAsync(request);
+            if (response.Status == AppServiceResponseStatus.Success)
+            {
+                if (response.Message.ContainsKey(AppServiceContract.Prediction))
+                {
+                    var result = response.Message[AppServiceContract.Prediction].ToString();
+                    if (!string.IsNullOrEmpty(result))
+                    {
+                        return result.Split(",");
+                    }
+                }
+            }
+            return null;
+        }
     }
 }
