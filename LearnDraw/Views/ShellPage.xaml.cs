@@ -9,6 +9,7 @@ using LearnDraw.ViewModels.PickerViewModels;
 using System;
 using Windows.Storage;
 using Windows.UI;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 
@@ -25,7 +26,7 @@ namespace LearnDraw.Views
         {
             InitializeComponent();
             DataContext = ViewModel;
-            this.Loaded += ShellPage_Loaded;
+            Loaded += ShellPage_Loaded;
         }
 
         private async void ShellPage_Loaded(object sender, Windows.UI.Xaml.RoutedEventArgs e)
@@ -34,6 +35,7 @@ namespace LearnDraw.Views
             NavigationServiceList.Instance[ShellViewModel.ContentNavigationServiceKey].Navigate(typeof(MainViewModel).FullName);
             ShowStartScreenIfAppropriate();
             MLHelper.Instance.Init();
+            await MyFavoriteAssetsHelper.Instance.Init();
             try
             {
                 var assetsListFile = await StorageFile.GetFileFromApplicationUriAsync(new Uri($"ms-appdata:///local/AnimAssets/assetList.json"));

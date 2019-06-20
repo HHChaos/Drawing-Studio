@@ -6,6 +6,7 @@
     xmlns:controls="using:LearnDraw.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:LearnDraw.Core.Models"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d">
     <Grid>
@@ -31,13 +32,14 @@
                         <winui:StackLayout Orientation="Horizontal" Spacing="16" />
                     </winui:ItemsRepeater.Layout>
                     <winui:ItemsRepeater.ItemTemplate>
-                        <DataTemplate>
+                        <DataTemplate x:DataType="models:ArtDrawing">
                             <Button
                                 Width="100"
                                 Height="100"
+                                DataContext="{x:Bind}"
                                 Click="ThumbnailButton_Click"
                                 Style="{StaticResource ThumbnailButtonStyle}">
-                                <controls:SvgPreview FilePath="{Binding}" />
+                                <controls:SvgPreview FilePath="{x:Bind FilePath}" />
                             </Button>
                         </DataTemplate>
                     </winui:ItemsRepeater.ItemTemplate>

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using Windows.Storage;
+using System.Linq;
 
 namespace LearnDraw.Helpers
 {
@@ -28,9 +29,9 @@ namespace LearnDraw.Helpers
             return true;
         }
 
-        public List<string> GetRecommendedAssets(string[] candidateLabels)
+        public List<ArtDrawing> GetRecommendedAssets(string[] candidateLabels)
         {
-            var list = new List<string>();
+            var list = new List<ArtDrawing>();
             foreach (var label in candidateLabels)
             {
                 if (!string.IsNullOrEmpty(label))
@@ -38,7 +39,7 @@ namespace LearnDraw.Helpers
                     var key = label.Replace("-", " ");
                     if (!string.IsNullOrEmpty(key) && assets?.Data?.ContainsKey(key) == true)
                     {
-                        list.AddRange(assets.Data[key]);
+                        list.AddRange(assets.Data[key].Select(filePath => new ArtDrawing { Title = label, FilePath = filePath }));
                     }
                 }
             }

@@ -1,4 +1,5 @@
 ﻿using HHChaosToolkit.UWP.Mvvm;
+using LearnDraw.Core.Models;
 using LearnDraw.Helpers;
 using LearnDraw.MLHelpers;
 using System;
@@ -14,9 +15,9 @@ namespace LearnDraw.ViewModels
         { }
 
         private string[] _candidateLabels;
-        private List<string> _recommendedAssets;
+        private List<ArtDrawing> _recommendedAssets;
 
-        public List<string> RecommendedAssets
+        public List<ArtDrawing> RecommendedAssets
         {
             get => _recommendedAssets;
             set => Set(ref _recommendedAssets, value);

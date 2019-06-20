@@ -445,7 +445,7 @@
                             FontSize="32"
                             Foreground="DimGray"
                             Glyph="&#xE00B;"
-                            Opacity="0.3"
+                            Opacity="0.4"
                             RenderTransformOrigin="0.5,0.5">
                             <FontIcon.RenderTransform>
                                 <ScaleTransform x:Name="IconScale" />
@@ -453,20 +453,8 @@
                         </FontIcon>
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CommonStates">
-                                <VisualState x:Name="Normal">
-                                    <Storyboard>
-                                        <DoubleAnimation
-                                            BeginTime="0"
-                                            Storyboard.TargetName="Icon"
-                                            Storyboard.TargetProperty="Opacity"
-                                            To="0.3"
-                                            Duration="00:00:00.05">
-                                            <DoubleAnimation.EasingFunction>
-                                                <ExponentialEase EasingMode="EaseOut" Exponent="7" />
-                                            </DoubleAnimation.EasingFunction>
-                                        </DoubleAnimation>
-                                    </Storyboard>
-                                </VisualState>
+                                <VisualState x:Name="Normal" />
+
                                 <VisualState x:Name="PointerOver">
                                     <Storyboard>
                                         <DoubleAnimation
@@ -494,6 +482,16 @@
                                             Storyboard.TargetName="Icon"
                                             Storyboard.TargetProperty="(FontIcon.Foreground).(SolidColorBrush.Color)"
                                             To="{StaticResource HeartColor}" />
+                                        <DoubleAnimation
+                                            BeginTime="0"
+                                            Storyboard.TargetName="Icon"
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="0.6"
+                                            Duration="00:00:00.05">
+                                            <DoubleAnimation.EasingFunction>
+                                                <ExponentialEase EasingMode="EaseOut" Exponent="7" />
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
                                     </Storyboard>
                                 </VisualState>
                                 <VisualState x:Name="CheckedPointerOver">

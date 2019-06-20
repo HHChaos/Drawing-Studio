@@ -1,5 +1,8 @@
-﻿using LearnDraw.ViewModels;
+﻿using LearnDraw.Core.Models;
+using LearnDraw.Helpers;
+using LearnDraw.ViewModels;
 using SvgConverter.SvgParse;
+using System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
@@ -39,18 +42,19 @@ namespace LearnDraw.Views
                 inkPanelAnim.TryStart(InkPanel);
             }
 
-            if (e.Parameter is SvgElement svg)
+            if (e.Parameter is Tuple<ArtDrawing, SvgElement> tuple)
             {
-                SvgPlayer.Svg = svg;
+                SvgPlayer.Svg = tuple.Item2;
             }
 
         }
 
-        private void BtnBack_Click(object sender, RoutedEventArgs e)
+        private async void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("ForwardInkPanelConnectedAnimation", InkPanel);
             if (this.Frame.CanGoBack)
                 this.Frame.GoBack();
+            await MyFavoriteAssetsHelper.Instance.FlushAsync();
         }
     }
 }

@@ -1,10 +1,13 @@
 ﻿using HHChaosToolkit.UWP.Mvvm;
+using HHChaosToolkit.UWP.Services.Navigation;
 using LearnDraw.Core.Models;
 using LearnDraw.Helpers;
 using LearnDraw.ViewModels.PickerViewModels;
+using SvgConverter.SvgParse;
 using System;
 using System.Windows.Input;
 using Windows.Storage;
+using Windows.UI.Xaml.Navigation;
 
 namespace LearnDraw.ViewModels
 {
@@ -12,6 +15,17 @@ namespace LearnDraw.ViewModels
     {
         public AnimDrawingViewModel()
         {
+        }
+
+        private ArtDrawing _currentArtDrawing;
+        public override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            if (e.Parameter is Tuple<ArtDrawing, SvgElement> tuple)
+            {
+                _currentArtDrawing = tuple.Item1;
+                RaisePropertyChanged(() => IsFavorite);
+            }
         }
 
         public int Speed
@@ -23,22 +37,24 @@ namespace LearnDraw.ViewModels
                 RaisePropertyChanged(() => Speed);
             }
         }
-
-        private bool _isFavorite = false;
         public bool IsFavorite
         {
-            get => _isFavorite;
+            get => MyFavoriteAssetsHelper.Instance.Contains(_currentArtDrawing);
             set
             {
-                Set(ref _isFavorite, value);
+                if (value == IsFavorite)
+                    return;
                 if (value)
                 {
-                    ToastHelper.SendFavoriteToast("It has been added to my favorite drawings!");
+                    if (MyFavoriteAssetsHelper.Instance.AddDrawing(_currentArtDrawing))
+                        ToastHelper.SendFavoriteToast("It has been added to my favorite drawings!");
                 }
                 else
                 {
-                    ToastHelper.SendToast("It has been removed from my favorite drawings.");
+                    if (MyFavoriteAssetsHelper.Instance.RemoveDrawing(_currentArtDrawing))
+                        ToastHelper.SendToast("It has been removed from my favorite drawings.");
                 }
+                RaisePropertyChanged(() => IsFavorite);
             }
         }
         public ICommand OpenPlayerSettingsCommand

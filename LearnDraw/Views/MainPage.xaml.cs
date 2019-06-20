@@ -1,11 +1,12 @@
 ﻿using HHChaosToolkit.UWP.Services.Navigation;
 using LearnDraw.Controls;
+using LearnDraw.Core.Models;
 using LearnDraw.ViewModels;
+using SvgConverter.SvgParse;
 using System;
 using System.Numerics;
 using System.Threading.Tasks;
 using Windows.UI.Composition;
-using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
@@ -75,10 +76,11 @@ namespace LearnDraw.Views
 
         private void ThumbnailButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            var radioBtn = sender as ContentControl;
-            ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("ForwardAnimPanelConnectedAnimation", radioBtn);
+            var button = sender as ContentControl;
+            ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("ForwardAnimPanelConnectedAnimation", button);
             ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("ForwardInkPanelConnectedAnimation", InkPanel);
-            NavigationServiceList.Instance[ShellViewModel.ContentNavigationServiceKey].Navigate(typeof(AnimDrawingViewModel).FullName, (radioBtn.Content as SvgPreview)?.Svg);
+            NavigationServiceList.Instance[ShellViewModel.ContentNavigationServiceKey].Navigate(typeof(AnimDrawingViewModel).FullName,
+                new Tuple<ArtDrawing, SvgElement>(button.DataContext as ArtDrawing, (button.Content as SvgPreview)?.Svg));
         }
         private void HidePredictionUIElement()
         {
