@@ -48,10 +48,25 @@ namespace LearnDraw.Controls
             {
                 Canvas.CreateResources += Canvas_CreateResources;
                 SizeChanged += SvgAnimPlayer_SizeChanged;
+                Loaded += SvgAnimPlayer_Loaded;
                 Unloaded += SvgAnimPlayer_Unloaded;
             }
         }
 
+        private void SvgAnimPlayer_Loaded(object sender, RoutedEventArgs e)
+        {
+            UpdateSvgLayout();
+        }
+        private void SvgAnimPlayer_Unloaded(object sender, RoutedEventArgs e)
+        {
+            lock (_lockobj)
+            {
+                _win2DSvg?.Dispose();
+                _win2DSvg = null;
+                _handBitmap?.Dispose();
+                _handBitmap = null;
+            };
+        }
         public float Progress => _win2DSvg?.Progress ?? 0;
 
         public int DrawIndex
@@ -159,18 +174,6 @@ namespace LearnDraw.Controls
             }
         }
 
-        private void SvgAnimPlayer_Unloaded(object sender, RoutedEventArgs e)
-        {
-            lock (_lockobj)
-            {
-                _win2DSvg?.Dispose();
-                _win2DSvg = null;
-                _handBitmap?.Dispose();
-                _handBitmap = null;
-            };
-        }
-
-
         private readonly HandInfo Hand = new HandInfo
         {
             Source = new Uri("ms-appx:///Assets/Hand.png"),
@@ -192,6 +195,7 @@ namespace LearnDraw.Controls
                     randomAccessStream.Seek(0);
                     _handBitmap = await CanvasBitmap.LoadAsync(ResourceCreator, randomAccessStream);
                 }
+            UpdateSpeed();
         }
         private void Canvas_Draw(ICanvasAnimatedControl sender, CanvasAnimatedDrawEventArgs args)
         {
@@ -246,28 +250,35 @@ namespace LearnDraw.Controls
         }
         private async void OnSvgChanged(SvgElement svg)
         {
-            var win2DSvg = await Win2DSvgElement.Parse(ResourceCreator, svg);
+            Win2DSvgElement win2DSvg = null;
+            if (svg != null)
+            {
+                win2DSvg = await Win2DSvgElement.Parse(ResourceCreator, svg);
+            }
             _loading = true;
             lock (_lockobj)
             {
                 _paused = true;
                 _win2DSvg?.Dispose();
                 _win2DSvg = win2DSvg;
-                _win2DSvg.Progress = 1;
                 DrawIndex = 0;
                 _playTargetProgress = 0;
                 RefImage = null;
                 _paused = true;
                 IsPlayingState = false;
-                UpdateSvgLayout();
-                UpdateSpeed();
-                var segs = _win2DSvg.SvgNodeList.Where(
-                    item => item.RenderMethod.Equals(RenderMethod.Draw) || item.RenderMethod.Equals(RenderMethod.Mark) || item.RenderMethod.Equals(RenderMethod.MarkAndFill))
-                .Cast<Win2DSvgGeometry>().Select(item => item.PathLength / _win2DSvg.TotalLength);
-                _drawSegs = OptimizeSegs(segs);
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(SegsCount)));
+                if (_win2DSvg != null)
+                {
+                    _win2DSvg.Progress = 1;
+                    var segs = _win2DSvg.SvgNodeList.Where(
+                                        item => item.RenderMethod.Equals(RenderMethod.Draw) || item.RenderMethod.Equals(RenderMethod.Mark) || item.RenderMethod.Equals(RenderMethod.MarkAndFill))
+                                    .Cast<Win2DSvgGeometry>().Select(item => item.PathLength / _win2DSvg.TotalLength);
+                    _drawSegs = OptimizeSegs(segs);
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(SegsCount)));
+                }
             }
             _loading = false;
+            UpdateSvgLayout();
+            UpdateSpeed();
         }
 
         private void UpdateSpeed()

@@ -79,8 +79,7 @@ namespace LearnDraw.Views
             var button = sender as ContentControl;
             ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("ForwardAnimPanelConnectedAnimation", button);
             ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("ForwardInkPanelConnectedAnimation", InkPanel);
-            NavigationServiceList.Instance[ShellViewModel.ContentNavigationServiceKey].Navigate(typeof(AnimDrawingViewModel).FullName,
-                new Tuple<ArtDrawing, SvgElement>(button.DataContext as ArtDrawing, (button.Content as SvgPreview)?.Svg));
+            NavigationServiceList.Instance[ShellViewModel.ContentNavigationServiceKey].Navigate(typeof(AnimDrawingViewModel).FullName,button.DataContext as ArtDrawing);
         }
         private void HidePredictionUIElement()
         {

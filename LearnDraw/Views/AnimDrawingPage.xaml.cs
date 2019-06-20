@@ -42,11 +42,6 @@ namespace LearnDraw.Views
                 inkPanelAnim.TryStart(InkPanel);
             }
 
-            if (e.Parameter is Tuple<ArtDrawing, SvgElement> tuple)
-            {
-                SvgPlayer.Svg = tuple.Item2;
-            }
-
         }
 
         private async void BtnBack_Click(object sender, RoutedEventArgs e)

@@ -1,12 +1,15 @@
 ﻿using HHChaosToolkit.UWP.Mvvm;
+using HHChaosToolkit.UWP.Picker;
+using HHChaosToolkit.UWP.Services.Navigation;
 using LearnDraw.Core.Models;
 using LearnDraw.Helpers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Input;
 using Windows.Storage;
+using Windows.UI;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls.Primitives;
+using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Animation;
 
 namespace LearnDraw.ViewModels.PickerViewModels
 {
@@ -19,6 +22,32 @@ namespace LearnDraw.ViewModels.PickerViewModels
             {
                 ApplicationData.Current.LocalSettings.SaveBool(SettingsContract.IsShowWelcomeScreen, value);
                 RaisePropertyChanged(() => IsShowWelcomeScreen);
+            }
+        }
+        public ICommand OpenMyLibraryCommand
+        {
+            get
+            {
+                return new RelayCommand(async () =>
+                {
+                    var result = await ViewModelLocator.Current.ObjectPickerService.PickSingleObjectAsync<ArtDrawing>(typeof(MyFavoriteDrawingsViewModel).FullName, null,
+                               new PickerOpenOption
+                               {
+                                   EnableTapBlackAreaExit = true,
+                                   VerticalAlignment = VerticalAlignment.Stretch,
+                                   HorizontalAlignment = HorizontalAlignment.Stretch,
+                                   Background = new SolidColorBrush(Colors.Transparent),
+                                   Transitions = new TransitionCollection
+                                   {
+                                       new EdgeUIThemeTransition{Edge = EdgeTransitionLocation.Top}
+                                   }
+                               });
+                    if (!result.Canceled)
+                    {
+                        this.Exit();
+                        NavigationServiceList.Instance[ShellViewModel.ContentNavigationServiceKey].Navigate(typeof(AnimDrawingViewModel).FullName, result.Result, new DrillInNavigationTransitionInfo());
+                    }
+                });
             }
         }
     }

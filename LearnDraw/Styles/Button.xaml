@@ -486,7 +486,7 @@
                                             BeginTime="0"
                                             Storyboard.TargetName="Icon"
                                             Storyboard.TargetProperty="Opacity"
-                                            To="0.6"
+                                            To="0.8"
                                             Duration="00:00:00.05">
                                             <DoubleAnimation.EasingFunction>
                                                 <ExponentialEase EasingMode="EaseOut" Exponent="7" />

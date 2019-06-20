@@ -68,6 +68,7 @@
                 <Button
                     Width="340"
                     Padding="16,14"
+                    Command="{x:Bind ViewModel.OpenMyLibraryCommand}"
                     Style="{StaticResource CustomContentButtonStyle}">
                     <Grid>
                         <Grid.ColumnDefinitions>

@@ -214,7 +214,8 @@
                                 x:Name="SvgPlayer"
                                 Width="800"
                                 Height="800"
-                                Speed="{x:Bind ViewModel.Speed, Mode=OneWay}" />
+                                Speed="{x:Bind ViewModel.Speed, Mode=OneWay}"
+                                Svg="{x:Bind ViewModel.Svg, Mode=OneWay}" />
                         </Viewbox>
                     </Border>
                     <ToggleButton

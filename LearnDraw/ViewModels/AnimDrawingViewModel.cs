@@ -1,5 +1,4 @@
 ﻿using HHChaosToolkit.UWP.Mvvm;
-using HHChaosToolkit.UWP.Services.Navigation;
 using LearnDraw.Core.Models;
 using LearnDraw.Helpers;
 using LearnDraw.ViewModels.PickerViewModels;
@@ -21,11 +20,32 @@ namespace LearnDraw.ViewModels
         public override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            if (e.Parameter is Tuple<ArtDrawing, SvgElement> tuple)
+            if (e.Parameter is ArtDrawing artDrawing)
             {
-                _currentArtDrawing = tuple.Item1;
-                RaisePropertyChanged(() => IsFavorite);
+                UpdateCurrentArtDrawingChanged(artDrawing);
             }
+        }
+
+        public async void UpdateCurrentArtDrawingChanged(ArtDrawing artDrawing)
+        {
+            _currentArtDrawing = artDrawing;
+            RaisePropertyChanged(() => IsFavorite);
+            if (string.IsNullOrEmpty(artDrawing?.FilePath))
+            {
+                Svg = null;
+                return;
+            }
+            var file = await StorageFile.GetFileFromApplicationUriAsync(new Uri(artDrawing.FilePath));
+            var svgStr = await FileIO.ReadTextAsync(file);
+            Svg = SvgElement.LoadFromXml(svgStr);
+        }
+
+        private SvgElement _svg;
+
+        public SvgElement Svg
+        {
+            get => _svg;
+            set => Set(ref _svg, value);
         }
 
         public int Speed

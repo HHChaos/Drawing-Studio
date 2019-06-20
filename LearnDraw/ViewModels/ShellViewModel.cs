@@ -1,4 +1,6 @@
 ﻿using HHChaosToolkit.UWP.Mvvm;
+using HHChaosToolkit.UWP.Picker;
+using HHChaosToolkit.UWP.Services.Navigation;
 using LearnDraw.Core.Models;
 using LearnDraw.Helpers;
 using LearnDraw.ViewModels.PickerViewModels;
@@ -6,6 +8,11 @@ using System;
 using System.Windows.Input;
 using Windows.Storage;
 using Windows.System;
+using Windows.UI;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls.Primitives;
+using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Animation;
 
 namespace LearnDraw.ViewModels
 {
@@ -36,7 +43,39 @@ namespace LearnDraw.ViewModels
                 });
             }
         }
-
+        public ICommand OpenMyLibraryCommand
+        {
+            get
+            {
+                return new RelayCommand(async () =>
+                {
+                    var result = await ViewModelLocator.Current.ObjectPickerService.PickSingleObjectAsync<ArtDrawing>(typeof(MyFavoriteDrawingsViewModel).FullName, null,
+                               new PickerOpenOption
+                               {
+                                   EnableTapBlackAreaExit = true,
+                                   VerticalAlignment = VerticalAlignment.Stretch,
+                                   HorizontalAlignment = HorizontalAlignment.Stretch,
+                                   Background = new SolidColorBrush(Colors.Transparent),
+                                   Transitions = new TransitionCollection
+                                   {
+                                       new EdgeUIThemeTransition{Edge = EdgeTransitionLocation.Top}
+                                   }
+                               });
+                    if (!result.Canceled)
+                    {
+                        var currentPageType = (NavigationServiceList.Instance[ContentNavigationServiceKey].Frame?.Content as FrameworkElement)?.DataContext?.GetType();
+                        if (currentPageType == typeof(AnimDrawingViewModel))
+                        {
+                            ViewModelLocator.Current.AnimDrawingViewModel.UpdateCurrentArtDrawingChanged(result.Result);
+                        }
+                        else
+                        {
+                            NavigationServiceList.Instance[ContentNavigationServiceKey].Navigate(typeof(AnimDrawingViewModel).FullName, result.Result, new DrillInNavigationTransitionInfo());
+                        }
+                    }
+                });
+            }
+        }
         public ICommand OpenAboutPageCommand
         {
             get

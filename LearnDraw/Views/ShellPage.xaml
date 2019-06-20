@@ -27,9 +27,9 @@
                             <SymbolIcon Symbol="Setting" />
                         </MenuFlyoutItem.Icon>
                     </MenuFlyoutItem>
-                    <MenuFlyoutItem Text="My Library">
+                    <MenuFlyoutItem Command="{x:Bind ViewModel.OpenMyLibraryCommand}" Text="My Library">
                         <MenuFlyoutItem.Icon>
-                            <SymbolIcon Symbol='Library' />
+                            <SymbolIcon Symbol="Library" />
                         </MenuFlyoutItem.Icon>
                     </MenuFlyoutItem>
                     <MenuFlyoutSeparator />
