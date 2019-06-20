@@ -24,7 +24,6 @@ namespace MLBridge
         }
         private AppServiceConnection connection = null;
         private bool _inited;
-        private Exception _initException;
         private async void InitializeAppServiceConnection()
         {
             try
@@ -49,8 +48,8 @@ namespace MLBridge
             }
             catch (Exception ex)
             {
-                _initException = ex;
                 await SendMessage(AppServiceContract.Exception, ex.ToString());
+                Current.Shutdown();
             }
         }
         private void Connection_ServiceClosed(AppServiceConnection sender, AppServiceClosedEventArgs args)
@@ -66,7 +65,7 @@ namespace MLBridge
             {
                 await args.Request.SendResponseAsync(new ValueSet
                 {
-                    { "Exception", _initException.ToString() }
+                    { AppServiceContract.Exception,"Initialization is not complete yet!" }
                 });
                 return;
             }

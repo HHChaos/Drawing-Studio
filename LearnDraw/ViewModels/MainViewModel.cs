@@ -29,8 +29,8 @@ namespace LearnDraw.ViewModels
 
         public async Task UpdataPrediction(IEnumerable<InkStroke> strokes)
         {
-            var predictionResult =await MLHelper.Instance.Predict(strokes);
-            if (predictionResult != null)
+            var predictionResult = await MLHelper.Instance.Predict(strokes);
+            if (predictionResult?.Length > 0)
             {
                 _candidateLabels = predictionResult;
                 RaisePropertyChanged(() => Prediction);

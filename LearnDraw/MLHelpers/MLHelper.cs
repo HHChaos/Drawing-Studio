@@ -41,6 +41,7 @@ namespace LearnDraw.MLHelpers
             _context?.Post(async _ =>
             {
                 ToastHelper.SendToast("Sorry, the prediction engine is down, trying to restart it!", TimeSpan.FromSeconds(3));
+                await Task.Delay(500);
                 await FullTrustProcessLauncher.LaunchFullTrustProcessForCurrentAppAsync();
             }, null);
         }
@@ -81,10 +82,10 @@ namespace LearnDraw.MLHelpers
             if (!_inited)
                 return null;
             var data = DataV2ConvertHelper.GetPointArray(strokes);
-            ValueSet request = new ValueSet();
+            var request = new ValueSet();
             var dataStr = data.Aggregate(new StringBuilder(), (s, o) => s.Append($",{o}")).Remove(0, 1);
             request.Add(AppServiceContract.RequestPredict, dataStr.ToString());
-            AppServiceResponse response = await App.Connection.SendMessageAsync(request);
+            var response = await App.Connection.SendMessageAsync(request);
             if (response.Status == AppServiceResponseStatus.Success)
             {
                 if (response.Message.ContainsKey(AppServiceContract.Prediction))

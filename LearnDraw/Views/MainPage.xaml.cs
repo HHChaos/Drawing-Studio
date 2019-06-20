@@ -56,17 +56,8 @@ namespace LearnDraw.Views
             if (strokes?.Count > 0)
             {
                 HidePredictionUIElement();
-                try
-                {
-                    await ViewModel.UpdataPrediction(strokes);
-                }
-                catch (Exception)
-                {
-
-                    ;
-                }
-
-                //await Task.Delay(300);
+                await ViewModel.UpdataPrediction(strokes);
+                await Task.Delay(300);
                 ShowPredictionUIElement();
             }
         }
