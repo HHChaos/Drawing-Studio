@@ -63,7 +63,20 @@ namespace LearnDraw.Helpers
             }
             return false;
         }
+        public static void SaveInt(this ApplicationDataContainer settings, string key, int value)
+        {
+            settings.Values[key] = value;
+        }
 
+        public static int ReadInt(this ApplicationDataContainer settings, string key)
+        {
+            if (settings.Values.TryGetValue(key, out var obj))
+            {
+                if (obj is int)
+                    return (int)obj;
+            }
+            return 0;
+        }
         public static async Task<T> ReadAsync<T>(this ApplicationDataContainer settings, string key)
         {
             object obj = null;

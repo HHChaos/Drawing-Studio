@@ -1,5 +1,6 @@
 ﻿using HHChaosToolkit.UWP.Picker;
 using HHChaosToolkit.UWP.Services.Navigation;
+using LearnDraw.Core.Models;
 using LearnDraw.Helpers;
 using LearnDraw.MLHelpers;
 using LearnDraw.Services;
@@ -47,7 +48,7 @@ namespace LearnDraw.Views
         {
             if (FirstRunDisplayService.IsFirstRun)
             {
-                ViewModel.IsShowWelcomeScreen = true;
+                InitSettings();
             }
             if (ViewModel.IsShowWelcomeScreen)
             {
@@ -58,6 +59,11 @@ namespace LearnDraw.Views
                                    Background = new SolidColorBrush(Color.FromArgb(0xcf, 0x00, 0x00, 0x00))
                                });
             }
+        }
+        private void InitSettings()
+        {
+            ApplicationData.Current.LocalSettings.SaveBool(SettingsContract.IsShowWelcomeScreen, true);
+            ApplicationData.Current.LocalSettings.SaveInt(SettingsContract.AnimPlaySpeed, 3);
         }
     }
 }

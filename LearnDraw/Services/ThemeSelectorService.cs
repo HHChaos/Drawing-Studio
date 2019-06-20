@@ -1,4 +1,5 @@
-﻿using LearnDraw.Helpers;
+﻿using LearnDraw.Core.Models;
+using LearnDraw.Helpers;
 using System;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
@@ -12,7 +13,7 @@ namespace LearnDraw.Services
 {
     public static class ThemeSelectorService
     {
-        private const string SettingsKey = "AppBackgroundRequestedTheme";
+        private const string SettingsKey = SettingsContract.AppBackgroundRequestedTheme;
 
         public static ElementTheme Theme { get; set; } = ElementTheme.Default;
 

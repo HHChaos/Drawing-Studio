@@ -4,6 +4,7 @@ using LearnDraw.Helpers;
 using LearnDraw.ViewModels.PickerViewModels;
 using System;
 using System.Windows.Input;
+using Windows.Storage;
 
 namespace LearnDraw.ViewModels
 {
@@ -13,11 +14,14 @@ namespace LearnDraw.ViewModels
         {
         }
 
-        private int _speed = 3;
         public int Speed
         {
-            get => _speed;
-            set => Set(ref _speed, value);
+            get => ApplicationData.Current.LocalSettings.ReadInt(SettingsContract.AnimPlaySpeed);
+            set
+            {
+                ApplicationData.Current.LocalSettings.SaveInt(SettingsContract.AnimPlaySpeed, value);
+                RaisePropertyChanged(() => Speed);
+            }
         }
 
         private bool _isFavorite = false;

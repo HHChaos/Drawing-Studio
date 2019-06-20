@@ -1,4 +1,5 @@
 ﻿using HHChaosToolkit.UWP.Mvvm;
+using LearnDraw.Core.Models;
 using LearnDraw.Helpers;
 using LearnDraw.ViewModels.PickerViewModels;
 using System;
@@ -18,10 +19,10 @@ namespace LearnDraw.ViewModels
 
         public bool IsShowWelcomeScreen
         {
-            get => ApplicationData.Current.LocalSettings.ReadBool("IsShowWelcomeScreen");
+            get => ApplicationData.Current.LocalSettings.ReadBool(SettingsContract.IsShowWelcomeScreen);
             set
             {
-                ApplicationData.Current.LocalSettings.SaveBool("IsShowWelcomeScreen", value);
+                ApplicationData.Current.LocalSettings.SaveBool(SettingsContract.IsShowWelcomeScreen, value);
                 RaisePropertyChanged(() => IsShowWelcomeScreen);
             }
         }
