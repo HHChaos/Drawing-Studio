@@ -8,10 +8,10 @@ namespace LearnDraw.Services
     public static class FirstRunDisplayService
     {
         private static bool shown = false;
-
+        public static bool IsFirstRun => SystemInformation.IsFirstRun;
         internal static async Task ShowIfAppropriateAsync()
         {
-            if (SystemInformation.IsFirstRun && !shown)
+            if (IsFirstRun && !shown)
             {
                 shown = true;
                 await ViewModelLocator.Current.ObjectPickerService.PickSingleObjectAsync<bool>(typeof(UnpackResViewModel).FullName);

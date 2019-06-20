@@ -63,6 +63,15 @@
                     <TextBlock
                         Margin="{StaticResource MediumTopMargin}"
                         Style="{ThemeResource SubtitleTextBlockStyle}"
+                        Text="Show welcome screen" />
+                    <StackPanel Margin="{StaticResource SmallTopBottomMargin}">
+                        <TextBlock Text="See start-screen content when Drawing Studio launches." />
+                        <ToggleSwitch />
+                    </StackPanel>
+
+                    <TextBlock
+                        Margin="{StaticResource MediumTopMargin}"
+                        Style="{ThemeResource SubtitleTextBlockStyle}"
                         Text="Other" />
                     <Grid Margin="{StaticResource XSmallTopMargin}">
                         <Grid.ColumnDefinitions>

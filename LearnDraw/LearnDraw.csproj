@@ -146,6 +146,7 @@
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\PickerViewModels\AboutViewModel.cs" />
     <Compile Include="ViewModels\PickerViewModels\AnimSettingsViewModel.cs" />
+    <Compile Include="ViewModels\PickerViewModels\StartScreenViewModel.cs" />
     <Compile Include="ViewModels\PickerViewModels\UnpackResViewModel.cs" />
     <Compile Include="ViewModels\PickerViewModels\SettingsViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
@@ -161,6 +162,9 @@
     </Compile>
     <Compile Include="Views\Pickers\AnimSettingsPage.xaml.cs">
       <DependentUpon>AnimSettingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pickers\StartScreenPage.xaml.cs">
+      <DependentUpon>StartScreenPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Pickers\UnpackResPage.xaml.cs">
       <DependentUpon>UnpackResPage.xaml</DependentUpon>
@@ -232,6 +236,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Pickers\AnimSettingsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pickers\StartScreenPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

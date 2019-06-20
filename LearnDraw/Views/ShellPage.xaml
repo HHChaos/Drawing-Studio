@@ -27,11 +27,11 @@
                             <SymbolIcon Symbol="Setting" />
                         </MenuFlyoutItem.Icon>
                     </MenuFlyoutItem>
-                    <!--<MenuFlyoutItem Text="Library">
+                    <MenuFlyoutItem Text="My Library">
                         <MenuFlyoutItem.Icon>
                             <SymbolIcon Symbol='Library' />
                         </MenuFlyoutItem.Icon>
-                    </MenuFlyoutItem>-->
+                    </MenuFlyoutItem>
                     <MenuFlyoutSeparator />
                     <MenuFlyoutItem Command="{x:Bind ViewModel.FeedbackCommand}" Text="Rate App">
                         <MenuFlyoutItem.Icon>

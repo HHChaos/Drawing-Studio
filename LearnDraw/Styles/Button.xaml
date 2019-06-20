@@ -222,6 +222,120 @@
             </Setter.Value>
         </Setter>
     </Style>
+    <Style x:Key="CustomContentButtonStyle" TargetType="Button">
+        <Setter Property="Foreground" Value="Transparent" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Top" />
+        <Setter Property="MinWidth" Value="0" />
+        <Setter Property="UseSystemFocusVisuals" Value="{StaticResource UseSystemFocusVisuals}" />
+        <Setter Property="FocusVisualMargin" Value="-7,-3,-7,-3" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <controls:Shadow
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            Elevation="8" />
+                        <Grid
+                            x:Name="RootGrid"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            RenderTransformOrigin="0.5,0.5">
+                            <Grid.RenderTransform>
+                                <CompositeTransform x:Name="ContentTransform" />
+                            </Grid.RenderTransform>
+                            <Border
+                                x:Name="BackgroundVisual"
+                                Background="#333337"
+                                CornerRadius="{TemplateBinding CornerRadius}"
+                                Opacity="0.3" />
+                            <ContentPresenter
+                                x:Name="ContentPresenter"
+                                Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                AutomationProperties.AccessibilityView="Raw"
+                                Content="{TemplateBinding Content}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}"
+                                ContentTransitions="{TemplateBinding ContentTransitions}"
+                                Foreground="{TemplateBinding Foreground}"
+                                TextWrapping="Wrap" />
+                            <Border
+                                x:Name="Overlay"
+                                Background="Gray"
+                                CornerRadius="{TemplateBinding CornerRadius}"
+                                Opacity="0.2" />
+                        </Grid>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualStateGroup.Transitions>
+                                    <VisualTransition GeneratedDuration="00:00:0.2" />
+                                </VisualStateGroup.Transitions>
+                                <VisualState x:Name="Normal">
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="ContentTransform"
+                                            Storyboard.TargetProperty="ScaleX"
+                                            To="1.0"
+                                            Duration="00:00:00.15">
+                                            <DoubleAnimation.EasingFunction>
+                                                <ExponentialEase EasingMode="EaseOut" Exponent="7" />
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="ContentTransform"
+                                            Storyboard.TargetProperty="ScaleY"
+                                            To="1.0"
+                                            Duration="00:00:00.15">
+                                            <DoubleAnimation.EasingFunction>
+                                                <ExponentialEase EasingMode="EaseOut" Exponent="7" />
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="PointerOver">
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="ContentTransform"
+                                            Storyboard.TargetProperty="ScaleX"
+                                            To="1.02"
+                                            Duration="00:00:00.15">
+                                            <DoubleAnimation.EasingFunction>
+                                                <ExponentialEase EasingMode="EaseOut" Exponent="7" />
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="ContentTransform"
+                                            Storyboard.TargetProperty="ScaleY"
+                                            To="1.02"
+                                            Duration="00:00:00.15">
+                                            <DoubleAnimation.EasingFunction>
+                                                <ExponentialEase EasingMode="EaseOut" Exponent="7" />
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                    <VisualState.Setters>
+                                        <Setter Target="Overlay.(UIElement.Opacity)" Value="0" />
+                                        <Setter Target="BackgroundVisual.(UIElement.Opacity)" Value="1" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState x:Name="Pressed">
+                                    <VisualState.Setters>
+                                        <Setter Target="Overlay.(UIElement.Opacity)" Value="0.1" />
+                                        <Setter Target="BackgroundVisual.(UIElement.Opacity)" Value="0.5" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState x:Name="Disabled" />
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
     <Color x:Key="HeartColor">#C62D2E</Color>
     <Style x:Key="HeartToggleButtonStyle" TargetType="ToggleButton">
         <Setter Property="HorizontalAlignment" Value="Left" />

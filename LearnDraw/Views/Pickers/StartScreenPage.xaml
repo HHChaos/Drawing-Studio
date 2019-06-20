@@ -1,0 +1,133 @@
+﻿<Page
+    x:Class="LearnDraw.Views.Pickers.StartScreenPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:LearnDraw.Views.Pickers"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    RequestedTheme="Dark"
+    mc:Ignorable="d">
+
+    <Grid Padding="50">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <TextBlock
+            Margin="30,20"
+            FontSize="48"
+            Foreground="White"
+            Text="Welcome" />
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Padding="20" Spacing="20">
+                <Button
+                    Width="340"
+                    Padding="16,14"
+                    Command="{x:Bind ViewModel.ExitCommand}"
+                    Style="{StaticResource CustomContentButtonStyle}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Viewbox
+                            Width="68"
+                            Height="68"
+                            Margin="0,0,16,0">
+                            <FontIcon
+                                Margin="4"
+                                FontFamily="Segoe MDL2 Assets"
+                                FontSize="28"
+                                Foreground="White"
+                                Glyph="&#xF7BB;" />
+                        </Viewbox>
+                        <Grid Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <TextBlock
+                                FontSize="22"
+                                Foreground="White"
+                                Text="Draw it!" />
+                            <TextBlock
+                                Grid.Row="1"
+                                FontSize="14"
+                                Foreground="#c6c8d2"
+                                Text="Just draw something, let AI help you find inspiration!"
+                                TextWrapping="WrapWholeWords" />
+                        </Grid>
+                    </Grid>
+                </Button>
+                <Button
+                    Width="340"
+                    Padding="16,14"
+                    Style="{StaticResource CustomContentButtonStyle}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Viewbox
+                            Width="68"
+                            Height="68"
+                            Margin="0,0,16,0">
+                            <FontIcon
+                                Margin="4"
+                                FontFamily="Segoe MDL2 Assets"
+                                FontSize="28"
+                                Foreground="White"
+                                Glyph="&#xE8F1;" />
+                        </Viewbox>
+                        <Grid Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <TextBlock
+                                FontSize="22"
+                                Foreground="White"
+                                Text="My Library" />
+                            <TextBlock
+                                Grid.Row="1"
+                                FontSize="14"
+                                Foreground="#c6c8d2"
+                                Text="Here are my favorite drawings, pick one to learn!"
+                                TextWrapping="WrapWholeWords" />
+                        </Grid>
+                    </Grid>
+                </Button>
+                <CheckBox Content="Show welcome screen" IsChecked="True" />
+            </StackPanel>
+            <StackPanel
+                Grid.Column="1"
+                Padding="20"
+                Spacing="20">
+                <Button Style="{StaticResource CustomContentButtonStyle}">
+                    <Grid Width="480">
+                        <Image Source="/Assets/Wide310x150Logo.scale-125.png" Stretch="Uniform" />
+                        <FontIcon
+                            FontFamily="Segoe MDL2 Assets"
+                            FontSize="48"
+                            Foreground="White"
+                            Glyph="&#xE768;" />
+                        <Grid
+                            Grid.Row="1"
+                            Padding="20,16"
+                            VerticalAlignment="Bottom"
+                            Background="#cf000000">
+                            <TextBlock Foreground="White" Text="How to use Drawing Studio?" />
+                        </Grid>
+                    </Grid>
+                </Button>
+            </StackPanel>
+
+        </Grid>
+    </Grid>
+
+</Page>
