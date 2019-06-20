@@ -33,9 +33,13 @@ namespace LearnDraw.Helpers
             var list = new List<string>();
             foreach (var label in candidateLabels)
             {
-                if (!string.IsNullOrEmpty(label) && assets?.Data?.ContainsKey(label) == true)
+                if (!string.IsNullOrEmpty(label))
                 {
-                    list.AddRange(assets.Data[label]);
+                    var key = label.Replace("-", " ");
+                    if (!string.IsNullOrEmpty(key) && assets?.Data?.ContainsKey(key) == true)
+                    {
+                        list.AddRange(assets.Data[key]);
+                    }
                 }
             }
             return list;

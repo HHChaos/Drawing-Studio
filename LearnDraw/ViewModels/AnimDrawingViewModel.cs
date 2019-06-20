@@ -11,7 +11,7 @@ namespace LearnDraw.ViewModels
         {
         }
 
-        private int _speed = 5;
+        private int _speed = 3;
         public int Speed
         {
             get => _speed;

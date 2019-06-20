@@ -48,7 +48,7 @@ namespace LearnDraw.Controls
             {
                 Canvas.CreateResources += Canvas_CreateResources;
                 SizeChanged += SvgAnimPlayer_SizeChanged;
-                Unloaded += SvgAnimPlayer_Unloaded; ;
+                Unloaded += SvgAnimPlayer_Unloaded;
             }
         }
 
@@ -66,7 +66,7 @@ namespace LearnDraw.Controls
 
         public int SegsCount => _drawSegs?.Length ?? 0;
 
-        private int _speed = 5;
+        private int _speed = 3;
         public int Speed
         {
             get => _speed;
@@ -275,7 +275,7 @@ namespace LearnDraw.Controls
             if (_loading || _win2DSvg == null)
                 return;
             var totalLength = _win2DSvg.TotalLength;
-            var drawLengthPerSec = 200 + 150 * (Speed - 1);
+            var drawLengthPerSec = 200 + 300 * (Speed - 1);
             var needTime = totalLength / drawLengthPerSec;
             _drawGap = (float)(1 / needTime * Canvas.TargetElapsedTime.TotalSeconds);
         }
