@@ -43,7 +43,7 @@ namespace MLBridge
                     Current.Shutdown();
                 }
                 var exePath = Assembly.GetExecutingAssembly().Location;
-                _inited = mLPredictionEngineV2.BuildPredictionEngine(Path.Combine($"{exePath.Substring(0, exePath.LastIndexOf("\\"))}", @"Model\MLModelV2_0618.zip"));
+                _inited = mLPredictionEngineV2.BuildPredictionEngine(Path.Combine($"{exePath.Substring(0, exePath.LastIndexOf("\\"))}", @"Model\MLModelV20620.zip"));
                 await SendMessage(AppServiceContract.InitedMsg, "The prediction engine has been loaded, Enjoy it!");
 
             }
