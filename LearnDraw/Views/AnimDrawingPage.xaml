@@ -131,7 +131,6 @@
                         <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE101;" />
                     </Button>
                 </StackPanel>
-
             </Grid>
             <Button
                 Grid.Column="2"
@@ -218,6 +217,12 @@
                                 Speed="{x:Bind ViewModel.Speed, Mode=OneWay}" />
                         </Viewbox>
                     </Border>
+                    <ToggleButton
+                        Margin="20,16"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        IsChecked="{x:Bind ViewModel.IsFavorite, Mode=TwoWay}"
+                        Style="{StaticResource HeartToggleButtonStyle}" />
                 </Grid>
             </Grid>
             <Grid

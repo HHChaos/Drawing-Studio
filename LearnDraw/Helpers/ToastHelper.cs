@@ -20,5 +20,15 @@ namespace LearnDraw.Helpers
             }
             toast.Show();
         }
+        public static void SendFavoriteToast(string content, TimeSpan? duration = null)
+        {
+            var toast = new Toast(content);
+            toast.Style = App.Current.Resources["FavoriteToastStyle"] as Style;
+            if (duration.HasValue)
+            {
+                toast.Duration = duration.Value;
+            }
+            toast.Show();
+        }
     }
 }

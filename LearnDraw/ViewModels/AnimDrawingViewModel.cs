@@ -1,6 +1,8 @@
 ﻿using HHChaosToolkit.UWP.Mvvm;
 using LearnDraw.Core.Models;
+using LearnDraw.Helpers;
 using LearnDraw.ViewModels.PickerViewModels;
+using System;
 using System.Windows.Input;
 
 namespace LearnDraw.ViewModels
@@ -16,6 +18,24 @@ namespace LearnDraw.ViewModels
         {
             get => _speed;
             set => Set(ref _speed, value);
+        }
+
+        private bool _isFavorite = false;
+        public bool IsFavorite
+        {
+            get => _isFavorite;
+            set
+            {
+                Set(ref _isFavorite, value);
+                if (value)
+                {
+                    ToastHelper.SendFavoriteToast("It has been added to my favorite drawings!");
+                }
+                else
+                {
+                    ToastHelper.SendToast("It has been removed from my favorite drawings.");
+                }
+            }
         }
         public ICommand OpenPlayerSettingsCommand
         {
