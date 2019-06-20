@@ -66,7 +66,7 @@
                         Text="Show welcome screen" />
                     <StackPanel Margin="{StaticResource SmallTopBottomMargin}">
                         <TextBlock Text="See start-screen content when Drawing Studio launches." />
-                        <ToggleSwitch />
+                        <ToggleSwitch IsOn="{x:Bind ViewModel.IsShowWelcomeScreen, Mode=TwoWay}" />
                     </StackPanel>
 
                     <TextBlock

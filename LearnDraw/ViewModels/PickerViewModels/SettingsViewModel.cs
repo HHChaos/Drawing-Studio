@@ -1,7 +1,9 @@
 ﻿using HHChaosToolkit.UWP.Mvvm;
+using LearnDraw.Helpers;
 using LearnDraw.Services;
 using System;
 using System.Windows.Input;
+using Windows.Storage;
 using Windows.UI.Xaml;
 
 namespace LearnDraw.ViewModels.PickerViewModels
@@ -19,6 +21,15 @@ namespace LearnDraw.ViewModels.PickerViewModels
             set { Set(ref _elementTheme, value); }
         }
 
+        public bool IsShowWelcomeScreen
+        {
+            get => ApplicationData.Current.LocalSettings.ReadBool("IsShowWelcomeScreen");
+            set
+            {
+                ApplicationData.Current.LocalSettings.SaveBool("IsShowWelcomeScreen", value);
+                RaisePropertyChanged(() => IsShowWelcomeScreen);
+            }
+        }
 
         private ICommand _switchThemeCommand;
 

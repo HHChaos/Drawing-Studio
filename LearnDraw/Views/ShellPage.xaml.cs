@@ -45,7 +45,11 @@ namespace LearnDraw.Views
         }
         private async void ShowStartScreenIfAppropriate()
         {
-            if (!FirstRunDisplayService.IsFirstRun)
+            if (FirstRunDisplayService.IsFirstRun)
+            {
+                ViewModel.IsShowWelcomeScreen = true;
+            }
+            if (ViewModel.IsShowWelcomeScreen)
             {
                 await ViewModelLocator.Current.ObjectPickerService.PickSingleObjectAsync<bool>(typeof(StartScreenViewModel).FullName, null,
                                new PickerOpenOption

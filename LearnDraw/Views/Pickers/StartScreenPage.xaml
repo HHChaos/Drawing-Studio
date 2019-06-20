@@ -15,6 +15,7 @@
         </Grid.RowDefinitions>
         <TextBlock
             Margin="30,20"
+            HorizontalAlignment="Left"
             FontSize="48"
             Foreground="White"
             Text="Welcome" />
@@ -97,12 +98,12 @@
                                 Grid.Row="1"
                                 FontSize="14"
                                 Foreground="#c6c8d2"
-                                Text="Here are my favorite drawings, pick one to learn!"
+                                Text="Here are your favorite drawings, pick one to learn!"
                                 TextWrapping="WrapWholeWords" />
                         </Grid>
                     </Grid>
                 </Button>
-                <CheckBox Content="Show welcome screen" IsChecked="True" />
+                <CheckBox Content="Show welcome screen" IsChecked="{x:Bind ViewModel.IsShowWelcomeScreen, Mode=TwoWay}" />
             </StackPanel>
             <StackPanel
                 Grid.Column="1"

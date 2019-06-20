@@ -1,7 +1,9 @@
 ﻿using HHChaosToolkit.UWP.Mvvm;
+using LearnDraw.Helpers;
 using LearnDraw.ViewModels.PickerViewModels;
 using System;
 using System.Windows.Input;
+using Windows.Storage;
 using Windows.System;
 
 namespace LearnDraw.ViewModels
@@ -14,6 +16,15 @@ namespace LearnDraw.ViewModels
         {
         }
 
+        public bool IsShowWelcomeScreen
+        {
+            get => ApplicationData.Current.LocalSettings.ReadBool("IsShowWelcomeScreen");
+            set
+            {
+                ApplicationData.Current.LocalSettings.SaveBool("IsShowWelcomeScreen", value);
+                RaisePropertyChanged(() => IsShowWelcomeScreen);
+            }
+        }
         public ICommand OpenSettingsPageCommand
         {
             get

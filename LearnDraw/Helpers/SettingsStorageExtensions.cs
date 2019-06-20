@@ -49,6 +49,21 @@ namespace LearnDraw.Helpers
             settings.Values[key] = value;
         }
 
+        public static void SaveBool(this ApplicationDataContainer settings, string key, bool value)
+        {
+            settings.Values[key] = value;
+        }
+
+        public static bool ReadBool(this ApplicationDataContainer settings, string key)
+        {
+            if (settings.Values.TryGetValue(key, out var obj))
+            {
+                if (obj is bool)
+                    return (bool)obj;
+            }
+            return false;
+        }
+
         public static async Task<T> ReadAsync<T>(this ApplicationDataContainer settings, string key)
         {
             object obj = null;
