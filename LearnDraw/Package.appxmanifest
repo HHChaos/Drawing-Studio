@@ -9,14 +9,14 @@
 
   <Identity
     Name="17706.DrawingStudio"
-    Publisher="CN=hhcha"
+    Publisher="CN=762DAC80-D09A-4DA3-865D-FCC9681FEB06"
     Version="1.0.0.0" />
 
   <mp:PhoneIdentity PhoneProductId="0B26B409-3B15-424C-96AE-825463042A60" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>LearnDraw</DisplayName>
-    <PublisherDisplayName>hhcha</PublisherDisplayName>
+    <DisplayName>Drawing Studio</DisplayName>
+    <PublisherDisplayName>HHChaos</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
