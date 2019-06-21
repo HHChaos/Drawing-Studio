@@ -110,9 +110,11 @@
                 Grid.Column="1"
                 Padding="20"
                 Spacing="20">
-                <Button Style="{StaticResource CustomContentButtonStyle}">
-                    <Grid Width="480">
-                        <Image Source="/Assets/Wide310x150Logo.scale-125.png" Stretch="Uniform" />
+                <Button Command="{x:Bind ViewModel.OpenGuideVideoCommand}" Style="{StaticResource CustomContentButtonStyle}">
+                    <Grid MaxWidth="320">
+                        <Viewbox>
+                            <MediaElement Position="00:00:13" Source="/Assets/guideVideo.mp4" />
+                        </Viewbox>
                         <FontIcon
                             FontFamily="Segoe MDL2 Assets"
                             FontSize="48"

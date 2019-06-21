@@ -1,0 +1,38 @@
+﻿<Page
+    x:Class="LearnDraw.Views.Pickers.GuideVideoPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:LearnDraw.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:LearnDraw.Views.Pickers"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid>
+        <controls:Shadow
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            Elevation="16" />
+        <Grid Margin="120" CornerRadius="4">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid x:Name="ContentArea">
+                <Viewbox>
+                    <MediaElement
+                        AutoPlay="True"
+                        IsLooping="True"
+                        Source="/Assets/guideVideo.mp4" />
+                </Viewbox>
+            </Grid>
+            <Button
+                Grid.Row="1"
+                Margin="0,50,0,0"
+                Command="{x:Bind ViewModel.ExitCommand}"
+                Style="{ThemeResource CircleButtonStyle}">
+                <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE0AB;" />
+            </Button>
+        </Grid>
+    </Grid>
+</Page>

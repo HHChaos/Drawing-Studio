@@ -16,6 +16,7 @@ namespace LearnDraw.Services
                 shown = true;
                 await Task.Delay(500);
                 await ViewModelLocator.Current.ObjectPickerService.PickSingleObjectAsync<bool>(typeof(UnpackResViewModel).FullName);
+                await ViewModelLocator.Current.ObjectPickerService.PickSingleObjectAsync<bool>(typeof(GuideVideoViewModel).FullName);
             }
         }
     }

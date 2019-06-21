@@ -50,5 +50,16 @@ namespace LearnDraw.ViewModels.PickerViewModels
                 });
             }
         }
+
+        public ICommand OpenGuideVideoCommand
+        {
+            get
+            {
+                return new RelayCommand(async () =>
+                {
+                    await ViewModelLocator.Current.ObjectPickerService.PickSingleObjectAsync<bool>(typeof(GuideVideoViewModel).FullName);
+                });
+            }
+        }
     }
 }

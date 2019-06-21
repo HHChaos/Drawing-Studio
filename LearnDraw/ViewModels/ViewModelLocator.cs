@@ -44,6 +44,7 @@ namespace LearnDraw.ViewModels
             RegisterObjectPicker<bool, SettingsViewModel, SettingsPage>();
             RegisterObjectPicker<bool, AboutViewModel, AboutPage>();
             RegisterObjectPicker<bool, StartScreenViewModel, StartScreenPage>();
+            RegisterObjectPicker<bool, GuideVideoViewModel, GuideVideoPage>();
 
             RegisterObjectPicker<AnimConfig, AnimSettingsViewModel, AnimSettingsPage>();
             RegisterObjectPicker<ArtDrawing, MyFavoriteDrawingsViewModel, MyFavoriteDrawingsPage>();
@@ -58,6 +59,7 @@ namespace LearnDraw.ViewModels
         public SettingsViewModel SettingsViewModel => ServiceLocator.Current.GetInstance<SettingsViewModel>();
         public AboutViewModel AboutViewModel => ServiceLocator.Current.GetInstance<AboutViewModel>();
         public StartScreenViewModel StartScreenViewModel => ServiceLocator.Current.GetInstance<StartScreenViewModel>();
+        public GuideVideoViewModel GuideVideoViewModel => ServiceLocator.Current.GetInstance<GuideVideoViewModel>();
         public AnimSettingsViewModel AnimSettingsViewModel => ServiceLocator.Current.GetInstance<AnimSettingsViewModel>();
         public MyFavoriteDrawingsViewModel MyFavoriteDrawingsViewModel => ServiceLocator.Current.GetInstance<MyFavoriteDrawingsViewModel>();
         public UnpackResViewModel FirstRunViewModel => ServiceLocator.Current.GetInstance<UnpackResViewModel>();

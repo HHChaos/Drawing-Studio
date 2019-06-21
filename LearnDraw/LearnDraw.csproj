@@ -149,6 +149,7 @@
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\PickerViewModels\AboutViewModel.cs" />
     <Compile Include="ViewModels\PickerViewModels\AnimSettingsViewModel.cs" />
+    <Compile Include="ViewModels\PickerViewModels\GuideVideoViewModel.cs" />
     <Compile Include="ViewModels\PickerViewModels\MyFavoriteDrawingsViewModel.cs" />
     <Compile Include="ViewModels\PickerViewModels\StartScreenViewModel.cs" />
     <Compile Include="ViewModels\PickerViewModels\UnpackResViewModel.cs" />
@@ -166,6 +167,9 @@
     </Compile>
     <Compile Include="Views\Pickers\AnimSettingsPage.xaml.cs">
       <DependentUpon>AnimSettingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pickers\GuideVideoPage.xaml.cs">
+      <DependentUpon>GuideVideoPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Pickers\MyFavoriteDrawingsPage.xaml.cs">
       <DependentUpon>MyFavoriteDrawingsPage.xaml</DependentUpon>
@@ -250,6 +254,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Pickers\GuideVideoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Pickers\MyFavoriteDrawingsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -280,6 +288,7 @@
     <Compile Include="Helpers\ResourceExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\guideVideo.mp4" />
     <Content Include="Assets\Hand.png" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-125.png" />
