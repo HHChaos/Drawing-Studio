@@ -34,5 +34,16 @@ namespace LearnDraw.Views.Pickers
             this.InitializeComponent();
             DataContext = ViewModel;
         }
+
+        private void MediaElement_MediaEnded(object sender, RoutedEventArgs e)
+        {
+            RePlayGrid.Visibility = Visibility.Visible;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MediaElement.Play();
+            RePlayGrid.Visibility = Visibility.Collapsed;
+        }
     }
 }

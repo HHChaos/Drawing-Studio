@@ -2,6 +2,7 @@
     x:Class="LearnDraw.Views.Pickers.GuideVideoPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:controls="using:LearnDraw.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:LearnDraw.Views.Pickers"
@@ -23,10 +24,45 @@
                 <Grid x:Name="ContentArea">
                     <Viewbox>
                         <MediaElement
+                            x:Name="MediaElement"
                             AutoPlay="True"
-                            IsLooping="True"
+                            MediaEnded="MediaElement_MediaEnded"
                             Source="/Assets/guideVideo.mp4" />
                     </Viewbox>
+                    <Grid
+                        x:Name="RePlayGrid"
+                        Background="#cf000000"
+                        Visibility="Collapsed">
+                        <animations:Implicit.ShowAnimations>
+                            <animations:OpacityAnimation
+                                Delay="0:0:0.3"
+                                SetInitialValueBeforeDelay="True"
+                                From="0"
+                                To="1"
+                                Duration="0:0:0.6" />
+                        </animations:Implicit.ShowAnimations>
+                        <animations:Implicit.HideAnimations>
+                            <animations:OpacityAnimation
+                                From="1"
+                                To="0"
+                                Duration="0:0:0.3" />
+                        </animations:Implicit.HideAnimations>
+                        <Button Click="Button_Click">
+                            <Button.Style>
+                                <Style BasedOn="{StaticResource CircleButtonStyle}" TargetType="Button">
+                                    <Setter Property="Foreground" Value="White" />
+                                    <Setter Property="Width" Value="88" />
+                                    <Setter Property="Height" Value="88" />
+                                    <Setter Property="BorderBrush" Value="White" />
+                                    <Setter Property="CornerRadius" Value="42" />
+                                </Style>
+                            </Button.Style>
+                            <FontIcon
+                                FontFamily="Segoe MDL2 Assets"
+                                FontSize="36"
+                                Glyph="&#xE777;" />
+                        </Button>
+                    </Grid>
                 </Grid>
             </Grid>
             <Button

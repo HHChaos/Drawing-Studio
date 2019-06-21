@@ -111,9 +111,12 @@
                 Padding="20"
                 Spacing="20">
                 <Button Command="{x:Bind ViewModel.OpenGuideVideoCommand}" Style="{StaticResource CustomContentButtonStyle}">
-                    <Grid Width="320" Height="180">
+                    <Grid Width="300" Height="200">
                         <Viewbox>
-                            <MediaElement Position="00:00:13" Source="/Assets/guideVideo.mp4" />
+                            <MediaElement
+                                AutoPlay="True"
+                                IsLooping="True"
+                                Source="/Assets/guideVideo.mp4" />
                         </Viewbox>
                         <FontIcon
                             FontFamily="Segoe MDL2 Assets"
