@@ -1,4 +1,5 @@
-﻿using Microsoft.Graphics.Canvas;
+﻿using LearnDraw.Helpers;
+using Microsoft.Graphics.Canvas;
 using Microsoft.Graphics.Canvas.UI.Xaml;
 using SvgConverter.SvgParse;
 using SvgConverter.SvgParseForWin2D;
@@ -24,14 +25,11 @@ namespace LearnDraw.Controls
 
         private async void SvgPreview_Loaded(object sender, RoutedEventArgs e)
         {
-            if (SvgImage.Source == null && Svg != null)
+            if (SvgImage.Source == null && !string.IsNullOrEmpty(FilePath))
             {
-                SvgImage.Source = await SvgToImageSource(Svg);
+                SvgImage.Source = await SvgElementCacheHelper.Instance.TryGetImageSourceAsync(FilePath);
             }
         }
-
-        public SvgElement Svg { get; private set; }
-
         public string FilePath
         {
             get { return (string)GetValue(FilePathProperty); }
@@ -52,26 +50,7 @@ namespace LearnDraw.Controls
 
         private async void OnFilePathChanged(string filePath)
         {
-            var file = await StorageFile.GetFileFromApplicationUriAsync(new Uri(filePath));
-            var svgStr = await FileIO.ReadTextAsync(file);
-            Svg = SvgElement.LoadFromXml(svgStr);
-            SvgImage.Source = await SvgToImageSource(Svg);
-        }
-
-        private async Task<CanvasImageSource> SvgToImageSource(SvgElement svg)
-        {
-            var device = CanvasDevice.GetSharedDevice();
-            using (var win2DSvg = await Win2DSvgElement.Parse(device, svg))
-            {
-                win2DSvg.Progress = 1;
-                var offScreen = new CanvasImageSource(device, 200, 200, 96);
-                using (var drawingSession = offScreen.CreateDrawingSession(Colors.Transparent))
-                {
-                    drawingSession.Transform = Matrix3x2.CreateTranslation(new Vector2(-(float)svg.ViewBox.X, -(float)svg.ViewBox.Y)) * Matrix3x2.CreateScale((float)(200 / Math.Max(svg.ViewBox.Width, svg.ViewBox.Height)));
-                    win2DSvg.Draw(drawingSession, 0);
-                }
-                return offScreen;
-            }
+            SvgImage.Source = await SvgElementCacheHelper.Instance.TryGetImageSourceAsync(filePath);
         }
     }
 }

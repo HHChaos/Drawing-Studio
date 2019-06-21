@@ -30,14 +30,7 @@ namespace LearnDraw.ViewModels
         {
             _currentArtDrawing = artDrawing;
             RaisePropertyChanged(() => IsFavorite);
-            if (string.IsNullOrEmpty(artDrawing?.FilePath))
-            {
-                Svg = null;
-                return;
-            }
-            var file = await StorageFile.GetFileFromApplicationUriAsync(new Uri(artDrawing.FilePath));
-            var svgStr = await FileIO.ReadTextAsync(file);
-            Svg = SvgElement.LoadFromXml(svgStr);
+            Svg = await SvgElementCacheHelper.Instance.TryGetSvgElementAsync(artDrawing.FilePath);
         }
 
         private SvgElement _svg;

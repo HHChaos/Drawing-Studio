@@ -14,6 +14,7 @@ namespace LearnDraw.Services
             if (IsFirstRun && !shown)
             {
                 shown = true;
+                await Task.Delay(500);
                 await ViewModelLocator.Current.ObjectPickerService.PickSingleObjectAsync<bool>(typeof(UnpackResViewModel).FullName);
             }
         }
