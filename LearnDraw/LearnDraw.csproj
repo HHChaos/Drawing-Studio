@@ -134,6 +134,7 @@
     <Compile Include="Helpers\EnumToBooleanConverter.cs" />
     <Compile Include="Helpers\IndexAdd1Converter.cs" />
     <Compile Include="Helpers\MyFavoriteAssetsHelper.cs" />
+    <Compile Include="Helpers\SelectionModeToVisibilityConverter.cs" />
     <Compile Include="Helpers\SvgElementCacheHelper.cs" />
     <Compile Include="Helpers\ToastHelper.cs" />
     <Compile Include="MLHelpers\DataV1ConvertHelper.cs" />

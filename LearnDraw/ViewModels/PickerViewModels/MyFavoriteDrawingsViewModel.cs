@@ -7,27 +7,25 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace LearnDraw.ViewModels.PickerViewModels
 {
     public class MyFavoriteDrawingsViewModel : ObjectPickerBase<ArtDrawing>
     {
-        public MyFavoriteDrawingsViewModel()
+        public ICommand DeleteDrawingsCommand
         {
-            this.ObjectPicked += MyFavoriteDrawingsViewModel_ObjectPicked;
-            this.Canceled += MyFavoriteDrawingsViewModel_Canceled;
+            get
+            {
+                return new RelayCommand<IEnumerable<object>>(async list =>
+                {
+                    var delList = list.Cast<ArtDrawing>();
+                    MyFavoriteAssetsHelper.Instance.RemoveDrawings(delList);
+                    RaisePropertyChanged(() => MyFavoriteDrawings);
+                    await MyFavoriteAssetsHelper.Instance.FlushAsync();
+                });
+            }
         }
-
-        private async void MyFavoriteDrawingsViewModel_Canceled(object sender, EventArgs e)
-        {
-            await MyFavoriteAssetsHelper.Instance.FlushAsync(); ;
-        }
-
-        private async void MyFavoriteDrawingsViewModel_ObjectPicked(object sender, HHChaosToolkit.UWP.Picker.ObjectPickedEventArgs<ArtDrawing> e)
-        {
-            await MyFavoriteAssetsHelper.Instance.FlushAsync(); ;
-        }
-
         public ReadOnlyCollection<ArtDrawing> MyFavoriteDrawings => MyFavoriteAssetsHelper.Instance.MyFavoriteAssets;
     }
 }

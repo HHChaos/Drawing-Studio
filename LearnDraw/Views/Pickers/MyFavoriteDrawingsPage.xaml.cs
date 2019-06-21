@@ -15,6 +15,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Microsoft.Toolkit.Uwp.UI.Animations;
+using System.Threading.Tasks;
 
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
 
@@ -36,9 +38,47 @@ namespace LearnDraw.Views.Pickers
             DataContext = ViewModel;
         }
 
-        private void GridView_ItemClick(object sender, ItemClickEventArgs e)
+        private void DrawingsGridView_ItemClick(object sender, ItemClickEventArgs e)
         {
-            ViewModel.SetResult(e.ClickedItem as ArtDrawing);
+            if (DrawingsGridView.SelectionMode != ListViewSelectionMode.Multiple)
+            {
+                ViewModel.SetResult(e.ClickedItem as ArtDrawing);
+            }
+        }
+
+        private void MultipleSelectBtn_Click(object sender, RoutedEventArgs e)
+        {
+            DrawingsGridView.SelectionMode = ListViewSelectionMode.Multiple;
+        }
+
+        private void SingleSelectBtn_Click(object sender, RoutedEventArgs e)
+        {
+            DrawingsGridView.SelectionMode = ListViewSelectionMode.Single;
+        }
+
+        private async void MultipleSelectBtn_Loaded(object sender, RoutedEventArgs e)
+        {
+            await Task.Delay(1000);
+            var showAnimations = new AnimationCollection
+            {
+                new TranslationAnimation
+                {
+                    Delay =TimeSpan.FromSeconds(0.3),
+                    SetInitialValueBeforeDelay =true,
+                    Duration =TimeSpan.FromSeconds(0.6),
+                    From ="0,-20,0",
+                    To ="0,0,0"
+                },
+                new OpacityAnimation
+                {
+                    Delay =TimeSpan.FromSeconds(0.3),
+                    SetInitialValueBeforeDelay =true,
+                    Duration =TimeSpan.FromSeconds(0.6),
+                    From =0,
+                    To =1
+                }
+            };
+            Implicit.SetShowAnimations(MultipleSelectBtn, showAnimations);
         }
     }
 }

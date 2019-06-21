@@ -41,13 +41,13 @@
                     Visibility="{x:Bind SvgPlayer.IsPlayingState, Mode=OneWay, Converter={StaticResource InversedBooleanToVisibilityConverter}}">
                     <animations:Implicit.ShowAnimations>
                         <animations:TranslationAnimation
-                            Delay="0:0:0.3"
+                            Delay="0:0:0.5"
                             SetInitialValueBeforeDelay="True"
                             From="0,-20,0"
                             To="0,0,0"
                             Duration="0:0:0.6" />
                         <animations:OpacityAnimation
-                            Delay="0:0:0.3"
+                            Delay="0:0:0.5"
                             SetInitialValueBeforeDelay="True"
                             From="0"
                             To="1"
