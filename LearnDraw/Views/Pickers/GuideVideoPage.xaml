@@ -10,12 +10,12 @@
 
     <Grid Margin="120,120,120,60">
 
-        <Grid CornerRadius="4">
+        <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <Grid>
+            <Grid CornerRadius="4">
                 <controls:Shadow
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch"

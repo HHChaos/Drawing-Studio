@@ -111,7 +111,7 @@
                 Padding="20"
                 Spacing="20">
                 <Button Command="{x:Bind ViewModel.OpenGuideVideoCommand}" Style="{StaticResource CustomContentButtonStyle}">
-                    <Grid MaxWidth="320">
+                    <Grid Width="320" Height="180">
                         <Viewbox>
                             <MediaElement Position="00:00:13" Source="/Assets/guideVideo.mp4" />
                         </Viewbox>
