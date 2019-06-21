@@ -8,7 +8,7 @@
   IgnorableNamespaces="uap mp genTemplate">
 
   <Identity
-    Name="0B26B409-3B15-424C-96AE-825463042A60"
+    Name="17706.DrawingStudio"
     Publisher="CN=hhcha"
     Version="1.0.0.0" />
 
