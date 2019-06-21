@@ -22,17 +22,22 @@
             <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE10C;" />
             <Button.Flyout>
                 <MenuFlyout>
-                    <MenuFlyoutItem Command="{x:Bind ViewModel.OpenSettingsPageCommand}" Text="Setting">
-                        <MenuFlyoutItem.Icon>
-                            <SymbolIcon Symbol="Setting" />
-                        </MenuFlyoutItem.Icon>
-                    </MenuFlyoutItem>
                     <MenuFlyoutItem Command="{x:Bind ViewModel.OpenMyLibraryCommand}" Text="My Library">
                         <MenuFlyoutItem.Icon>
                             <SymbolIcon Symbol="Library" />
                         </MenuFlyoutItem.Icon>
                     </MenuFlyoutItem>
                     <MenuFlyoutSeparator />
+                    <MenuFlyoutItem Command="{x:Bind ViewModel.OpenStartScreenCommand}" Text="Welcome Screen">
+                        <MenuFlyoutItem.Icon>
+                            <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE29B;" />
+                        </MenuFlyoutItem.Icon>
+                    </MenuFlyoutItem>
+                    <MenuFlyoutItem Command="{x:Bind ViewModel.OpenSettingsPageCommand}" Text="Setting">
+                        <MenuFlyoutItem.Icon>
+                            <SymbolIcon Symbol="Setting" />
+                        </MenuFlyoutItem.Icon>
+                    </MenuFlyoutItem>
                     <MenuFlyoutItem Command="{x:Bind ViewModel.FeedbackCommand}" Text="Rate App">
                         <MenuFlyoutItem.Icon>
                             <SymbolIcon Symbol="Like" />

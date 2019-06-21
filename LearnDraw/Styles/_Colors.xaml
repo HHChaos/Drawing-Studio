@@ -1,4 +1,4 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <SolidColorBrush x:Key="ThemeControlForegroundBaseHighBrush" Color="{ThemeResource SystemBaseHighColor}" />
-
+    <AcrylicBrush x:Key="DarkAcrylicWindowBrush" BackgroundSource="HostBackdrop" TintColor="#FF000000" TintOpacity="0.8" FallbackColor="#FF1F1F1F" />
 </ResourceDictionary>

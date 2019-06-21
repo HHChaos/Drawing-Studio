@@ -119,24 +119,15 @@
             <GridView
                 x:Name="DrawingsGridView"
                 Grid.Row="1"
+                Margin="0,10"
                 IsItemClickEnabled="True"
                 ItemClick="DrawingsGridView_ItemClick"
+                ItemContainerStyle="{StaticResource DrawingsGridViewItemStyle}"
                 ItemsSource="{x:Bind ViewModel.MyFavoriteDrawings, Mode=OneWay}">
                 <GridView.ItemTemplate>
                     <DataTemplate x:DataType="models:ArtDrawing">
-                        <Grid>
-                            <controls:Shadow
-                                HorizontalAlignment="Stretch"
-                                VerticalAlignment="Stretch"
-                                Elevation="8" />
-                            <Grid
-                                Width="140"
-                                Height="140"
-                                Background="White"
-                                CornerRadius="4">
-                                <controls:SvgPreview FilePath="{x:Bind FilePath}" />
-                            </Grid>
-
+                        <Grid Width="120" Height="120">
+                            <controls:SvgPreview FilePath="{x:Bind FilePath}" />
                         </Grid>
                     </DataTemplate>
                 </GridView.ItemTemplate>

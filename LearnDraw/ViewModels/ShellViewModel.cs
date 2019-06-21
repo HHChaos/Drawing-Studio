@@ -76,6 +76,22 @@ namespace LearnDraw.ViewModels
                 });
             }
         }
+
+        public ICommand OpenStartScreenCommand
+        {
+            get
+            {
+                return new RelayCommand(async () =>
+                {
+                    await ViewModelLocator.Current.ObjectPickerService.PickSingleObjectAsync<bool>(typeof(StartScreenViewModel).FullName, null,
+                               new PickerOpenOption
+                               {
+                                   EnableTapBlackAreaExit = true,
+                                   Background = (Brush)App.Current.Resources["DarkAcrylicWindowBrush"]
+                               });
+                });
+            }
+        }
         public ICommand OpenAboutPageCommand
         {
             get

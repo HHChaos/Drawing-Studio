@@ -35,11 +35,13 @@
             </Button>
             <Grid Grid.Column="1">
                 <Button
+                    x:Name="PlayBtn"
                     HorizontalAlignment="Center"
                     Click="{x:Bind SvgPlayer.Play}"
+                    Loaded="PlayBtn_Loaded"
                     Style="{StaticResource CapsuleButtonStyle}"
                     Visibility="{x:Bind SvgPlayer.IsPlayingState, Mode=OneWay, Converter={StaticResource InversedBooleanToVisibilityConverter}}">
-                    <animations:Implicit.ShowAnimations>
+                    <!--<animations:Implicit.ShowAnimations>
                         <animations:TranslationAnimation
                             Delay="0:0:0.5"
                             SetInitialValueBeforeDelay="True"
@@ -52,7 +54,7 @@
                             From="0"
                             To="1"
                             Duration="0:0:0.6" />
-                    </animations:Implicit.ShowAnimations>
+                    </animations:Implicit.ShowAnimations>-->
                     <animations:Implicit.HideAnimations>
                         <animations:TranslationAnimation
                             From="0,0,0"

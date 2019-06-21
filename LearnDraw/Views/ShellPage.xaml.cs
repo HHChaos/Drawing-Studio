@@ -46,7 +46,7 @@ namespace LearnDraw.Views
                 //Ignored, the resource may not have been decompressed for the first time
             }
         }
-        private async void ShowStartScreenIfAppropriate()
+        private void ShowStartScreenIfAppropriate()
         {
             if (FirstRunDisplayService.IsFirstRun)
             {
@@ -54,12 +54,7 @@ namespace LearnDraw.Views
             }
             if (ViewModel.IsShowWelcomeScreen)
             {
-                await ViewModelLocator.Current.ObjectPickerService.PickSingleObjectAsync<bool>(typeof(StartScreenViewModel).FullName, null,
-                               new PickerOpenOption
-                               {
-                                   EnableTapBlackAreaExit = true,
-                                   Background = new SolidColorBrush(Color.FromArgb(0xcf, 0x00, 0x00, 0x00))
-                               });
+                ViewModel.OpenStartScreenCommand?.Execute(null);
             }
         }
         private void InitSettings()

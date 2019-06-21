@@ -1,8 +1,10 @@
 ﻿using LearnDraw.Core.Models;
 using LearnDraw.Helpers;
 using LearnDraw.ViewModels;
+using Microsoft.Toolkit.Uwp.UI.Animations;
 using SvgConverter.SvgParse;
 using System;
+using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
@@ -50,6 +52,31 @@ namespace LearnDraw.Views
             if (this.Frame.CanGoBack)
                 this.Frame.GoBack();
             await MyFavoriteAssetsHelper.Instance.FlushAsync();
+        }
+
+        private async void PlayBtn_Loaded(object sender, RoutedEventArgs e)
+        {
+            await Task.Delay(1000);
+            var showAnimations = new AnimationCollection
+            {
+                new TranslationAnimation
+                {
+                    Delay =TimeSpan.FromSeconds(0.3),
+                    SetInitialValueBeforeDelay =true,
+                    Duration =TimeSpan.FromSeconds(0.6),
+                    From ="0,-20,0",
+                    To ="0,0,0"
+                },
+                new OpacityAnimation
+                {
+                    Delay =TimeSpan.FromSeconds(0.3),
+                    SetInitialValueBeforeDelay =true,
+                    Duration =TimeSpan.FromSeconds(0.6),
+                    From =0,
+                    To =1
+                }
+            };
+            Implicit.SetShowAnimations(PlayBtn, showAnimations);
         }
     }
 }

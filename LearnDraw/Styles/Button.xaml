@@ -249,7 +249,7 @@
                             </Grid.RenderTransform>
                             <Border
                                 x:Name="BackgroundVisual"
-                                Background="#333337"
+                                Background="#4D4D4D"
                                 CornerRadius="{TemplateBinding CornerRadius}"
                                 Opacity="0.3" />
                             <ContentPresenter

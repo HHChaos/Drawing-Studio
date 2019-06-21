@@ -8,13 +8,13 @@
     RequestedTheme="Dark"
     mc:Ignorable="d">
 
-    <Grid Padding="50">
+    <Grid Padding="50,40,50,50">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition />
         </Grid.RowDefinitions>
         <TextBlock
-            Margin="30,20"
+            Margin="30,0,0,20"
             HorizontalAlignment="Left"
             FontSize="48"
             Foreground="White"
