@@ -8,27 +8,30 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid>
-        <controls:Shadow
-            HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch"
-            Elevation="16" />
-        <Grid Margin="120" CornerRadius="4">
+    <Grid Margin="120,120,120,60">
+
+        <Grid CornerRadius="4">
             <Grid.RowDefinitions>
                 <RowDefinition />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <Grid x:Name="ContentArea">
-                <Viewbox>
-                    <MediaElement
-                        AutoPlay="True"
-                        IsLooping="True"
-                        Source="/Assets/guideVideo.mp4" />
-                </Viewbox>
+            <Grid>
+                <controls:Shadow
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Elevation="16" />
+                <Grid x:Name="ContentArea">
+                    <Viewbox>
+                        <MediaElement
+                            AutoPlay="True"
+                            IsLooping="True"
+                            Source="/Assets/guideVideo.mp4" />
+                    </Viewbox>
+                </Grid>
             </Grid>
             <Button
                 Grid.Row="1"
-                Margin="0,50,0,0"
+                Margin="0,60,0,0"
                 Command="{x:Bind ViewModel.ExitCommand}"
                 Style="{ThemeResource CircleButtonStyle}">
                 <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE0AB;" />
