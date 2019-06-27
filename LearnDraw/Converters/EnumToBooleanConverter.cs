@@ -1,8 +1,8 @@
 ﻿using System;
-
+using LearnDraw.Helpers;
 using Windows.UI.Xaml.Data;
 
-namespace LearnDraw.Helpers
+namespace LearnDraw.Converters
 {
     public class EnumToBooleanConverter : IValueConverter
     {

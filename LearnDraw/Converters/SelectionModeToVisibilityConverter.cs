@@ -7,7 +7,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Data;
 
-namespace LearnDraw.Helpers
+namespace LearnDraw.Converters
 {
     public class SelectionModeToVisibilityConverter : IValueConverter
     {

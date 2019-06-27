@@ -2,7 +2,7 @@
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Data;
 
-namespace LearnDraw.Helpers
+namespace LearnDraw.Converters
 {
     public sealed class BooleanToVisibilityConverter : IValueConverter
     {

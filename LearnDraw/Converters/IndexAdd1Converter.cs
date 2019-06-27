@@ -1,7 +1,7 @@
 ﻿using System;
 using Windows.UI.Xaml.Data;
 
-namespace LearnDraw.Helpers
+namespace LearnDraw.Converters
 {
     public class IndexAdd1Converter : IValueConverter
     {

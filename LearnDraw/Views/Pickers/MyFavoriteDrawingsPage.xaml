@@ -5,14 +5,14 @@
     xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:controls="using:LearnDraw.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:helpers="using:LearnDraw.Helpers"
+    xmlns:converters="using:LearnDraw.Converters"
     xmlns:local="using:LearnDraw.Views.Pickers"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:models="using:LearnDraw.Core.Models"
     mc:Ignorable="d">
     <Page.Resources>
-        <helpers:SelectionModeToVisibilityConverter x:Key="SelectionModeToVisibilityConverter" />
-        <helpers:SelectionModeToVisibilityConverter x:Key="InversedSelectionModeToVisibilityConverter" IsInversed="True" />
+        <converters:SelectionModeToVisibilityConverter x:Key="SelectionModeToVisibilityConverter" />
+        <converters:SelectionModeToVisibilityConverter x:Key="InversedSelectionModeToVisibilityConverter" IsInversed="True" />
     </Page.Resources>
     <Grid Padding="0,20" Background="{ThemeResource SystemControlAcrylicElementBrush}">
         <Grid x:Name="ContentArea" Padding="{StaticResource PickerPageMargin}">

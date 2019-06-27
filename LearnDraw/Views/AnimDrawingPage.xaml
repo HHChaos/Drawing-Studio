@@ -4,15 +4,15 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:controls="using:LearnDraw.Controls"
+    xmlns:converters="using:LearnDraw.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:helpers="using:LearnDraw.Helpers"
     xmlns:local="using:LearnDraw.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
     <Page.Resources>
-        <helpers:BooleanToVisibilityConverter x:Key="InversedBooleanToVisibilityConverter" IsInversed="True" />
-        <helpers:IndexAdd1Converter x:Key="IndexAdd1Converter" />
+        <converters:BooleanToVisibilityConverter x:Key="InversedBooleanToVisibilityConverter" IsInversed="True" />
+        <converters:IndexAdd1Converter x:Key="IndexAdd1Converter" />
     </Page.Resources>
     <Grid>
         <Grid.RowDefinitions>

@@ -132,11 +132,11 @@
       <DependentUpon>SvgPreview.xaml</DependentUpon>
     </Compile>
     <Compile Include="Helpers\AnimAssetsHelper.cs" />
-    <Compile Include="Helpers\BooleanToVisibilityConverter.cs" />
-    <Compile Include="Helpers\EnumToBooleanConverter.cs" />
-    <Compile Include="Helpers\IndexAdd1Converter.cs" />
+    <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Converters\EnumToBooleanConverter.cs" />
+    <Compile Include="Converters\IndexAdd1Converter.cs" />
     <Compile Include="Helpers\MyFavoriteAssetsHelper.cs" />
-    <Compile Include="Helpers\SelectionModeToVisibilityConverter.cs" />
+    <Compile Include="Converters\SelectionModeToVisibilityConverter.cs" />
     <Compile Include="Helpers\SvgElementCacheHelper.cs" />
     <Compile Include="Helpers\ToastHelper.cs" />
     <Compile Include="MLHelpers\DataV1ConvertHelper.cs" />
@@ -366,6 +366,7 @@
       <Name>Windows Desktop Extensions for the UWP</Name>
     </SDKReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
