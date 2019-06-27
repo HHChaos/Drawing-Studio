@@ -19,9 +19,9 @@
                 MinWidth="400"
                 MaxWidth="600"
                 Padding="{StaticResource PickerPageMargin}">
-                <TextBlock Style="{ThemeResource SubtitleTextBlockStyle}" Text="Player Settings" />
+                <TextBlock x:Uid="AnimSettingsPage_PlayerSettings" Style="{ThemeResource SubtitleTextBlockStyle}" />
                 <StackPanel Margin="{StaticResource MediumTopBottomMargin}">
-                    <TextBlock Text="Play Speed :" />
+                    <TextBlock x:Uid="AnimSettingsPage_PlayerSpeed" />
                     <Grid Margin="{StaticResource XSmallTopMargin}">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" />
@@ -29,9 +29,9 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
                         <TextBlock
+                            x:Uid="AnimSettingsPage_PlayerSpeed_Slow"
                             Margin="{StaticResource SmallRightMargin}"
-                            VerticalAlignment="Center"
-                            Text="Slow" />
+                            VerticalAlignment="Center" />
                         <Slider
                             Grid.Column="1"
                             VerticalAlignment="Center"
@@ -42,10 +42,10 @@
                             TickPlacement="Outside"
                             Value="{x:Bind ViewModel.Speed, Mode=TwoWay}" />
                         <TextBlock
+                            x:Uid="AnimSettingsPage_PlayerSpeed_Fast"
                             Grid.Column="2"
                             Margin="{StaticResource SmallLeftMargin}"
-                            VerticalAlignment="Center"
-                            Text="Fast" />
+                            VerticalAlignment="Center" />
                     </Grid>
                 </StackPanel>
                 <StackPanel

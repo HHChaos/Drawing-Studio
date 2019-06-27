@@ -36,8 +36,8 @@
                             <Button
                                 Width="100"
                                 Height="100"
-                                DataContext="{x:Bind}"
                                 Click="ThumbnailButton_Click"
+                                DataContext="{x:Bind}"
                                 Style="{StaticResource ThumbnailButtonStyle}">
                                 <controls:SvgPreview FilePath="{x:Bind FilePath}" />
                             </Button>
@@ -146,9 +146,9 @@
                                 <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
                             <TextBlock
+                                x:Uid="MainPage_DrawingTip"
                                 FontSize="40"
-                                Foreground="DimGray"
-                                Text="Maybe you're drawing" />
+                                Foreground="DimGray" />
                             <TextBlock
                                 x:Name="TbPrediction"
                                 Grid.Row="1"
@@ -207,7 +207,7 @@
                                         To="0.4"
                                         Duration="0:0:0.3" />
                                 </animations:Implicit.HideAnimations>
-                                <Run Text="or " />
+                                <Run x:Uid="MainPage_DrawingTip_Or" />
                                 <Run Text="{Binding CandidateLabel1}" />
                                 <Run Text=" " />
                                 <Run Text="{Binding CandidateLabel2}" />

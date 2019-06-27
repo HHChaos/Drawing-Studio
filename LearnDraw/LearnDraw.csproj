@@ -348,6 +348,7 @@
     <None Include=".editorconfig" />
     <Content Include="Assets\Zip\AnimAssets.zip" />
     <None Include="LearnDraw_TemporaryKey.pfx" />
+    <PRIResource Include="Strings\zh-CN\Resources.resw" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">

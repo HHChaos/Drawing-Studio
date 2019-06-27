@@ -18,7 +18,7 @@
             Background="{ThemeResource SystemControlAcrylicElementBrush}"
             CornerRadius="4">
             <StackPanel Padding="20" Spacing="20">
-                <TextBlock Style="{ThemeResource SubtitleTextBlockStyle}" Text="Please wait to unzip the resource..." />
+                <TextBlock x:Uid="UnpackResPage_Tip" Style="{ThemeResource SubtitleTextBlockStyle}" />
                 <ProgressBar IsIndeterminate="True" />
             </StackPanel>
         </Grid>

@@ -31,7 +31,7 @@ namespace LearnDraw.MLHelpers
             {
                 App.AppServiceConnected += App_AppServiceConnected;
                 App.AppServiceDisconnected += App_AppServiceDisconnected;
-                ToastHelper.SendToast("The prediction engine is loading...", TimeSpan.FromSeconds(3));
+                ToastHelper.SendToast("MLHelperLoadingTip".GetLocalized(), TimeSpan.FromSeconds(3));
                 await FullTrustProcessLauncher.LaunchFullTrustProcessForCurrentAppAsync();
             };
         }
@@ -41,7 +41,7 @@ namespace LearnDraw.MLHelpers
             _inited = false;
             _context?.Post(async _ =>
             {
-                ToastHelper.SendToast("Sorry, the prediction engine is down, trying to restart it!", TimeSpan.FromSeconds(3));
+                ToastHelper.SendToast("MLHelperDownTip".GetLocalized(), TimeSpan.FromSeconds(3));
                 await Task.Delay(500);
                 await FullTrustProcessLauncher.LaunchFullTrustProcessForCurrentAppAsync();
             }, null);
@@ -64,7 +64,7 @@ namespace LearnDraw.MLHelpers
                             _inited = true;
                             _context?.Post(_ =>
                             {
-                                ToastHelper.SendToast(message.Value?.ToString(), TimeSpan.FromSeconds(4));
+                                ToastHelper.SendToast(message.Value?.ToString()?.GetLocalized(), TimeSpan.FromSeconds(4));
                             }, null);
                             break;
                         case AppServiceContract.Exception:

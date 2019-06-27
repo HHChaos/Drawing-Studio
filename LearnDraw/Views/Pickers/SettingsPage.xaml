@@ -3,8 +3,8 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="using:LearnDraw.Controls"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:converters="using:LearnDraw.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:xaml="using:Windows.UI.Xaml"
     mc:Ignorable="d">
@@ -61,27 +61,27 @@
                     </StackPanel>
 
                     <TextBlock
+                        x:Uid="Settings_ShowWelcomeScreen"
                         Margin="{StaticResource MediumTopMargin}"
-                        Style="{ThemeResource SubtitleTextBlockStyle}"
-                        Text="Show welcome screen" />
+                        Style="{ThemeResource SubtitleTextBlockStyle}" />
                     <StackPanel Margin="{StaticResource SmallTopBottomMargin}">
-                        <TextBlock Text="See start-screen content when Drawing Studio launches." />
+                        <TextBlock x:Uid="Settings_ShowWelcomeScreen_Description" />
                         <ToggleSwitch IsOn="{x:Bind ViewModel.IsShowWelcomeScreen, Mode=TwoWay}" />
                     </StackPanel>
 
                     <TextBlock
+                        x:Uid="Settings_Other"
                         Margin="{StaticResource MediumTopMargin}"
-                        Style="{ThemeResource SubtitleTextBlockStyle}"
-                        Text="Other" />
+                        Style="{ThemeResource SubtitleTextBlockStyle}" />
                     <Grid Margin="{StaticResource XSmallTopMargin}">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition />
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
                         <TextBlock
+                            x:Uid="Settings_Other_Description"
                             Margin="{StaticResource XSmallTopMargin}"
-                            Style="{ThemeResource BodyTextBlockStyle}"
-                            Text="If the app doesn't work, click here!" />
+                            Style="{ThemeResource BodyTextBlockStyle}" />
                         <Button
                             Grid.Column="1"
                             Margin="10,0"

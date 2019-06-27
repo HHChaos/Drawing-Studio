@@ -42,7 +42,7 @@ namespace LearnDraw.ViewModels
             }
             else
             {
-                ToastHelper.SendToast("The prediction engine has not been loaded yet, please wait...", TimeSpan.FromSeconds(3));
+                ToastHelper.SendToast("MLHelperNotLoadedTip".GetLocalized(), TimeSpan.FromSeconds(3));
             }
         }
 

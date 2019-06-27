@@ -23,7 +23,7 @@
                     <RowDefinition />
                 </Grid.RowDefinitions>
                 <StackPanel Margin="0,10">
-                    <TextBlock x:Uid="Settings_About" Style="{ThemeResource SubtitleTextBlockStyle}" />
+                    <TextBlock x:Uid="AboutPage_About" Style="{ThemeResource SubtitleTextBlockStyle}" />
                     <StackPanel Margin="{StaticResource XSmallTopMargin}" HorizontalAlignment="Center">
                         <Image
                             Width="50"
@@ -36,15 +36,15 @@
                             Style="{ThemeResource BodyTextBlockStyle}"
                             Text="{x:Bind ViewModel.VersionDescription, Mode=OneWay}" />
                         <TextBlock
-                            x:Uid="Settings_AboutDescription"
+                            x:Uid="AboutPage_Description"
                             Margin="{StaticResource XSmallTopMargin}"
                             HorizontalAlignment="Center"
                             Style="{ThemeResource BodyTextBlockStyle}" />
                         <TextBlock
+                            x:Uid="AboutPage_Developer"
                             Margin="{StaticResource XSmallTopMargin}"
                             HorizontalAlignment="Center"
-                            Style="{ThemeResource BodyTextBlockStyle}"
-                            Text="Developed By : HHChaos" />
+                            Style="{ThemeResource BodyTextBlockStyle}" />
                         <StackPanel
                             Margin="0,8"
                             HorizontalAlignment="Center"
@@ -124,49 +124,40 @@
                     <StackPanel>
 
                         <TextBlock
+                            x:Uid="AboutPage_SpecialThanks"
                             Margin="{StaticResource MediumTopMargin}"
-                            Style="{ThemeResource SubtitleTextBlockStyle}"
-                            Text="Special thanks" />
+                            Style="{ThemeResource SubtitleTextBlockStyle}" />
 
                         <StackPanel Margin="{StaticResource XSmallTopMargin}">
                             <TextBlock
+                                x:Uid="AboutPage_SpecialThanks_Description"
                                 Margin="{StaticResource XSmallTopMargin}"
-                                Style="{ThemeResource BodyTextBlockStyle}"
-                                Text="The software uses machine learning algorithms to recognize your doodling and to provide you with some drawings to learn." />
+                                Style="{ThemeResource BodyTextBlockStyle}" />
                             <TextBlock
+                                x:Uid="AboutPage_SpecialThanks_SmallTitle"
                                 Margin="{StaticResource XSmallTopMargin}"
-                                Style="{ThemeResource BodyTextBlockStyle}"
-                                Text="Thanks here :" />
+                                Style="{ThemeResource BodyTextBlockStyle}" />
                             <TextBlock
+                                x:Uid="AboutPage_SpecialThanks_ML"
                                 Margin="{StaticResource XSmallTopMargin}"
-                                Style="{ThemeResource BodyTextBlockStyle}"
-                                Text="Microsoft ML.NET : ML.NET is an open source and cross-platform machine learning framework for .NET. " />
-                            <HyperlinkButton
-                                Margin="{StaticResource XSmallTopMargin}"
-                                Content="ML.NET"
-                                NavigateUri="https://github.com/dotnet/machinelearning" />
+                                Style="{ThemeResource BodyTextBlockStyle}" />
+                            <HyperlinkButton x:Uid="AboutPage_SpecialThanks_ML_Link" Margin="{StaticResource XSmallTopMargin}" />
                             <TextBlock
+                                x:Uid="AboutPage_SpecialThanks_Google"
                                 Margin="{StaticResource XSmallTopMargin}"
-                                Style="{ThemeResource BodyTextBlockStyle}"
-                                Text="Google Creative Lab : The software uses the Quick, Draw! Dataset(Creative Commons Attribution 4.0 International License) to train neural networks to recognize your doodling，and uses the drawings from AutoDraw(Creative Commons Attribution 4.0 nternational License)." />
-                            <HyperlinkButton
-                                Margin="{StaticResource XSmallTopMargin}"
-                                Content="The Quick, Draw! Dataset"
-                                NavigateUri="https://github.com/googlecreativelab/quickdraw-dataset" />
-                            <HyperlinkButton
-                                Margin="{StaticResource XSmallTopMargin}"
-                                Content="AutoDraw"
-                                NavigateUri="https://www.autodraw.com/" />
+                                Style="{ThemeResource BodyTextBlockStyle}" />
+                            <HyperlinkButton x:Uid="AboutPage_SpecialThanks_Google_QuickDrawLink" Margin="{StaticResource XSmallTopMargin}" />
+                            <HyperlinkButton x:Uid="AboutPage_SpecialThanks_Google_AutoDrawLink" Margin="{StaticResource XSmallTopMargin}" />
                             <TextBlock
+                                x:Uid="AboutPage_SpecialThanks_Justin"
                                 Margin="{StaticResource XSmallTopMargin}"
-                                Style="{ThemeResource BodyTextBlockStyle}"
-                                Text="Justin Liu : Justin is a great uwp developer and designer. His demo application has given me a lot of help with its great UI design and smooth animations!" />
+                                Style="{ThemeResource BodyTextBlockStyle}" />
 
                         </StackPanel>
                         <TextBlock
+                            x:Uid="AboutPage_Libraries"
                             Margin="{StaticResource MediumTopMargin}"
-                            Style="{ThemeResource SubtitleTextBlockStyle}"
-                            Text="Libraries" />
+                            Style="{ThemeResource SubtitleTextBlockStyle}" />
 
                         <StackPanel Margin="{StaticResource XSmallTopMargin}">
                             <HyperlinkButton

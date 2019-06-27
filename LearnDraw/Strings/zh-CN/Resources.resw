@@ -130,31 +130,31 @@
     <comment>File name is null or empty to save file in settings storage extensions</comment>
   </data>
   <data name="Settings_Theme.Text" xml:space="preserve">
-    <value>Choose Theme</value>
+    <value>选择主题</value>
     <comment>Choose theme text for Settings</comment>
   </data>
   <data name="Settings_Theme_Dark.Content" xml:space="preserve">
-    <value>Dark</value>
+    <value>暗</value>
     <comment>Dark theme text for Settings</comment>
   </data>
   <data name="Settings_Theme_Default.Content" xml:space="preserve">
-    <value>Windows default</value>
+    <value>跟随系统</value>
     <comment>Windows default theme text for Settings</comment>
   </data>
   <data name="Settings_Theme_Light.Content" xml:space="preserve">
-    <value>Light</value>
+    <value>亮</value>
     <comment>Light theme text for Settings</comment>
   </data>
   <data name="AboutPage_About.Text" xml:space="preserve">
-    <value>About this application</value>
+    <value>关于</value>
     <comment>About this application title for Settings</comment>
   </data>
   <data name="AboutPage_Description.Text" xml:space="preserve">
-    <value>A creative app with intelligence.</value>
+    <value>一个有智慧的创意应用。</value>
     <comment>About this application description for Settings</comment>
   </data>
   <data name="Settings_PrivacyTermsLink.Content" xml:space="preserve">
-    <value>Privacy Statement</value>
+    <value>隐私协议</value>
     <comment>Privacy Statement link content for Settings</comment>
   </data>
   <data name="Settings_PrivacyTermsLink.NavigateUri" xml:space="preserve">
@@ -162,7 +162,7 @@
     <comment>Here is your Privacy Statement url for Settings</comment>
   </data>
   <data name="Settings_Personalization.Text" xml:space="preserve">
-    <value>Personalization</value>
+    <value>个性化</value>
     <comment>Personalization text for Settings</comment>
   </data>
   <data name="ExceptionEnumToBooleanConverterValueMustBeAnEnum" xml:space="preserve">
@@ -174,19 +174,19 @@
     <comment>Parameter must be an Enum name in enum to boolean converter</comment>
   </data>
   <data name="AboutPage_Developer.Text" xml:space="preserve">
-    <value>Developed By : HHChaos</value>
+    <value>开发者 : HHChaos</value>
   </data>
   <data name="AboutPage_Libraries.Text" xml:space="preserve">
-    <value>Libraries</value>
+    <value>开源库</value>
   </data>
   <data name="AboutPage_SpecialThanks.Text" xml:space="preserve">
-    <value>Special thanks</value>
+    <value>致谢</value>
   </data>
   <data name="AboutPage_SpecialThanks_Description.Text" xml:space="preserve">
-    <value>The software uses machine learning algorithms to recognize your doodling and to provide you with some drawings to learn.</value>
+    <value>该软件使用机器学习算法来识别你的涂鸦，并为你提供一些艺术图纸学习画画。</value>
   </data>
   <data name="AboutPage_SpecialThanks_Google.Text" xml:space="preserve">
-    <value>Google Creative Lab : The software uses the Quick, Draw! Dataset(Creative Commons Attribution 4.0 International License) to train neural networks to recognize your doodling，and uses the drawings from AutoDraw(Creative Commons Attribution 4.0 nternational License).</value>
+    <value>谷歌创意实验室 : 软件使用了来自Quick, Draw!项目的开源数据集(CC4.0)来训练神经网络识别你的涂鸦,并使用了来自于AutoDraw项目的艺术图纸(CC4.0)。</value>
   </data>
   <data name="AboutPage_SpecialThanks_Google_AutoDrawLink.Content" xml:space="preserve">
     <value>AutoDraw</value>
@@ -195,16 +195,16 @@
     <value>https://www.autodraw.com/</value>
   </data>
   <data name="AboutPage_SpecialThanks_Google_QuickDrawLink.Content" xml:space="preserve">
-    <value>The Quick, Draw! Dataset</value>
+    <value>Quick, Draw! 数据集</value>
   </data>
   <data name="AboutPage_SpecialThanks_Google_QuickDrawLink.NavigateUri" xml:space="preserve">
     <value>https://github.com/googlecreativelab/quickdraw-dataset</value>
   </data>
   <data name="AboutPage_SpecialThanks_Justin.Text" xml:space="preserve">
-    <value>Justin Liu : Justin is a great uwp developer and designer. His demo application has given me a lot of help with its great UI design and smooth animations!</value>
+    <value>Justin Liu : Justin Liu（老刘）是一个非常棒的设计师和开发者。他的Demo应用因其绝妙的UI设计和流畅的动画给予了我很大的帮助。</value>
   </data>
   <data name="AboutPage_SpecialThanks_ML.Text" xml:space="preserve">
-    <value>Microsoft ML.NET : ML.NET is an open source and cross-platform machine learning framework for .NET.</value>
+    <value>微软ML.NET : ML.NET是一个针对.NET的开源跨平台机器学习框架。</value>
   </data>
   <data name="AboutPage_SpecialThanks_ML_Link.Content" xml:space="preserve">
     <value>ML.NET</value>
@@ -213,102 +213,102 @@
     <value>https://github.com/dotnet/machinelearning</value>
   </data>
   <data name="AboutPage_SpecialThanks_SmallTitle.Text" xml:space="preserve">
-    <value>Thanks here :</value>
+    <value>在这里要感谢 :</value>
   </data>
   <data name="AnimSettingsPage_PlayerSettings.Text" xml:space="preserve">
-    <value>Player Settings</value>
+    <value>动画设置</value>
   </data>
   <data name="AnimSettingsPage_PlayerSpeed.Text" xml:space="preserve">
-    <value>Play Speed :</value>
+    <value>播放速度 :</value>
   </data>
   <data name="AnimSettingsPage_PlayerSpeed_Fast.Text" xml:space="preserve">
-    <value>Fast</value>
+    <value>快</value>
   </data>
   <data name="AnimSettingsPage_PlayerSpeed_Slow.Text" xml:space="preserve">
-    <value>Slow</value>
+    <value>慢</value>
   </data>
   <data name="InkSaveNothing" xml:space="preserve">
-    <value>You didn't draw anything!</value>
+    <value>你好像什么都没有画！</value>
   </data>
   <data name="InkSaveSuggestedFileName" xml:space="preserve">
     <value>My_Drawing</value>
   </data>
   <data name="MainPage_DrawingTip.Text" xml:space="preserve">
-    <value>Maybe you're drawing</value>
+    <value>或许你正在画</value>
   </data>
   <data name="MainPage_DrawingTip_Or.Text" xml:space="preserve">
-    <value>or </value>
+    <value>或</value>
   </data>
   <data name="MLHelperDownTip" xml:space="preserve">
-    <value>Sorry, the prediction engine is down, trying to restart it!</value>
+    <value>对不起，预测引擎似乎出问题了，将试图重新启动它!</value>
   </data>
   <data name="MLHelperInitedMsg" xml:space="preserve">
-    <value>The prediction engine has been loaded, Enjoy it!</value>
+    <value>预测引擎已经加载完毕，享受它吧!</value>
   </data>
   <data name="MLHelperLoadingTip" xml:space="preserve">
-    <value>The prediction engine is loading...</value>
-  </data>
-  <data name="MLHelperNotLoadedTip" xml:space="preserve">
-    <value>The prediction engine has not been loaded yet, please wait...</value>
-  </data>
-  <data name="MyFavoriteDrawingsAddedTip" xml:space="preserve">
-    <value>It has been added to my favorite drawings!</value>
+    <value>预测引擎正在加载…</value>
   </data>
   <data name="MyFavoriteDrawingsPage_Title.Text" xml:space="preserve">
-    <value>My Library</value>
-  </data>
-  <data name="MyFavoriteDrawingsRemovedTip" xml:space="preserve">
-    <value>It has been removed from my favorite drawings.</value>
+    <value>我的收藏</value>
   </data>
   <data name="Settings_Other.Text" xml:space="preserve">
-    <value>Other</value>
+    <value>其他</value>
   </data>
   <data name="Settings_Other_Description.Text" xml:space="preserve">
-    <value>If the app doesn't work, click here!</value>
+    <value>如果应用不能正常显示推荐，点击这里！</value>
   </data>
   <data name="Settings_ShowWelcomeScreen.Text" xml:space="preserve">
-    <value>Show welcome screen</value>
+    <value>显示欢迎页面</value>
   </data>
   <data name="Settings_ShowWelcomeScreen_Description.Text" xml:space="preserve">
-    <value>See start-screen content when Drawing Studio launches.</value>
+    <value>在Drawing Studio启动时显示欢迎页面。</value>
   </data>
   <data name="ShellPage_About.Text" xml:space="preserve">
-    <value>About</value>
+    <value>关于</value>
   </data>
   <data name="ShellPage_MyLibrary.Text" xml:space="preserve">
-    <value>My Library</value>
+    <value>我的收藏</value>
   </data>
   <data name="ShellPage_RateApp.Text" xml:space="preserve">
-    <value>Rate App</value>
+    <value>好评应用</value>
   </data>
   <data name="ShellPage_Settings.Text" xml:space="preserve">
-    <value>Settings</value>
+    <value>设置</value>
   </data>
   <data name="ShellPage_WelcomeScreen.Text" xml:space="preserve">
-    <value>Welcome Screen</value>
+    <value>欢迎页面</value>
   </data>
   <data name="StartScreenPage_DrawIt.Text" xml:space="preserve">
-    <value>Draw it!</value>
+    <value>画出来！</value>
   </data>
   <data name="StartScreenPage_DrawIt_Description.Text" xml:space="preserve">
-    <value>Just draw something, let AI help you find inspiration!</value>
+    <value>随便画点东西，让AI帮你找到灵感！</value>
   </data>
   <data name="StartScreenPage_Guide.Text" xml:space="preserve">
-    <value>How to use Drawing Studio?</value>
+    <value>如何使用Drawing Studio？</value>
   </data>
   <data name="StartScreenPage_MyLibrary.Text" xml:space="preserve">
-    <value>My Library</value>
+    <value>我的收藏</value>
   </data>
   <data name="StartScreenPage_MyLibrary_Description.Text" xml:space="preserve">
-    <value>Here are your favorite drawings, pick one to learn!</value>
+    <value>这里是你收藏的画作，选一幅来学习吧!</value>
   </data>
   <data name="StartScreenPage_ShowWelcomeScreen.Content" xml:space="preserve">
-    <value>Show welcome screen</value>
+    <value>显示欢迎页面</value>
   </data>
   <data name="StartScreenPage_Welcome.Text" xml:space="preserve">
-    <value>Welcome</value>
+    <value>欢迎</value>
   </data>
   <data name="UnpackResPage_Tip.Text" xml:space="preserve">
-    <value>Please wait to unzip the resource...</value>
+    <value>请等待解压缩资源文件...</value>
+  </data>
+  <data name="MLHelperNotLoadedTip" xml:space="preserve">
+    <value>预测引擎尚未加载，请等待…</value>
+  </data>
+  <data name="MyFavoriteDrawingsAddedTip" xml:space="preserve">
+    <value>已经添加到我的收藏！</value>
+  </data>
+  <data name="MyFavoriteDrawingsRemovedTip" xml:space="preserve">
+    <value>已经从我的收藏中移除。</value>
   </data>
 </root>

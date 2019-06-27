@@ -14,11 +14,11 @@
             <RowDefinition />
         </Grid.RowDefinitions>
         <TextBlock
+            x:Uid="StartScreenPage_Welcome"
             Margin="30,0,0,20"
             HorizontalAlignment="Left"
             FontSize="48"
-            Foreground="White"
-            Text="Welcome" />
+            Foreground="White" />
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
@@ -53,14 +53,14 @@
                                 <RowDefinition />
                             </Grid.RowDefinitions>
                             <TextBlock
+                                x:Uid="StartScreenPage_DrawIt"
                                 FontSize="22"
-                                Foreground="White"
-                                Text="Draw it!" />
+                                Foreground="White" />
                             <TextBlock
+                                x:Uid="StartScreenPage_DrawIt_Description"
                                 Grid.Row="1"
                                 FontSize="14"
                                 Foreground="#c6c8d2"
-                                Text="Just draw something, let AI help you find inspiration!"
                                 TextWrapping="WrapWholeWords" />
                         </Grid>
                     </Grid>
@@ -92,19 +92,19 @@
                                 <RowDefinition />
                             </Grid.RowDefinitions>
                             <TextBlock
+                                x:Uid="StartScreenPage_MyLibrary"
                                 FontSize="22"
-                                Foreground="White"
-                                Text="My Library" />
+                                Foreground="White" />
                             <TextBlock
+                                x:Uid="StartScreenPage_MyLibrary_Description"
                                 Grid.Row="1"
                                 FontSize="14"
                                 Foreground="#c6c8d2"
-                                Text="Here are your favorite drawings, pick one to learn!"
                                 TextWrapping="WrapWholeWords" />
                         </Grid>
                     </Grid>
                 </Button>
-                <CheckBox Content="Show welcome screen" IsChecked="{x:Bind ViewModel.IsShowWelcomeScreen, Mode=TwoWay}" />
+                <CheckBox x:Uid="StartScreenPage_ShowWelcomeScreen" IsChecked="{x:Bind ViewModel.IsShowWelcomeScreen, Mode=TwoWay}" />
             </StackPanel>
             <StackPanel
                 Grid.Column="1"
@@ -128,7 +128,7 @@
                             Padding="20,16"
                             VerticalAlignment="Bottom"
                             Background="#cf000000">
-                            <TextBlock Foreground="White" Text="How to use Drawing Studio?" />
+                            <TextBlock x:Uid="StartScreenPage_Guide" Foreground="White" />
                         </Grid>
                     </Grid>
                 </Button>

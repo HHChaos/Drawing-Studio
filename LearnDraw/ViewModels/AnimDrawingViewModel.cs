@@ -60,12 +60,12 @@ namespace LearnDraw.ViewModels
                 if (value)
                 {
                     if (MyFavoriteAssetsHelper.Instance.AddDrawing(_currentArtDrawing))
-                        ToastHelper.SendFavoriteToast("It has been added to my favorite drawings!");
+                        ToastHelper.SendFavoriteToast("MyFavoriteDrawingsAddedTip".GetLocalized());
                 }
                 else
                 {
                     if (MyFavoriteAssetsHelper.Instance.RemoveDrawing(_currentArtDrawing))
-                        ToastHelper.SendToast("It has been removed from my favorite drawings.");
+                        ToastHelper.SendToast("MyFavoriteDrawingsRemovedTip".GetLocalized());
                 }
                 RaisePropertyChanged(() => IsFavorite);
             }

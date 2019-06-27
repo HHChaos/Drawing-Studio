@@ -86,7 +86,7 @@ namespace LearnDraw.Controls
                         var picker = new FileSavePicker
                         {
                             SuggestedStartLocation = PickerLocationId.PicturesLibrary,
-                            SuggestedFileName = $"My_Drawing"
+                            SuggestedFileName = $"InkSaveSuggestedFileName".GetLocalized()
                         };
                         picker.FileTypeChoices.Add("PNG Picture", new List<string> { ".png" });
                         var file = await picker.PickSaveFileAsync();
@@ -113,7 +113,7 @@ namespace LearnDraw.Controls
                     }
                     else
                     {
-                        ToastHelper.SendToast("You didn't draw anything!");
+                        ToastHelper.SendToast("InkSaveNothing".GetLocalized());
                     }
 
                 }));

@@ -22,28 +22,28 @@
             <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE10C;" />
             <Button.Flyout>
                 <MenuFlyout>
-                    <MenuFlyoutItem Command="{x:Bind ViewModel.OpenMyLibraryCommand}" Text="My Library">
+                    <MenuFlyoutItem x:Uid="ShellPage_MyLibrary" Command="{x:Bind ViewModel.OpenMyLibraryCommand}">
                         <MenuFlyoutItem.Icon>
                             <SymbolIcon Symbol="Library" />
                         </MenuFlyoutItem.Icon>
                     </MenuFlyoutItem>
                     <MenuFlyoutSeparator />
-                    <MenuFlyoutItem Command="{x:Bind ViewModel.OpenStartScreenCommand}" Text="Welcome Screen">
+                    <MenuFlyoutItem x:Uid="ShellPage_WelcomeScreen" Command="{x:Bind ViewModel.OpenStartScreenCommand}">
                         <MenuFlyoutItem.Icon>
                             <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE29B;" />
                         </MenuFlyoutItem.Icon>
                     </MenuFlyoutItem>
-                    <MenuFlyoutItem Command="{x:Bind ViewModel.OpenSettingsPageCommand}" Text="Setting">
+                    <MenuFlyoutItem x:Uid="ShellPage_Settings" Command="{x:Bind ViewModel.OpenSettingsPageCommand}">
                         <MenuFlyoutItem.Icon>
                             <SymbolIcon Symbol="Setting" />
                         </MenuFlyoutItem.Icon>
                     </MenuFlyoutItem>
-                    <MenuFlyoutItem Command="{x:Bind ViewModel.FeedbackCommand}" Text="Rate App">
+                    <MenuFlyoutItem x:Uid="ShellPage_RateApp" Command="{x:Bind ViewModel.FeedbackCommand}">
                         <MenuFlyoutItem.Icon>
                             <SymbolIcon Symbol="Like" />
                         </MenuFlyoutItem.Icon>
                     </MenuFlyoutItem>
-                    <MenuFlyoutItem Command="{x:Bind ViewModel.OpenAboutPageCommand}" Text="About">
+                    <MenuFlyoutItem x:Uid="ShellPage_About" Command="{x:Bind ViewModel.OpenAboutPageCommand}">
                         <MenuFlyoutItem.Icon>
                             <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE946;" />
                         </MenuFlyoutItem.Icon>

@@ -4,8 +4,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:controls="using:LearnDraw.Controls"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:converters="using:LearnDraw.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:LearnDraw.Views.Pickers"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:models="using:LearnDraw.Core.Models"
@@ -27,9 +27,9 @@
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
                 <TextBlock
+                    x:Uid="MyFavoriteDrawingsPage_Title"
                     VerticalAlignment="Center"
-                    Style="{ThemeResource SubtitleTextBlockStyle}"
-                    Text="My Library" />
+                    Style="{ThemeResource SubtitleTextBlockStyle}" />
                 <Grid Grid.Column="1" Margin="20,0,28,0">
                     <Button
                         x:Name="MultipleSelectBtn"
