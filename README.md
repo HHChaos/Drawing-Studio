@@ -1,5 +1,4 @@
 # Drawing Studio
----
 
 <p align="center">
 <a href="https://www.microsoft.com/store/apps/9PKVX26RB8F0?ocid=badge"><img width="200" src="Screenshot/StoreLogo.png" alt="Logo" /></a></p>
@@ -10,7 +9,6 @@ You can search in Windows Store or visit [this](https://www.microsoft.com/store/
 
 
 ## Preview
----
 
 Drawing Studio uses machine learning algorithms to recognize your doodling and to provide you with some drawings to learn.
 Here are a few screenshots:
@@ -22,28 +20,24 @@ Here are a few screenshots:
 
 
 ## License
----
 
 The project is released under MIT License.
 
 ## Special Thanks
----
 
-**Microsoft ML.NET ** :  [ML.NET](https://github.com/dotnet/machinelearning) is an open source and cross-platform machine learning framework for .NET.
+**Microsoft ML.NET** :  [ML.NET](https://github.com/dotnet/machinelearning) is an open source and cross-platform machine learning framework for .NET.
 
-**Google Creative Lab ** : The software uses the [Quick, Draw! Dataset](https://github.com/googlecreativelab/quickdraw-dataset)(Creative Commons Attribution 4.0 International License) to train neural networks to recognize your doodling，and uses the drawings from [AutoDraw](https://www.autodraw.com/)(Creative Commons Attribution 4.0 nternational License).
+**Google Creative Lab** : The software uses the [Quick, Draw! Dataset](https://github.com/googlecreativelab/quickdraw-dataset)(Creative Commons Attribution 4.0 International License) to train neural networks to recognize your doodling，and uses the drawings from [AutoDraw](https://www.autodraw.com/)(Creative Commons Attribution 4.0 nternational License).
 
 **Justin Liu** : [Justin](https://twitter.com/justinxinliu) is my friend. He is a great uwp developer and designer. His demo application has given me a lot of help with its great UI design and smooth animations!
 
 
 ## Contribution
----
 
 Welcome feedback and contributions!
 
 
 ## Open Source Info
----
 
 | Name                      | Site                                                         |
 | ------------------------- | ------------------------------------------------------------ |
