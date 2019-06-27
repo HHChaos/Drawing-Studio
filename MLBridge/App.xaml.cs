@@ -1,5 +1,6 @@
 ﻿using LearnDraw.Core.Models;
 using LearnDraw.ML.Tools;
+using Newtonsoft.Json;
 using System;
 using System.IO;
 using System.Reflection;
@@ -75,20 +76,11 @@ namespace MLBridge
                 if (args.Request.Message.ContainsKey(AppServiceContract.RequestPredict))
                 {
                     var dataStr = args.Request.Message[AppServiceContract.RequestPredict]?.ToString();
-                    var strs = dataStr?.Split(',');
 
-                    if (strs?.Length == 300)
-                    {
-                        float[] data = new float[300];
-                        for (int i = 0; i < strs.Length; i++)
-                        {
-                            float.TryParse(strs[i], out var ret);
-                            data[i] = ret;
-                        }
-                        var prediction = mLPredictionEngineV2.Predict(data);
-                        if (prediction != null)
-                            result = string.Join(",", prediction.GetCandidateLabels(4));
-                    }
+                    var data = JsonConvert.DeserializeObject<float[]>(dataStr);
+                    var prediction = mLPredictionEngineV2.Predict(data);
+                    if (prediction != null)
+                        result = JsonConvert.SerializeObject(prediction.GetCandidateLabels(4));
                 }
 
                 await args.Request.SendResponseAsync(new ValueSet

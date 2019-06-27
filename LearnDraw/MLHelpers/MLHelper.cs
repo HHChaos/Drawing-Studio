@@ -1,4 +1,5 @@
-﻿using LearnDraw.Core.Models;
+﻿using LearnDraw.Core.Helpers;
+using LearnDraw.Core.Models;
 using LearnDraw.Helpers;
 using System;
 using System.Collections.Generic;
@@ -83,8 +84,8 @@ namespace LearnDraw.MLHelpers
                 return null;
             var data = DataV2ConvertHelper.GetPointArray(strokes);
             var request = new ValueSet();
-            var dataStr = data.Aggregate(new StringBuilder(), (s, o) => s.Append($",{o}")).Remove(0, 1);
-            request.Add(AppServiceContract.RequestPredict, dataStr.ToString());
+            var dataStr = await Json.StringifyAsync(data);
+            request.Add(AppServiceContract.RequestPredict, dataStr);
             var response = await App.Connection.SendMessageAsync(request);
             if (response.Status == AppServiceResponseStatus.Success)
             {
@@ -93,7 +94,7 @@ namespace LearnDraw.MLHelpers
                     var result = response.Message[AppServiceContract.Prediction].ToString();
                     if (!string.IsNullOrEmpty(result))
                     {
-                        return result.Split(",");
+                        return await Json.ToObjectAsync<string[]>(result);
                     }
                 }
             }
