@@ -311,4 +311,982 @@
   <data name="MyFavoriteDrawingsRemovedTip" xml:space="preserve">
     <value>已经从我的收藏中移除。</value>
   </data>
+  <data name="key_aircraft_carrier" xml:space="preserve">
+    <value>航空母舰</value>
+  </data>
+  <data name="key_airplane" xml:space="preserve">
+    <value>飞机</value>
+  </data>
+  <data name="key_alarm_clock" xml:space="preserve">
+    <value>闹钟</value>
+  </data>
+  <data name="key_ambulance" xml:space="preserve">
+    <value>救护车</value>
+  </data>
+  <data name="key_angel" xml:space="preserve">
+    <value>天使</value>
+  </data>
+  <data name="key_animal_migration" xml:space="preserve">
+    <value>动物迁移</value>
+  </data>
+  <data name="key_ant" xml:space="preserve">
+    <value>蚂蚁</value>
+  </data>
+  <data name="key_anvil" xml:space="preserve">
+    <value>铁砧</value>
+  </data>
+  <data name="key_apple" xml:space="preserve">
+    <value>苹果</value>
+  </data>
+  <data name="key_arm" xml:space="preserve">
+    <value>手臂</value>
+  </data>
+  <data name="key_asparagus" xml:space="preserve">
+    <value>芦笋</value>
+  </data>
+  <data name="key_axe" xml:space="preserve">
+    <value>斧</value>
+  </data>
+  <data name="key_backpack" xml:space="preserve">
+    <value>背包</value>
+  </data>
+  <data name="key_banana" xml:space="preserve">
+    <value>香蕉</value>
+  </data>
+  <data name="key_bandage" xml:space="preserve">
+    <value>绷带</value>
+  </data>
+  <data name="key_barn" xml:space="preserve">
+    <value>谷仓</value>
+  </data>
+  <data name="key_baseball_bat" xml:space="preserve">
+    <value>棒球棒</value>
+  </data>
+  <data name="key_baseball" xml:space="preserve">
+    <value>棒球</value>
+  </data>
+  <data name="key_basket" xml:space="preserve">
+    <value>篮</value>
+  </data>
+  <data name="key_basketball" xml:space="preserve">
+    <value>篮球</value>
+  </data>
+  <data name="key_bat" xml:space="preserve">
+    <value>蝙蝠</value>
+  </data>
+  <data name="key_bathtub" xml:space="preserve">
+    <value>浴缸</value>
+  </data>
+  <data name="key_beach" xml:space="preserve">
+    <value>海滩</value>
+  </data>
+  <data name="key_bear" xml:space="preserve">
+    <value>熊</value>
+  </data>
+  <data name="key_beard" xml:space="preserve">
+    <value>胡子</value>
+  </data>
+  <data name="key_bed" xml:space="preserve">
+    <value>床</value>
+  </data>
+  <data name="key_bee" xml:space="preserve">
+    <value>蜜蜂</value>
+  </data>
+  <data name="key_belt" xml:space="preserve">
+    <value>皮带</value>
+  </data>
+  <data name="key_bench" xml:space="preserve">
+    <value>板凳</value>
+  </data>
+  <data name="key_bicycle" xml:space="preserve">
+    <value>自行车</value>
+  </data>
+  <data name="key_binoculars" xml:space="preserve">
+    <value>望远镜</value>
+  </data>
+  <data name="key_bird" xml:space="preserve">
+    <value>鸟</value>
+  </data>
+  <data name="key_birthday_cake" xml:space="preserve">
+    <value>生日蛋糕</value>
+  </data>
+  <data name="key_blackberry" xml:space="preserve">
+    <value>黑莓</value>
+  </data>
+  <data name="key_blueberry" xml:space="preserve">
+    <value>蓝莓</value>
+  </data>
+  <data name="key_book" xml:space="preserve">
+    <value>书</value>
+  </data>
+  <data name="key_boomerang" xml:space="preserve">
+    <value>回旋镖</value>
+  </data>
+  <data name="key_bracelet" xml:space="preserve">
+    <value>手镯</value>
+  </data>
+  <data name="key_brain" xml:space="preserve">
+    <value>大脑</value>
+  </data>
+  <data name="key_bread" xml:space="preserve">
+    <value>面包</value>
+  </data>
+  <data name="key_bridge" xml:space="preserve">
+    <value>桥</value>
+  </data>
+  <data name="key_broccoli" xml:space="preserve">
+    <value>西兰花</value>
+  </data>
+  <data name="key_broom" xml:space="preserve">
+    <value>扫帚</value>
+  </data>
+  <data name="key_bucket" xml:space="preserve">
+    <value>水桶</value>
+  </data>
+  <data name="key_bulldozer" xml:space="preserve">
+    <value>推土机</value>
+  </data>
+  <data name="key_bus" xml:space="preserve">
+    <value>公共汽车</value>
+  </data>
+  <data name="key_bush" xml:space="preserve">
+    <value>灌木</value>
+  </data>
+  <data name="key_butterfly" xml:space="preserve">
+    <value>蝴蝶</value>
+  </data>
+  <data name="key_cactus" xml:space="preserve">
+    <value>仙人掌</value>
+  </data>
+  <data name="key_cake" xml:space="preserve">
+    <value>蛋糕</value>
+  </data>
+  <data name="key_calculator" xml:space="preserve">
+    <value>计算器</value>
+  </data>
+  <data name="key_calendar" xml:space="preserve">
+    <value>日历</value>
+  </data>
+  <data name="key_camel" xml:space="preserve">
+    <value>骆驼</value>
+  </data>
+  <data name="key_camera" xml:space="preserve">
+    <value>摄像头</value>
+  </data>
+  <data name="key_camouflage" xml:space="preserve">
+    <value>迷彩</value>
+  </data>
+  <data name="key_campfire" xml:space="preserve">
+    <value>篝火</value>
+  </data>
+  <data name="key_candle" xml:space="preserve">
+    <value>蜡烛</value>
+  </data>
+  <data name="key_cannon" xml:space="preserve">
+    <value>大炮</value>
+  </data>
+  <data name="key_canoe" xml:space="preserve">
+    <value>独木舟</value>
+  </data>
+  <data name="key_car" xml:space="preserve">
+    <value>汽车</value>
+  </data>
+  <data name="key_carrot" xml:space="preserve">
+    <value>胡萝卜</value>
+  </data>
+  <data name="key_castle" xml:space="preserve">
+    <value>城堡</value>
+  </data>
+  <data name="key_cat" xml:space="preserve">
+    <value>猫</value>
+  </data>
+  <data name="key_ceiling_fan" xml:space="preserve">
+    <value>吊扇</value>
+  </data>
+  <data name="key_cell_phone" xml:space="preserve">
+    <value>手机</value>
+  </data>
+  <data name="key_cello" xml:space="preserve">
+    <value>大提琴</value>
+  </data>
+  <data name="key_chair" xml:space="preserve">
+    <value>椅子</value>
+  </data>
+  <data name="key_chandelier" xml:space="preserve">
+    <value>吊灯</value>
+  </data>
+  <data name="key_circle" xml:space="preserve">
+    <value>圆圈</value>
+  </data>
+  <data name="key_clarinet" xml:space="preserve">
+    <value>单簧管</value>
+  </data>
+  <data name="key_clock" xml:space="preserve">
+    <value>钟</value>
+  </data>
+  <data name="key_cloud" xml:space="preserve">
+    <value>云</value>
+  </data>
+  <data name="key_coffee_cup" xml:space="preserve">
+    <value>咖啡杯</value>
+  </data>
+  <data name="key_compass" xml:space="preserve">
+    <value>指南针</value>
+  </data>
+  <data name="key_computer" xml:space="preserve">
+    <value>电脑</value>
+  </data>
+  <data name="key_cookie" xml:space="preserve">
+    <value>饼干</value>
+  </data>
+  <data name="key_cooler" xml:space="preserve">
+    <value>冷却器</value>
+  </data>
+  <data name="key_couch" xml:space="preserve">
+    <value>沙发</value>
+  </data>
+  <data name="key_cow" xml:space="preserve">
+    <value>牛</value>
+  </data>
+  <data name="key_crab" xml:space="preserve">
+    <value>螃蟹</value>
+  </data>
+  <data name="key_crayon" xml:space="preserve">
+    <value>蜡笔</value>
+  </data>
+  <data name="key_crocodile" xml:space="preserve">
+    <value>鳄鱼</value>
+  </data>
+  <data name="key_crown" xml:space="preserve">
+    <value>王冠</value>
+  </data>
+  <data name="key_cruise_ship" xml:space="preserve">
+    <value>游轮</value>
+  </data>
+  <data name="key_cup" xml:space="preserve">
+    <value>杯</value>
+  </data>
+  <data name="key_diamond" xml:space="preserve">
+    <value>钻石</value>
+  </data>
+  <data name="key_dishwasher" xml:space="preserve">
+    <value>洗碗机</value>
+  </data>
+  <data name="key_diving_board" xml:space="preserve">
+    <value>跳水板</value>
+  </data>
+  <data name="key_dog" xml:space="preserve">
+    <value>狗</value>
+  </data>
+  <data name="key_dolphin" xml:space="preserve">
+    <value>海豚</value>
+  </data>
+  <data name="key_donut" xml:space="preserve">
+    <value>甜甜圈</value>
+  </data>
+  <data name="key_door" xml:space="preserve">
+    <value>门</value>
+  </data>
+  <data name="key_dragon" xml:space="preserve">
+    <value>龙</value>
+  </data>
+  <data name="key_dresser" xml:space="preserve">
+    <value>梳妆台</value>
+  </data>
+  <data name="key_drill" xml:space="preserve">
+    <value>钻孔机</value>
+  </data>
+  <data name="key_drums" xml:space="preserve">
+    <value>鼓</value>
+  </data>
+  <data name="key_duck" xml:space="preserve">
+    <value>鸭</value>
+  </data>
+  <data name="key_dumbbell" xml:space="preserve">
+    <value>哑铃</value>
+  </data>
+  <data name="key_ear" xml:space="preserve">
+    <value>耳</value>
+  </data>
+  <data name="key_elbow" xml:space="preserve">
+    <value>肘部</value>
+  </data>
+  <data name="key_elephant" xml:space="preserve">
+    <value>大象</value>
+  </data>
+  <data name="key_envelope" xml:space="preserve">
+    <value>信封</value>
+  </data>
+  <data name="key_eraser" xml:space="preserve">
+    <value>橡皮擦</value>
+  </data>
+  <data name="key_eye" xml:space="preserve">
+    <value>眼</value>
+  </data>
+  <data name="key_eyeglasses" xml:space="preserve">
+    <value>眼镜</value>
+  </data>
+  <data name="key_fan" xml:space="preserve">
+    <value>风扇</value>
+  </data>
+  <data name="key_feather" xml:space="preserve">
+    <value>羽毛</value>
+  </data>
+  <data name="key_fence" xml:space="preserve">
+    <value>栅栏</value>
+  </data>
+  <data name="key_finger" xml:space="preserve">
+    <value>手指</value>
+  </data>
+  <data name="key_fire_hydrant" xml:space="preserve">
+    <value>消火栓</value>
+  </data>
+  <data name="key_fireplace" xml:space="preserve">
+    <value>壁炉</value>
+  </data>
+  <data name="key_fish" xml:space="preserve">
+    <value>鱼</value>
+  </data>
+  <data name="key_flamingo" xml:space="preserve">
+    <value>火烈鸟</value>
+  </data>
+  <data name="key_flashlight" xml:space="preserve">
+    <value>手电筒</value>
+  </data>
+  <data name="key_flip_flops" xml:space="preserve">
+    <value>人字拖</value>
+  </data>
+  <data name="key_floor_lamp" xml:space="preserve">
+    <value>落地灯</value>
+  </data>
+  <data name="key_flower" xml:space="preserve">
+    <value>花</value>
+  </data>
+  <data name="key_flying_saucer" xml:space="preserve">
+    <value>飞碟</value>
+  </data>
+  <data name="key_foot" xml:space="preserve">
+    <value>脚</value>
+  </data>
+  <data name="key_fork" xml:space="preserve">
+    <value>叉子</value>
+  </data>
+  <data name="key_frog" xml:space="preserve">
+    <value>青蛙</value>
+  </data>
+  <data name="key_frying_pan" xml:space="preserve">
+    <value>煎锅</value>
+  </data>
+  <data name="key_garden_hose" xml:space="preserve">
+    <value>花园浇水管</value>
+  </data>
+  <data name="key_garden" xml:space="preserve">
+    <value>花园</value>
+  </data>
+  <data name="key_giraffe" xml:space="preserve">
+    <value>长颈鹿</value>
+  </data>
+  <data name="key_goatee" xml:space="preserve">
+    <value>山羊胡</value>
+  </data>
+  <data name="key_golf_club" xml:space="preserve">
+    <value>高尔夫俱乐部</value>
+  </data>
+  <data name="key_grapes" xml:space="preserve">
+    <value>葡萄</value>
+  </data>
+  <data name="key_grass" xml:space="preserve">
+    <value>草</value>
+  </data>
+  <data name="key_guitar" xml:space="preserve">
+    <value>吉他</value>
+  </data>
+  <data name="key_hamburger" xml:space="preserve">
+    <value>汉堡包</value>
+  </data>
+  <data name="key_hammer" xml:space="preserve">
+    <value>锤</value>
+  </data>
+  <data name="key_hand" xml:space="preserve">
+    <value>手</value>
+  </data>
+  <data name="key_harp" xml:space="preserve">
+    <value>竖琴</value>
+  </data>
+  <data name="key_hat" xml:space="preserve">
+    <value>帽子</value>
+  </data>
+  <data name="key_headphones" xml:space="preserve">
+    <value>耳机</value>
+  </data>
+  <data name="key_hedgehog" xml:space="preserve">
+    <value>刺猬</value>
+  </data>
+  <data name="key_helicopter" xml:space="preserve">
+    <value>直升机</value>
+  </data>
+  <data name="key_helmet" xml:space="preserve">
+    <value>头盔</value>
+  </data>
+  <data name="key_hexagon" xml:space="preserve">
+    <value>六角</value>
+  </data>
+  <data name="key_hockey_puck" xml:space="preserve">
+    <value>冰球</value>
+  </data>
+  <data name="key_hockey_stick" xml:space="preserve">
+    <value>曲棍球棒</value>
+  </data>
+  <data name="key_horse" xml:space="preserve">
+    <value>马</value>
+  </data>
+  <data name="key_hospital" xml:space="preserve">
+    <value>医院</value>
+  </data>
+  <data name="key_hot_air_balloon" xml:space="preserve">
+    <value>热气球</value>
+  </data>
+  <data name="key_hot_dog" xml:space="preserve">
+    <value>热狗</value>
+  </data>
+  <data name="key_hot_tub" xml:space="preserve">
+    <value>热水浴缸</value>
+  </data>
+  <data name="key_hourglass" xml:space="preserve">
+    <value>沙漏</value>
+  </data>
+  <data name="key_house_plant" xml:space="preserve">
+    <value>室内植物</value>
+  </data>
+  <data name="key_house" xml:space="preserve">
+    <value>房子</value>
+  </data>
+  <data name="key_ice_cream" xml:space="preserve">
+    <value>冰淇淋</value>
+  </data>
+  <data name="key_jacket" xml:space="preserve">
+    <value>外套</value>
+  </data>
+  <data name="key_jail" xml:space="preserve">
+    <value>监狱</value>
+  </data>
+  <data name="key_kangaroo" xml:space="preserve">
+    <value>袋鼠</value>
+  </data>
+  <data name="key_key" xml:space="preserve">
+    <value>关键</value>
+  </data>
+  <data name="key_keyboard" xml:space="preserve">
+    <value>键盘</value>
+  </data>
+  <data name="key_knee" xml:space="preserve">
+    <value>膝盖</value>
+  </data>
+  <data name="key_ladder" xml:space="preserve">
+    <value>梯</value>
+  </data>
+  <data name="key_lantern" xml:space="preserve">
+    <value>灯笼</value>
+  </data>
+  <data name="key_laptop" xml:space="preserve">
+    <value>笔记本电脑</value>
+  </data>
+  <data name="key_leaf" xml:space="preserve">
+    <value>叶子</value>
+  </data>
+  <data name="key_leg" xml:space="preserve">
+    <value>腿</value>
+  </data>
+  <data name="key_light_bulb" xml:space="preserve">
+    <value>灯泡</value>
+  </data>
+  <data name="key_lighthouse" xml:space="preserve">
+    <value>灯塔</value>
+  </data>
+  <data name="key_lightning" xml:space="preserve">
+    <value>闪电</value>
+  </data>
+  <data name="key_line" xml:space="preserve">
+    <value>线</value>
+  </data>
+  <data name="key_lion" xml:space="preserve">
+    <value>狮子</value>
+  </data>
+  <data name="key_lipstick" xml:space="preserve">
+    <value>口红</value>
+  </data>
+  <data name="key_lobster" xml:space="preserve">
+    <value>龙虾</value>
+  </data>
+  <data name="key_lollipop" xml:space="preserve">
+    <value>棒棒糖</value>
+  </data>
+  <data name="key_mailbox" xml:space="preserve">
+    <value>邮箱</value>
+  </data>
+  <data name="key_map" xml:space="preserve">
+    <value>图</value>
+  </data>
+  <data name="key_marker" xml:space="preserve">
+    <value>记号笔</value>
+  </data>
+  <data name="key_matches" xml:space="preserve">
+    <value>火柴</value>
+  </data>
+  <data name="key_megaphone" xml:space="preserve">
+    <value>扩音器</value>
+  </data>
+  <data name="key_mermaid" xml:space="preserve">
+    <value>美人鱼</value>
+  </data>
+  <data name="key_microphone" xml:space="preserve">
+    <value>麦克风</value>
+  </data>
+  <data name="key_microwave" xml:space="preserve">
+    <value>微波炉</value>
+  </data>
+  <data name="key_monkey" xml:space="preserve">
+    <value>猴子</value>
+  </data>
+  <data name="key_moon" xml:space="preserve">
+    <value>月亮</value>
+  </data>
+  <data name="key_mosquito" xml:space="preserve">
+    <value>蚊子</value>
+  </data>
+  <data name="key_motorbike" xml:space="preserve">
+    <value>摩托车</value>
+  </data>
+  <data name="key_mountain" xml:space="preserve">
+    <value>山</value>
+  </data>
+  <data name="key_mouse" xml:space="preserve">
+    <value>鼠标</value>
+  </data>
+  <data name="key_moustache" xml:space="preserve">
+    <value>小胡子</value>
+  </data>
+  <data name="key_mouth" xml:space="preserve">
+    <value>嘴巴</value>
+  </data>
+  <data name="key_mug" xml:space="preserve">
+    <value>杯</value>
+  </data>
+  <data name="key_mushroom" xml:space="preserve">
+    <value>蘑菇</value>
+  </data>
+  <data name="key_nail" xml:space="preserve">
+    <value>钉</value>
+  </data>
+  <data name="key_necklace" xml:space="preserve">
+    <value>项链</value>
+  </data>
+  <data name="key_nose" xml:space="preserve">
+    <value>鼻子</value>
+  </data>
+  <data name="key_ocean" xml:space="preserve">
+    <value>海洋</value>
+  </data>
+  <data name="key_octagon" xml:space="preserve">
+    <value>八角</value>
+  </data>
+  <data name="key_octopus" xml:space="preserve">
+    <value>章鱼</value>
+  </data>
+  <data name="key_onion" xml:space="preserve">
+    <value>洋葱</value>
+  </data>
+  <data name="key_oven" xml:space="preserve">
+    <value>烤箱</value>
+  </data>
+  <data name="key_owl" xml:space="preserve">
+    <value>猫头鹰</value>
+  </data>
+  <data name="key_paint_can" xml:space="preserve">
+    <value>油漆罐</value>
+  </data>
+  <data name="key_paintbrush" xml:space="preserve">
+    <value>画笔</value>
+  </data>
+  <data name="key_palm_tree" xml:space="preserve">
+    <value>棕榈树</value>
+  </data>
+  <data name="key_panda" xml:space="preserve">
+    <value>熊猫</value>
+  </data>
+  <data name="key_pants" xml:space="preserve">
+    <value>裤子</value>
+  </data>
+  <data name="key_paper_clip" xml:space="preserve">
+    <value>回形针</value>
+  </data>
+  <data name="key_parachute" xml:space="preserve">
+    <value>降落伞</value>
+  </data>
+  <data name="key_parrot" xml:space="preserve">
+    <value>鹦鹉</value>
+  </data>
+  <data name="key_passport" xml:space="preserve">
+    <value>护照</value>
+  </data>
+  <data name="key_peanut" xml:space="preserve">
+    <value>花生</value>
+  </data>
+  <data name="key_pear" xml:space="preserve">
+    <value>梨</value>
+  </data>
+  <data name="key_peas" xml:space="preserve">
+    <value>豌豆</value>
+  </data>
+  <data name="key_pencil" xml:space="preserve">
+    <value>铅笔</value>
+  </data>
+  <data name="key_penguin" xml:space="preserve">
+    <value>企鹅</value>
+  </data>
+  <data name="key_piano" xml:space="preserve">
+    <value>钢琴</value>
+  </data>
+  <data name="key_pickup_truck" xml:space="preserve">
+    <value>皮卡车</value>
+  </data>
+  <data name="key_picture_frame" xml:space="preserve">
+    <value>相框</value>
+  </data>
+  <data name="key_pig" xml:space="preserve">
+    <value>猪</value>
+  </data>
+  <data name="key_pillow" xml:space="preserve">
+    <value>枕头</value>
+  </data>
+  <data name="key_pineapple" xml:space="preserve">
+    <value>菠萝</value>
+  </data>
+  <data name="key_pizza" xml:space="preserve">
+    <value>比萨饼</value>
+  </data>
+  <data name="key_pliers" xml:space="preserve">
+    <value>钳子</value>
+  </data>
+  <data name="key_police_car" xml:space="preserve">
+    <value>警车</value>
+  </data>
+  <data name="key_pond" xml:space="preserve">
+    <value>池塘</value>
+  </data>
+  <data name="key_pool" xml:space="preserve">
+    <value>游泳池</value>
+  </data>
+  <data name="key_popsicle" xml:space="preserve">
+    <value>冰棒</value>
+  </data>
+  <data name="key_postcard" xml:space="preserve">
+    <value>明信片</value>
+  </data>
+  <data name="key_potato" xml:space="preserve">
+    <value>土豆</value>
+  </data>
+  <data name="key_power_outlet" xml:space="preserve">
+    <value>电源插座</value>
+  </data>
+  <data name="key_purse" xml:space="preserve">
+    <value>钱包</value>
+  </data>
+  <data name="key_rabbit" xml:space="preserve">
+    <value>兔</value>
+  </data>
+  <data name="key_raccoon" xml:space="preserve">
+    <value>浣熊</value>
+  </data>
+  <data name="key_radio" xml:space="preserve">
+    <value>电台</value>
+  </data>
+  <data name="key_rain" xml:space="preserve">
+    <value>雨</value>
+  </data>
+  <data name="key_rainbow" xml:space="preserve">
+    <value>彩虹</value>
+  </data>
+  <data name="key_rake" xml:space="preserve">
+    <value>耙子</value>
+  </data>
+  <data name="key_remote_control" xml:space="preserve">
+    <value>遥控器</value>
+  </data>
+  <data name="key_rhinoceros" xml:space="preserve">
+    <value>犀牛</value>
+  </data>
+  <data name="key_river" xml:space="preserve">
+    <value>河</value>
+  </data>
+  <data name="key_roller_coaster" xml:space="preserve">
+    <value>过山车</value>
+  </data>
+  <data name="key_sailboat" xml:space="preserve">
+    <value>帆船</value>
+  </data>
+  <data name="key_sandwich" xml:space="preserve">
+    <value>三明治</value>
+  </data>
+  <data name="key_saw" xml:space="preserve">
+    <value>锯</value>
+  </data>
+  <data name="key_saxophone" xml:space="preserve">
+    <value>萨克斯</value>
+  </data>
+  <data name="key_school_bus" xml:space="preserve">
+    <value>校车</value>
+  </data>
+  <data name="key_scissors" xml:space="preserve">
+    <value>剪刀</value>
+  </data>
+  <data name="key_scorpion" xml:space="preserve">
+    <value>蝎子</value>
+  </data>
+  <data name="key_screwdriver" xml:space="preserve">
+    <value>螺丝刀</value>
+  </data>
+  <data name="key_sea_turtle" xml:space="preserve">
+    <value>海龟</value>
+  </data>
+  <data name="key_shark" xml:space="preserve">
+    <value>鲨鱼</value>
+  </data>
+  <data name="key_sheep" xml:space="preserve">
+    <value>羊</value>
+  </data>
+  <data name="key_shoe" xml:space="preserve">
+    <value>鞋</value>
+  </data>
+  <data name="key_shorts" xml:space="preserve">
+    <value>短裤</value>
+  </data>
+  <data name="key_shovel" xml:space="preserve">
+    <value>铁铲</value>
+  </data>
+  <data name="key_sink" xml:space="preserve">
+    <value>水槽</value>
+  </data>
+  <data name="key_skateboard" xml:space="preserve">
+    <value>滑板</value>
+  </data>
+  <data name="key_skull" xml:space="preserve">
+    <value>头骨</value>
+  </data>
+  <data name="key_skyscraper" xml:space="preserve">
+    <value>摩天大楼</value>
+  </data>
+  <data name="key_sleeping_bag" xml:space="preserve">
+    <value>睡袋</value>
+  </data>
+  <data name="key_smiley_face" xml:space="preserve">
+    <value>笑脸</value>
+  </data>
+  <data name="key_snail" xml:space="preserve">
+    <value>蜗牛</value>
+  </data>
+  <data name="key_snake" xml:space="preserve">
+    <value>蛇</value>
+  </data>
+  <data name="key_snorkel" xml:space="preserve">
+    <value>潜水通气管</value>
+  </data>
+  <data name="key_snowflake" xml:space="preserve">
+    <value>雪花</value>
+  </data>
+  <data name="key_snowman" xml:space="preserve">
+    <value>雪人</value>
+  </data>
+  <data name="key_soccer_ball" xml:space="preserve">
+    <value>足球</value>
+  </data>
+  <data name="key_sock" xml:space="preserve">
+    <value>袜子</value>
+  </data>
+  <data name="key_speedboat" xml:space="preserve">
+    <value>快艇</value>
+  </data>
+  <data name="key_spider" xml:space="preserve">
+    <value>蜘蛛</value>
+  </data>
+  <data name="key_spoon" xml:space="preserve">
+    <value>匙</value>
+  </data>
+  <data name="key_spreadsheet" xml:space="preserve">
+    <value>电子表格</value>
+  </data>
+  <data name="key_square" xml:space="preserve">
+    <value>方</value>
+  </data>
+  <data name="key_squiggle" xml:space="preserve">
+    <value>波浪线</value>
+  </data>
+  <data name="key_squirrel" xml:space="preserve">
+    <value>松鼠</value>
+  </data>
+  <data name="key_stairs" xml:space="preserve">
+    <value>楼梯</value>
+  </data>
+  <data name="key_star" xml:space="preserve">
+    <value>星</value>
+  </data>
+  <data name="key_steak" xml:space="preserve">
+    <value>牛排</value>
+  </data>
+  <data name="key_stereo" xml:space="preserve">
+    <value>立体音响</value>
+  </data>
+  <data name="key_stethoscope" xml:space="preserve">
+    <value>听诊器</value>
+  </data>
+  <data name="key_stitches" xml:space="preserve">
+    <value>针</value>
+  </data>
+  <data name="key_stop_sign" xml:space="preserve">
+    <value>停止标志</value>
+  </data>
+  <data name="key_stove" xml:space="preserve">
+    <value>炉灶</value>
+  </data>
+  <data name="key_strawberry" xml:space="preserve">
+    <value>草莓</value>
+  </data>
+  <data name="key_streetlight" xml:space="preserve">
+    <value>路灯</value>
+  </data>
+  <data name="key_string_bean" xml:space="preserve">
+    <value>四季豆</value>
+  </data>
+  <data name="key_submarine" xml:space="preserve">
+    <value>潜艇</value>
+  </data>
+  <data name="key_suitcase" xml:space="preserve">
+    <value>旅行箱</value>
+  </data>
+  <data name="key_sun" xml:space="preserve">
+    <value>阳光</value>
+  </data>
+  <data name="key_swan" xml:space="preserve">
+    <value>天鹅</value>
+  </data>
+  <data name="key_sweater" xml:space="preserve">
+    <value>毛衣</value>
+  </data>
+  <data name="key_swing_set" xml:space="preserve">
+    <value>秋千</value>
+  </data>
+  <data name="key_sword" xml:space="preserve">
+    <value>剑</value>
+  </data>
+  <data name="key_syringe" xml:space="preserve">
+    <value>注射器</value>
+  </data>
+  <data name="key_t-shirt" xml:space="preserve">
+    <value>T恤</value>
+  </data>
+  <data name="key_table" xml:space="preserve">
+    <value>表</value>
+  </data>
+  <data name="key_teapot" xml:space="preserve">
+    <value>茶壶</value>
+  </data>
+  <data name="key_teddy-bear" xml:space="preserve">
+    <value>泰迪熊</value>
+  </data>
+  <data name="key_telephone" xml:space="preserve">
+    <value>电话</value>
+  </data>
+  <data name="key_television" xml:space="preserve">
+    <value>电视</value>
+  </data>
+  <data name="key_tennis_racquet" xml:space="preserve">
+    <value>网球拍</value>
+  </data>
+  <data name="key_tent" xml:space="preserve">
+    <value>帐篷</value>
+  </data>
+  <data name="key_tiger" xml:space="preserve">
+    <value>虎</value>
+  </data>
+  <data name="key_toaster" xml:space="preserve">
+    <value>烤面包机</value>
+  </data>
+  <data name="key_toe" xml:space="preserve">
+    <value>脚趾</value>
+  </data>
+  <data name="key_toilet" xml:space="preserve">
+    <value>厕所</value>
+  </data>
+  <data name="key_tooth" xml:space="preserve">
+    <value>牙齿</value>
+  </data>
+  <data name="key_toothbrush" xml:space="preserve">
+    <value>牙刷</value>
+  </data>
+  <data name="key_toothpaste" xml:space="preserve">
+    <value>牙膏</value>
+  </data>
+  <data name="key_tornado" xml:space="preserve">
+    <value>龙卷风</value>
+  </data>
+  <data name="key_tractor" xml:space="preserve">
+    <value>拖拉机</value>
+  </data>
+  <data name="key_traffic_light" xml:space="preserve">
+    <value>交通灯</value>
+  </data>
+  <data name="key_train" xml:space="preserve">
+    <value>火车</value>
+  </data>
+  <data name="key_tree" xml:space="preserve">
+    <value>树</value>
+  </data>
+  <data name="key_triangle" xml:space="preserve">
+    <value>三角</value>
+  </data>
+  <data name="key_trombone" xml:space="preserve">
+    <value>长号</value>
+  </data>
+  <data name="key_truck" xml:space="preserve">
+    <value>卡车</value>
+  </data>
+  <data name="key_trumpet" xml:space="preserve">
+    <value>小号</value>
+  </data>
+  <data name="key_umbrella" xml:space="preserve">
+    <value>伞</value>
+  </data>
+  <data name="key_underwear" xml:space="preserve">
+    <value>内衣</value>
+  </data>
+  <data name="key_van" xml:space="preserve">
+    <value>面包车</value>
+  </data>
+  <data name="key_vase" xml:space="preserve">
+    <value>花瓶</value>
+  </data>
+  <data name="key_violin" xml:space="preserve">
+    <value>小提琴</value>
+  </data>
+  <data name="key_washing_machine" xml:space="preserve">
+    <value>洗衣机</value>
+  </data>
+  <data name="key_watermelon" xml:space="preserve">
+    <value>西瓜</value>
+  </data>
+  <data name="key_whale" xml:space="preserve">
+    <value>鲸鱼</value>
+  </data>
+  <data name="key_wheel" xml:space="preserve">
+    <value>轮子</value>
+  </data>
+  <data name="key_windmill" xml:space="preserve">
+    <value>风车</value>
+  </data>
+  <data name="key_wine_bottle" xml:space="preserve">
+    <value>酒瓶</value>
+  </data>
+  <data name="key_wine_glass" xml:space="preserve">
+    <value>酒杯</value>
+  </data>
 </root>
