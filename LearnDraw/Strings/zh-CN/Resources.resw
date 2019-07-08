@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AppDisplayName" xml:space="preserve">
-    <value>Drawing Studio</value>
+    <value>画画</value>
     <comment>Application display name</comment>
   </data>
   <data name="AppDescription" xml:space="preserve">
@@ -228,7 +228,7 @@
     <value>慢</value>
   </data>
   <data name="InkSaveNothing" xml:space="preserve">
-    <value>你好像什么都没有画！</value>
+    <value>你好像还什么都没有画！</value>
   </data>
   <data name="InkSaveSuggestedFileName" xml:space="preserve">
     <value>My_Drawing</value>
