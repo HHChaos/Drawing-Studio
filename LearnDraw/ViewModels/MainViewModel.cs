@@ -4,6 +4,7 @@ using LearnDraw.Helpers;
 using LearnDraw.MLHelpers;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Windows.UI.Input.Inking;
 
@@ -23,22 +24,22 @@ namespace LearnDraw.ViewModels
             set => Set(ref _recommendedAssets, value);
         }
 
-        public string Prediction => _candidateLabels?[0];
-        public string CandidateLabel1 => _candidateLabels?[1];
-        public string CandidateLabel2 => _candidateLabels?[2];
-        public string CandidateLabel3 => _candidateLabels?[3];
+        public string Prediction => _candidateLabels?[0]?.GetLocalized();
+        public string CandidateLabel1 => _candidateLabels?[1]?.GetLocalized();
+        public string CandidateLabel2 => _candidateLabels?[2]?.GetLocalized();
+        public string CandidateLabel3 => _candidateLabels?[3]?.GetLocalized();
 
         public async Task UpdataPrediction(IEnumerable<InkStroke> strokes)
         {
             var predictionResult = await MLHelper.Instance.Predict(strokes);
             if (predictionResult?.Length > 0)
             {
-                _candidateLabels = predictionResult;
+                _candidateLabels = predictionResult.Select(o => $"key_{o.Replace(' ', '_')}").ToArray();
                 RaisePropertyChanged(() => Prediction);
                 RaisePropertyChanged(() => CandidateLabel1);
                 RaisePropertyChanged(() => CandidateLabel2);
                 RaisePropertyChanged(() => CandidateLabel3);
-                RecommendedAssets = AnimAssetsHelper.Instance.GetRecommendedAssets(_candidateLabels);
+                RecommendedAssets = AnimAssetsHelper.Instance.GetRecommendedAssets(predictionResult);
             }
             else
             {
