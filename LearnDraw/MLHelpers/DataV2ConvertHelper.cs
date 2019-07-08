@@ -38,8 +38,8 @@ namespace LearnDraw.MLHelpers
             {
                 var index = i > (points.Count - 1) ? points.Count - 1 : i;
                 var point = points[index];
-                ret[i * 2] = point.X;
-                ret[i * 2 + 1] = point.Y;
+                ret[i * 2] = (float)Math.Round(point.X, 1);
+                ret[i * 2 + 1] = (float)Math.Round(point.Y, 1);
             }
             return ret;
         }
@@ -50,7 +50,22 @@ namespace LearnDraw.MLHelpers
             var index = 0;
             foreach (var stroke in strokes)
             {
-                var path = CanvasGeometry.CreateInk(resourceCreator, new InkStroke[] { stroke }, transform, 1f);
+                var points = stroke.GetInkPoints().Select(o => o.Position.ToVector2()).ToArray();
+                CanvasPathBuilder pathBuilder = new CanvasPathBuilder(resourceCreator);
+                if (points.Length > 0)
+                {
+                    pathBuilder.BeginFigure(points[0]);
+                    if (points.Length > 1)
+                    {
+                        for (int i = 1; i < points.Length; i++)
+                        {
+                            pathBuilder.AddLine(points[i]);
+                        }
+                    }
+                    pathBuilder.EndFigure(CanvasFigureLoop.Open);
+                }
+                var path = CanvasGeometry.CreatePath(pathBuilder).Transform(transform);
+                pathBuilder.Dispose();
                 paths[index] = new PathInfo
                 {
                     Path = path,
