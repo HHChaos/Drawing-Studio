@@ -481,7 +481,8 @@
                                             BeginTime="0"
                                             Storyboard.TargetName="Icon"
                                             Storyboard.TargetProperty="(FontIcon.Foreground).(SolidColorBrush.Color)"
-                                            To="{StaticResource HeartColor}" />
+                                            To="{StaticResource HeartColor}"
+                                            Duration="0:0:0.05" />
                                         <DoubleAnimation
                                             BeginTime="0"
                                             Storyboard.TargetName="Icon"
@@ -500,7 +501,8 @@
                                             BeginTime="0"
                                             Storyboard.TargetName="Icon"
                                             Storyboard.TargetProperty="(FontIcon.Foreground).(SolidColorBrush.Color)"
-                                            To="{StaticResource HeartColor}" />
+                                            To="{StaticResource HeartColor}"
+                                            Duration="0:0:0.05" />
                                         <DoubleAnimation
                                             BeginTime="0"
                                             Storyboard.TargetName="Icon"
@@ -814,7 +816,7 @@
                                                 Storyboard.TargetName="Icon"
                                                 Storyboard.TargetProperty="(IconElement.Foreground).(SolidColorBrush.Color)"
                                                 To="{StaticResource HeartColor}"
-                                                Duration="0:0:0.5" />
+                                                Duration="0:0:0.15" />
                                         </Storyboard>
                                     </VisualTransition>
                                 </VisualStateGroup.Transitions>

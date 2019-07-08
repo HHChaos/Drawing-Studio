@@ -111,7 +111,19 @@
                             Stroke="{ThemeResource SystemControlForegroundChromeGrayBrush}"
                             StrokeDashArray="4 4"
                             StrokeThickness="4" />
-                        <Grid IsHitTestVisible="False">
+                        <Grid IsHitTestVisible="False" Visibility="{x:Bind InkCanvas.IsDrawing, Mode=OneWay}">
+                            <animations:Implicit.ShowAnimations>
+                                <animations:OpacityAnimation
+                                    From="0"
+                                    To="1"
+                                    Duration="0:0:0.6" />
+                            </animations:Implicit.ShowAnimations>
+                            <animations:Implicit.HideAnimations>
+                                <animations:OpacityAnimation
+                                    From="1"
+                                    To="0"
+                                    Duration="0:0:0.6" />
+                            </animations:Implicit.HideAnimations>
                             <Grid.Clip>
                                 <RectangleGeometry Rect="0 0 584 584" />
                             </Grid.Clip>
@@ -124,9 +136,9 @@
                                 VerticalAlignment="Bottom"
                                 Opacity="0.5"
                                 RadiusX="148"
-                                RadiusY="128"
+                                RadiusY="158"
                                 Stroke="DimGray"
-                                StrokeThickness="3" />
+                                StrokeThickness="4" />
                             <Rectangle
                                 x:Name="Rectangle2"
                                 Width="360"
@@ -136,8 +148,9 @@
                                 VerticalAlignment="Bottom"
                                 Opacity="0.4"
                                 RadiusX="148"
-                                RadiusY="128"
-                                Stroke="DimGray" />
+                                RadiusY="158"
+                                Stroke="DimGray"
+                                StrokeThickness="2" />
                         </Grid>
                         <Grid Padding="40">
                             <Grid.RowDefinitions>

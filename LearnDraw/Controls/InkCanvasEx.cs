@@ -10,6 +10,7 @@ using Windows.Storage.Pickers;
 using Windows.UI;
 using Windows.UI.Core;
 using Windows.UI.Input.Inking;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 namespace LearnDraw.Controls
@@ -29,6 +30,28 @@ namespace LearnDraw.Controls
                                                       CoreInputDeviceTypes.Touch;
             InkPresenter.StrokesCollected += InkPresenter_StrokesCollected;
             InkPresenter.StrokesErased += InkPresenter_StrokesErased;
+            InkPresenter.StrokeInput.StrokeStarted += StrokeInput_StrokeStarted;
+            InkPresenter.StrokeInput.StrokeEnded += StrokeInput_StrokeEnded;
+        }
+
+        public bool IsDrawing
+        {
+            get { return (bool)GetValue(IsDrawingProperty); }
+            set { SetValue(IsDrawingProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for IsDrawing.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty IsDrawingProperty =
+            DependencyProperty.Register(nameof(IsDrawing), typeof(bool), typeof(InkCanvasEx), new PropertyMetadata(false));
+
+        private void StrokeInput_StrokeEnded(InkStrokeInput sender, PointerEventArgs args)
+        {
+            IsDrawing = false;
+        }
+
+        private void StrokeInput_StrokeStarted(InkStrokeInput sender, PointerEventArgs args)
+        {
+            IsDrawing = true;
         }
 
         public RelayCommand UndoCommand
