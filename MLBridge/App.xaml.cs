@@ -43,7 +43,7 @@ namespace MLBridge
                     Current.Shutdown();
                 }
                 var exePath = Assembly.GetExecutingAssembly().Location;
-                _inited = mLPredictionEngineV2.BuildPredictionEngine(Path.Combine($"{exePath.Substring(0, exePath.LastIndexOf("\\"))}", @"Model\MLModelV20707.zip"));
+                _inited = mLPredictionEngineV2.BuildPredictionEngine(Path.Combine($"{exePath.Substring(0, exePath.LastIndexOf("\\"))}", @"Model\MLModelV2Test.zip"));
                 await SendMessage(AppServiceContract.InitedMsg, "MLHelperInitedMsg");
 
             }

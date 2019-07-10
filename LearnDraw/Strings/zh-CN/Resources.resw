@@ -122,7 +122,7 @@
     <comment>Application display name</comment>
   </data>
   <data name="AppDescription" xml:space="preserve">
-    <value>Drawing Studio</value>
+    <value>画画</value>
     <comment>Application description</comment>
   </data>
   <data name="ExceptionSettingsStorageExtensionsFileNameIsNullOrEmpty" xml:space="preserve">
@@ -261,7 +261,7 @@
     <value>显示欢迎页面</value>
   </data>
   <data name="Settings_ShowWelcomeScreen_Description.Text" xml:space="preserve">
-    <value>在Drawing Studio启动时显示欢迎页面。</value>
+    <value>在画画启动时显示欢迎页面。</value>
   </data>
   <data name="ShellPage_About.Text" xml:space="preserve">
     <value>关于</value>
@@ -285,7 +285,7 @@
     <value>随便画点东西，让AI帮你找到灵感！</value>
   </data>
   <data name="StartScreenPage_Guide.Text" xml:space="preserve">
-    <value>如何使用Drawing Studio？</value>
+    <value>如何使用画画？</value>
   </data>
   <data name="StartScreenPage_MyLibrary.Text" xml:space="preserve">
     <value>我的收藏</value>
@@ -345,7 +345,7 @@
     <value>芦笋</value>
   </data>
   <data name="key_axe" xml:space="preserve">
-    <value>斧</value>
+    <value>斧头</value>
   </data>
   <data name="key_backpack" xml:space="preserve">
     <value>背包</value>
@@ -606,7 +606,7 @@
     <value>哑铃</value>
   </data>
   <data name="key_ear" xml:space="preserve">
-    <value>耳</value>
+    <value>耳朵</value>
   </data>
   <data name="key_elbow" xml:space="preserve">
     <value>肘部</value>
@@ -621,7 +621,7 @@
     <value>橡皮擦</value>
   </data>
   <data name="key_eye" xml:space="preserve">
-    <value>眼</value>
+    <value>眼睛</value>
   </data>
   <data name="key_eyeglasses" xml:space="preserve">
     <value>眼镜</value>
@@ -825,7 +825,7 @@
     <value>邮箱</value>
   </data>
   <data name="key_map" xml:space="preserve">
-    <value>图</value>
+    <value>地图</value>
   </data>
   <data name="key_marker" xml:space="preserve">
     <value>记号笔</value>
@@ -1116,7 +1116,7 @@
     <value>电子表格</value>
   </data>
   <data name="key_square" xml:space="preserve">
-    <value>方</value>
+    <value>方形</value>
   </data>
   <data name="key_squiggle" xml:space="preserve">
     <value>波浪线</value>

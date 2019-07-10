@@ -10,7 +10,7 @@
   <Identity
     Name="17706.DrawingStudio"
     Publisher="CN=762DAC80-D09A-4DA3-865D-FCC9681FEB06"
-    Version="1.0.1.0" />
+    Version="1.0.2.0" />
 
   <Properties>
     <DisplayName>Drawing Studio</DisplayName>
