@@ -1,7 +1,8 @@
 # Drawing Studio
 
-<p align="center">
-<a href="https://www.microsoft.com/store/apps/9PKVX26RB8F0?ocid=badge"><img width="200" src="Screenshot/StoreLogo.png" alt="Logo" /></a></p>
+![](Screenshot/app awards.png "M365 app awards")
+
+>  [Drawing Studio was given 1st place for Best User Experience in 2019 Microsoft 365 app awards](https://aka.ms/AppAward2019) 
 
 A creative app with intelligence.
 
