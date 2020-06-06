@@ -1,6 +1,6 @@
 # Drawing Studio
 
-![](Screenshot/app awards.png "M365 app awards")
+![](Screenshot/AppAwards.png "M365 app awards")
 
 >  [Drawing Studio was given 1st place for Best User Experience in 2019 Microsoft 365 app awards](https://aka.ms/AppAward2019) 
 
